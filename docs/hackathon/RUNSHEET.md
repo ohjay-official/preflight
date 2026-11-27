@@ -19,7 +19,7 @@ Read this first in every session. Update and push it before ending.
 | Date | Checkpoint |
 |---|---|
 | Thu 26 Nov | Brief reviewed (him and the second assistant). He enrolls (terms screenshots first), creates `ohjay-official/preflight`, adds `ATTRIBUTION_CODE` secret |
-| Fri 27 Nov | The five mainnet tests (brief.md): passkey admin from his phone; agent key read and revoke; tag through Altana via `verifyTx`; payer history source (Chainstack on buy vs Blockscout); x402 from Altana (or Hexbox's top-up pattern). Needs `VERCEL_TOKEN` in the morning |
+| Fri 27 Nov | Done: tests 1–4 on mainnet, read-only (`docs/test-results.md`). Altana side built (setup page, agent session, paid x402 check, receipt), CI green. Waiting: merges and his phone steps |
 | Sat 28 Nov | ERC-8004 registration from the agent wallet (tagged). PayTo registered. Live URL up. Checks 1–2 (identity, authority) |
 | Sun 29 Nov | Checks 3–4 (payers, tags). x402 seller endpoint live |
 | Mon 30 Nov 22:00 | **Scope lock (rule 11):** pay → check → report → revoke stops the agent, on the live URL. If not: cut hackathon mode; stats page becomes a README table printed by the verify command |
@@ -46,6 +46,7 @@ Read this first in every session. Update and push it before ending.
 - [x] Stage 2 brief written → `brief.md` (26 Nov)
 - [x] Stage 2 CHECK IN: brief v2 approved (27 Nov)
 - [x] Enrolled on Loops House by email (27 Nov); attribution code stored as repo secret `ATTRIBUTION_CODE`; repo created
+- [x] 27 Nov: tests 1–4 passed or resolved (PR #2); Altana side built (branch `claude/altana-agent`); Grok Bot merged the scaffold (#1) and round two (#3); AskBots round 1 scored 7.8/10 (issue #4)
 - [ ] Stage 3/4: build split (27 Nov). Second assistant (Grok Bot): scaffold PR, Vercel, read-only check engine, report UI, README. Claude: tests 1–4 (`scripts/tests/`, `docs/test-results.md`), Altana setup flow, session key wiring, x402 $0.02 gate, buy listing, fallbacks. Both work on branches and PRs; his manual steps go in `docs/oh-jay-todo.md`
 
 ## Session capabilities (24 Nov, still true 26 Nov)
@@ -75,6 +76,7 @@ Read this first in every session. Update and push it before ending.
 - Mine: watch for Celo's attribution dashboard going live
 
 ## Gate log
+- 27 Nov 07:46: sent the build split (both assistants autonomous). 19:39: sent it again; work resumed from the repo state
 - 24 Nov: asked for fresh ideas, not Contri
 - 24 Nov: said the first research pass wasn't my best; v2 done the same day
 - 24 Nov: rejected Abeg ("you can do 100% way better"); round 2 done the same day
@@ -85,6 +87,14 @@ Read this first in every session. Update and push it before ending.
 - 26 Nov 18:48: second assistant questioned the CELO price; checked: it trades around 6–8 US cents, so 10.5 CELO is under $1. Brief written
 - 26 Nov 18:59: second assistant's six points on the brief. Applied: admin key his (as passkey, since a phone wallet can't be admin), named and tested payer data source (test 4), no staged purchase, scope lock and film block in the brief (kept Mon 30 Nov, earlier than its Wed 2 Dec), sourced or dropped numbers (174 builders, 770 tools, FAQ quoted; "an hour by hand" dropped), no tick icons. Also found: 16 submissions; Errand Guard, AgentGuard, Hexbox, CapRail in or near our lane. Brief v2
 
+## Decisions (27 Nov, from the tests)
+- Payer data from Blockscout (free, under 1.4 s); no paid data source, no invented purchase
+- The agent's Altana action is the ERC-8004 receipt on self-checks (Reputation Registry `0x8004BAa1…9b63`); session may call only `giveFeedback`, $0.25 USDC a day, expires 14 Dec
+- buy's facilitator rejects Altana ERC-1271 signatures (Hexbox's record); not needed now that nothing is bought
+- Funding is about 20 CELO, not 10.5: the first grant registers two keys at $0.50 each in CELO
+- Passkey host: `preflight-mu-six.vercel.app` unless renamed before the passkey exists
+- Paid route `/api/v1/check`; the free `/api/check` and report pages stay free
+
 ## Rules from the build split (27 Nov)
 - Never use GitHub or Google OAuth for anything (his ban)
 - Never generate, hold or store an admin key or seed. Only the capped session key goes in Vercel env, and only once he creates it
@@ -93,4 +103,4 @@ Read this first in every session. Update and push it before ending.
 - Site rules: no purple gradients, no pill buttons, no emoji icons, no fake counters, no vague hero text, no em dashes
 
 ## Next step
-Claude: tests 1–4 in CI, `docs/test-results.md`, `docs/oh-jay-todo.md`; Altana setup page and x402 gate on top of the scaffold once it lands.
+Merge PR #2 and the Altana PR (Claude's session can't merge). Then his phone steps in `docs/oh-jay-todo.md`: Vercel env values, passkey wallet, funding, grant, x402 key. Then Claude re-runs tests 1 and 2 on our own wallet and files the buy listing on his yes.
