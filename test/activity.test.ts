@@ -46,8 +46,9 @@ describe("Blockscout parsing", () => {
 describe("activity source selection", () => {
   it("leaves the paid archive source unwired", async () => {
     const source = createActivitySource("chainstack");
+    expect(source.label).toBe("Paid activity source");
     await expect(
       source.getAccountActivity(getAddress("0x1111111111111111111111111111111111111111"), 0),
-    ).rejects.toThrow(/TODO: Chainstack archive RPC via x402/);
+    ).rejects.toThrow(/Paid activity source is not implemented/);
   });
 });

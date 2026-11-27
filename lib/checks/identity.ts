@@ -12,8 +12,8 @@ export function interpretIdentity(input: {
   names: ReadonlyMap<string, string | null>;
   historyTruncated: boolean;
   readFailed: boolean;
+  walletIndexIncomplete?: boolean;
 }): IdentityCheck {
-  const failedReads = input.records.filter((record) => record.owner === null && record.agentWallet === null);
   const matched: IdentityRecord[] = [];
   for (const record of input.records) {
     if (!record.owner || !record.agentWallet) continue;
@@ -33,14 +33,16 @@ export function interpretIdentity(input: {
   const balance = input.balance;
   const ownsNft = balance !== null && balance > 0n;
 
-  if (!ownsNft && matched.length === 0 && (input.historyTruncated || failedReads.length > 0 || input.readFailed)) {
+  const indexIncomplete = input.walletIndexIncomplete === true;
+  if (!ownsNft && matched.length === 0 && (input.readFailed || indexIncomplete || (input.historyTruncated && balance === null))) {
     return {
       id: "identity",
       title: "Who is it",
       status: "Unread",
-      summary: input.historyTruncated
-        ? "Identity transfer history was capped before a matching token id was found, and this address does not own an identity NFT."
-        : "The identity registry could not be fully read, so this report cannot confirm the address.",
+      summary:
+        indexIncomplete && balance === 0n
+          ? "The agent wallet log index could not be finished, and this address does not own an identity NFT, so a setAgentWallet match may be missing."
+          : "The identity registry could not be fully read, so this report cannot confirm the address.",
       balance: balance === null ? null : balance.toString(),
       records: [],
     };
@@ -52,7 +54,7 @@ export function interpretIdentity(input: {
       title: "Who is it",
       status: "Not found",
       summary:
-        "No ERC-8004 identity NFT is owned by this address, and none of the identity token ids in its NFT transfer history name it as the agent wallet. A wallet set with setAgentWallet and absent from that history is not found. The registry has no view that maps a wallet back to an agent id.",
+        "No ERC-8004 identity NFT is owned by this address, and the agent wallet log index has no current setAgentWallet for it.",
       balance: balance === null ? null : balance.toString(),
       records: [],
     };

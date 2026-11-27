@@ -14,12 +14,15 @@ import {
   IDENTITY_REGISTRY,
   IDENTITY_REGISTRY_DOCS,
   KEYSTORE,
+  MAX_IDENTITY_IDS,
   MAX_OWNERS_TO_SCAN,
   windowStart,
 } from "@/lib/config";
 import { sameAddress } from "@/lib/format";
 import type { ActivitySource } from "@/lib/activity/types";
 import type { Check, Report } from "@/lib/types";
+import { findAgentIdsForWallet, type WalletLookup } from "@/lib/identity/wallet-index";
+import { createTtlCache } from "@/lib/cache";
 import { x402ReportNote } from "@/lib/x402";
 
 export type CheckDeps = {
@@ -28,6 +31,7 @@ export type CheckDeps = {
   now: () => Date;
   hackathonMode: boolean;
   readName: (uri: string) => Promise<string | null>;
+  findAgentIds?: (address: Address) => Promise<WalletLookup>;
 };
 
 export function defaultDeps(): CheckDeps {
@@ -37,10 +41,26 @@ export function defaultDeps(): CheckDeps {
     now: () => new Date(),
     hackathonMode: hackathonModeEnabled(),
     readName: readAgentName,
+    findAgentIds: findAgentIdsForWallet,
   };
 }
 
+const reportCache = createTtlCache<Awaited<ReturnType<typeof loadReportUncached>>>(30_000);
+
+export function loadCachedReport(raw: string): Promise<Awaited<ReturnType<typeof loadReportUncached>>> {
+  const key = `${raw.trim().toLowerCase()}:${hackathonModeEnabled() ? "1" : "0"}`;
+  return reportCache.get(key, () => loadReportUncached(raw));
+}
+
 export async function loadReport(
+  raw: string,
+  deps?: CheckDeps,
+): Promise<{ ok: true; report: Report } | { ok: false; error: string }> {
+  if (!deps) return loadCachedReport(raw);
+  return loadReportUncached(raw, deps);
+}
+
+async function loadReportUncached(
   raw: string,
   deps: CheckDeps = defaultDeps(),
 ): Promise<{ ok: true; report: Report } | { ok: false; error: string }> {
@@ -53,22 +73,25 @@ export async function loadReport(
   const nowUnix = Math.floor(now.getTime() / 1000);
   const since = windowStart(nowUnix);
 
-  const [balanceResult, keysResult, activityResult, tokenIdResult] = await Promise.allSettled([
+  const findAgentIds = deps.findAgentIds ?? (async () => ({ ids: [], complete: true }));
+  const [balanceResult, keysResult, activityResult, tokenIdResult, walletResult] = await Promise.allSettled([
     deps.chain.getIdentityBalance(address),
     deps.chain.readKeys(address),
     deps.activity.getAccountActivity(address, since),
     deps.activity.getIdentityTokenIds(address, IDENTITY_REGISTRY),
+    findAgentIds(address),
   ]);
 
   const balance = balanceResult.status === "fulfilled" ? balanceResult.value : null;
-  const tokenIds = tokenIdResult.status === "fulfilled" ? tokenIdResult.value.tokenIds : [];
+  const nftIds = tokenIdResult.status === "fulfilled" ? tokenIdResult.value.tokenIds : [];
+  const walletLookup = walletResult.status === "fulfilled" ? walletResult.value : { ids: [], complete: false };
+  const tokenIds = uniqueIds([...nftIds, ...walletLookup.ids]);
   const tokenHistoryTruncated = tokenIdResult.status === "fulfilled" ? tokenIdResult.value.truncated : false;
-  const tokenHistoryFailed = tokenIdResult.status === "rejected";
 
   let identityRecords: IdentityOnChain[] = [];
   let identityRecordsTruncated = false;
   let identityRecordReadFailed = false;
-  if (tokenIds.length > 0 && tokenIdResult.status === "fulfilled") {
+  if (tokenIds.length > 0) {
     try {
       const read = await deps.chain.readIdentities(tokenIds);
       identityRecords = read.records;
@@ -98,8 +121,10 @@ export async function loadReport(
     balance,
     records: identityRecords,
     names,
-    historyTruncated: tokenHistoryTruncated || identityRecordsTruncated,
-    readFailed: balanceResult.status === "rejected" || tokenHistoryFailed || identityRecordReadFailed,
+    historyTruncated: tokenHistoryTruncated || identityRecordsTruncated || tokenIds.length > MAX_IDENTITY_IDS,
+    readFailed:
+      identityRecordReadFailed || (balanceResult.status === "rejected" && walletResult.status === "rejected"),
+    walletIndexIncomplete: !walletLookup.complete,
   });
 
   const keystore = interpretKeystore({
@@ -247,6 +272,10 @@ function dedupeTransfers(rows: AccountActivity["tokenTransfers"]): AccountActivi
     out.push(row);
   }
   return out;
+}
+
+function uniqueIds(ids: bigint[]): bigint[] {
+  return [...new Set(ids.map((id) => id.toString()))].map((id) => BigInt(id));
 }
 
 function emptyActivity(): AccountActivity {

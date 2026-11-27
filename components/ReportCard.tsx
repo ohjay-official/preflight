@@ -1,4 +1,5 @@
 import { zeroAddress } from "viem";
+import { CopyJsonLink } from "@/components/CopyJsonLink";
 import { StatusDot } from "@/components/StatusDot";
 import { shortList } from "@/lib/format";
 import type {
@@ -11,8 +12,7 @@ import type {
   Verdict,
 } from "@/lib/types";
 
-export function ReportCard({ report }: { report: Report }) {
-  const jsonHref = `/api/check?address=${report.address}`;
+export function ReportCard({ report, jsonUrl }: { report: Report; jsonUrl: string }) {
   const explorer = `https://celo.blockscout.com/address/${report.address}`;
   return (
     <article className="card">
@@ -31,8 +31,9 @@ export function ReportCard({ report }: { report: Report }) {
       <p className="muted">
         {report.x402.note} Planned price {report.x402.priceUsd} USD per check.
       </p>
+      <CopyJsonLink url={jsonUrl} />
       <p className="links">
-        <a href={jsonHref}>JSON</a>
+        <a href={jsonUrl}>Open JSON</a>
         <a href={explorer}>Address on Blockscout</a>
       </p>
     </article>

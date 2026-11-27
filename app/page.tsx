@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { AddressForm } from "@/components/AddressForm";
+import { EXAMPLE_ADDRESSES } from "@/lib/examples";
 
 export default function HomePage() {
   return (
@@ -10,6 +12,18 @@ export default function HomePage() {
         100.
       </p>
       <AddressForm />
+      <section className="examples" aria-labelledby="examples-heading">
+        <h2 id="examples-heading">Examples from Celo mainnet</h2>
+        <p>These three addresses were read on 27 Nov 2026. The report checks them again.</p>
+        <ul>
+          {EXAMPLE_ADDRESSES.map((example) => (
+            <li key={example.address}>
+              <Link href={`/report/${example.address}`}>{example.address}</Link>
+              <p>{example.label}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
       <section className="card" aria-labelledby="report-heading">
         <h2 id="report-heading">Report</h2>
         <p>Run a check to fill this card. The filled report opens on its own page.</p>
