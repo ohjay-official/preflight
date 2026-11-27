@@ -1,0 +1,6 @@
+install=0
+tsc=0
+lint=0
+test=0
+build=0
+branch=claude/altana-agent sha=c611e33aaa91ddfaf409c717407804ba755eda98 at=2026-11-27T18:43:32Z

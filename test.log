@@ -1,0 +1,20 @@
+
+[1m[46m RUN [49m[22m [36mv3.2.4 [39m[90m/home/runner/work/preflight/preflight[39m
+
+ [32m✓[39m test/altana.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m test/attribution.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m test/checks.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [2m[90m↓[39m[22m test/keystore.live.test.ts [2m([22m[2m1 test[22m[2m | [22m[33m1 skipped[39m[2m)[22m
+ [32m✓[39m test/token-fallback.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m test/wallet-index.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m test/blockscout-v2.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m test/activity.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m test/http.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m test/x402.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [2m[90m↓[39m[22m test/timing.live.test.ts [2m([22m[2m1 test[22m[2m | [22m[33m1 skipped[39m[2m)[22m
+
+[2m Test Files [22m [1m[32m9 passed[39m[22m[2m | [22m[33m2 skipped[39m[90m (11)[39m
+[2m      Tests [22m [1m[32m46 passed[39m[22m[2m | [22m[33m2 skipped[39m[90m (48)[39m
+[2m   Start at [22m 18:43:19
+[2m   Duration [22m 2.12s[2m (transform 430ms, setup 0ms, collect 3.42s, tests 69ms, environment 2ms, prepare 770ms)[22m
+
