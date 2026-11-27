@@ -2,6 +2,8 @@
 
 Check any Celo agent before you pay it or plug it in.
 
+Live: https://getpreflight.vercel.app
+
 Preflight is a read-only check for one Celo agent wallet. You give an address. It reads Celo mainnet (chain 42220) and returns one verdict: **OK to pay**, **Small amounts only**, or **Don't pay**. Each check has a plain status: Live, Revoked, Expired, or Not found. There is no model judgment and no score out of 100.
 
 This is an entry for Celo Agents Open for Business (Loops House), Altana Smart Agentic Wallets track. The track closes Monday 7 December 2026, 10:00 WAT.

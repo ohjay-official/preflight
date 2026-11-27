@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "") || "https://getpreflight.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Preflight",
   description: "Check any Celo agent before you pay it or plug it in.",
 };

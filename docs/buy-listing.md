@@ -5,7 +5,7 @@ Not filed. Filing publishes this text on `celo-org/buy-skill` under Oh-Jay's Git
 **When it can be filed:** after `/api/v1/check` answers `402` on the production URL. That needs the agent wallet granted (`docs/oh-jay-todo.md`, step 3) plus `PAYTO_ADDRESS` and `X402_API_KEY` in Vercel.
 
 **Before filing:**
-- Run buy's own free check, which signs nothing: `npx --yes @celo/buy quote 'https://<production host>/api/v1/check?address=0x...'`. It must show USDC and USDT offers on Celo that buy can pay.
+- Run buy's own free check, which signs nothing: `npx --yes @celo/buy quote 'https://getpreflight.vercel.app/api/v1/check?address=0x...'`. It must show USDC and USDT offers on Celo that buy can pay.
 - buy's maintainers want a terms and support page that says where a buyer goes when a paid call fails. The draft points at the repo's Issues until the site has a page for this (Grok Bot's UI).
 
 **How to file:** either a pull request adding `registry/providers/preflight/agent-check/PAY.md`, or the "List your service" form (https://github.com/celo-org/buy-skill/issues/new?template=list-your-service.yml) with the same text. Format: `registry/LISTING.md` in that repo, read 27 Nov 2026.
@@ -20,7 +20,7 @@ description: One call returns a fixed-rules verdict on a Celo agent wallet, OK t
 category: data
 stage: experimental
 aliases: [agent, trust, check, verify, erc-8004, altana, kya, know-your-agent, reputation, preflight]
-service_url: https://<production host>/api/v1/check
+service_url: https://getpreflight.vercel.app/api/v1/check
 payment:
   schemes: [exact]
   networks: [celo]
@@ -45,8 +45,8 @@ data is resold.
 ## Buying it
 
 ```sh
-buy quote 'https://<production host>/api/v1/check?address=0x1111111111111111111111111111111111111111'
-buy curl --max-amount 0.02 'https://<production host>/api/v1/check?address=0x1111111111111111111111111111111111111111'
+buy quote 'https://getpreflight.vercel.app/api/v1/check?address=0x1111111111111111111111111111111111111111'
+buy curl --max-amount 0.02 'https://getpreflight.vercel.app/api/v1/check?address=0x1111111111111111111111111111111111111111'
 ```
 
 If the address you check is your own agent (the payer is that wallet, or the owner or agent
