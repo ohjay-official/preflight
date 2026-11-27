@@ -64,7 +64,7 @@ async function scanKeyStoreLogs(abi) {
   const latest = await client.getBlockNumber();
   const span = BigInt(process.env.T1_SCAN_BLOCKS || 1_300_000); // about 15 days at 1 s blocks
   const from = latest > span ? latest - span : 0n;
-  let step = 500_000n;
+  let step = BigInt(process.env.T1_STEP || 5_000);
   const logs = [];
   for (let start = from; start <= latest; ) {
     const end = start + step - 1n > latest ? latest : start + step - 1n;
@@ -72,8 +72,8 @@ async function scanKeyStoreLogs(abi) {
       logs.push(...(await client.getLogs({ address: A.keyStore, fromBlock: start, toBlock: end })));
       start = end + 1n;
     } catch (e) {
-      if (step <= 2_000n) { out.notes.push(`log scan stopped at ${start}: ${errMsg(e)}`); break; }
-      step /= 4n;
+      if (step <= 500n) { out.notes.push(`log scan stopped at ${start}: ${errMsg(e)}`); break; }
+      step /= 2n;
     }
   }
   out.logScan = { fromBlock: from, toBlock: latest, finalStep: step, logs: logs.length };

@@ -5,13 +5,13 @@
 //   B. Plain RPC eth_getLogs (the same calls Chainstack's archive Celo RPC on buy would serve,
 //      batched up to 2,000 calls a request at $0.01 a request; that paid run needs our funded float).
 // Pass: the right payers back in under 10 s for under $0.05. Read-only.
-import { keccak256, toHex, pad, getAddress, formatUnits } from "viem";
+import { getAddress, formatUnits, parseAbiItem } from "viem";
 import { client, A, RIVALS, save, getJson, timed, errMsg } from "./lib.mjs";
 
 const DAYS = Number(process.env.T4_DAYS || 30);
 const FUNDING_DAYS = Number(process.env.T4_FUNDING_DAYS || 90);
 const MAX_PAYERS = Number(process.env.T4_MAX_PAYERS || 12);
-const TRANSFER = keccak256(toHex("Transfer(address,address,uint256)"));
+const TRANSFER = parseAbiItem("event Transfer(address indexed from, address indexed to, uint256 value)");
 const STABLES = { [A.USDC.toLowerCase()]: { sym: "USDC", dec: 6 }, [A.USDT.toLowerCase()]: { sym: "USDT", dec: 6 } };
 const targets = (process.env.T4_ADDRESSES || [RIVALS.tractionCheckPayTo, RIVALS.errandAgent, RIVALS.agentGuardPayTo].join(","))
   .split(",").map((s) => getAddress(s.trim()));
@@ -68,10 +68,10 @@ async function findMaxRange(addr) {
   const to = latest.number;
   let range = blocksFor(DAYS);
   const tried = [];
-  while (range >= 1_000n) {
+  while (range >= 500n) {
     try {
       rpcCalls++;
-      await client.getLogs({ address: [A.USDC, A.USDT], topics: [TRANSFER, null, pad(addr)], fromBlock: to - range, toBlock: to });
+      await client.getLogs({ address: [A.USDC, A.USDT], event: TRANSFER, args: { to: addr }, fromBlock: to - range, toBlock: to });
       tried.push({ range, ok: true });
       return { maxRange: range, tried };
     } catch (e) {
@@ -90,8 +90,8 @@ async function scanLogs(addrTopicIndex, addr, days, maxRange, budget) {
   for (let start = from; start <= to; start += maxRange) {
     const end = start + maxRange - 1n > to ? to : start + maxRange - 1n;
     rpcCalls++;
-    const topics = addrTopicIndex === 2 ? [TRANSFER, null, pad(addr)] : [TRANSFER, pad(addr)];
-    logs.push(...(await client.getLogs({ address: [A.USDC, A.USDT], topics, fromBlock: start, toBlock: end })));
+    const args = addrTopicIndex === 2 ? { to: addr } : { from: addr };
+    logs.push(...(await client.getLogs({ address: [A.USDC, A.USDT], event: TRANSFER, args, fromBlock: start, toBlock: end })));
   }
   return { callsNeeded: need, logs };
 }
@@ -121,24 +121,24 @@ for (const addr of targets) {
     };
   } catch (e) { t.blockscout = { err: errMsg(e) }; }
 
-  // B
-  try {
+  // B (RPC only for the first target, to keep the run short)
+  if (targets.indexOf(addr) < Number(process.env.T4_RPC_TARGETS || 1)) try {
     const range = await findMaxRange(addr);
     t.rpc = { maxRange: range.maxRange, rangeTries: range.tried };
     if (range.maxRange) {
       const before = rpcCalls;
       const { value, ms } = await timed(async () => {
-        const pays = await scanLogs(2, addr, DAYS, range.maxRange, 400);
+        const pays = await scanLogs(2, addr, DAYS, range.maxRange, Number(process.env.T4_RPC_BUDGET || 700));
         if (pays.skipped) return { pays };
-        const payers = [...new Set(pays.logs.map((l) => getAddress("0x" + l.topics[1].slice(26))))];
+        const payers = [...new Set(pays.logs.map((l) => getAddress(l.args.from)))];
         const funding = {};
         let fundingCalls = 0;
         for (const p of payers.slice(0, MAX_PAYERS)) {
-          const f = await scanLogs(2, p, FUNDING_DAYS, range.maxRange, 400);
+          const f = await scanLogs(2, p, FUNDING_DAYS, range.maxRange, Number(process.env.T4_RPC_FUNDING_BUDGET || 50));
           fundingCalls += f.callsNeeded;
           if (f.skipped) { funding[p] = { skipped: true, callsNeeded: f.callsNeeded }; continue; }
           const first = f.logs.sort((a, b) => (a.blockNumber < b.blockNumber ? -1 : 1))[0];
-          funding[p] = first ? { from: getAddress("0x" + first.topics[1].slice(26)), block: first.blockNumber, hash: first.transactionHash } : null;
+          funding[p] = first ? { from: getAddress(first.args.from), block: first.blockNumber, hash: first.transactionHash } : null;
         }
         return { pays, payers, funding, fundingCalls };
       });

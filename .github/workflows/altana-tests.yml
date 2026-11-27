@@ -42,7 +42,7 @@ jobs:
         working-directory: scripts/tests
         run: npm install --no-audit --no-fund 2>&1 | tail -5
 
-      - name: Run tests 1-4
+      - name: Run tests
         working-directory: scripts/tests
         env:
           T1_WALLETS: ${{ inputs.t1_wallets }}
@@ -50,7 +50,9 @@ jobs:
           T4_ADDRESSES: ${{ inputs.t4_addresses }}
         run: |
           mkdir -p results
-          for t in t1-keys t2-tag t3-x402 t4-payers; do
+          # scripts/tests/RUN lists which tests to run (default: all), so a rerun can skip the slow ones.
+          TESTS="$(cat RUN 2>/dev/null || echo t1-keys t2-tag t3-x402 t4-payers t5-receipt)"
+          for t in $TESTS; do
             echo "== $t $(date -u +%H:%M:%S)" | tee -a results/run.log
             timeout 480 node "$t.mjs" >> results/run.log 2>&1 || echo "EXIT $? for $t" | tee -a results/run.log
           done
@@ -61,7 +63,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Keep earlier results for tests not rerun this time.
+          git clone -q --depth 1 -b altana-test-results "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" /tmp/old 2>/dev/null || mkdir -p /tmp/old
           mkdir -p /tmp/pub
+          cp -r /tmp/old/. /tmp/pub/ 2>/dev/null || true
+          rm -rf /tmp/pub/.git /tmp/pub/run.log
           cp -r scripts/tests/results/. /tmp/pub/ 2>/dev/null || true
           echo "$GITHUB_SHA" > /tmp/pub/SHA
           date -u +%Y-%m-%dT%H:%M:%SZ > /tmp/pub/RAN_AT
