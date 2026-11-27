@@ -11,7 +11,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@altananetwork/sdk": "1.2.0",
     "@celo/attribution-tags": "0.7.0",
+    "@x402/core": "2.32.0",
+    "@x402/evm": "2.32.0",
     "next": "16.4.6",
     "react": "19.2.1",
     "react-dom": "19.2.1",

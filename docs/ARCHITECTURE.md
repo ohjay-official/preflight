@@ -1,6 +1,6 @@
 # Preflight architecture
 
-Preflight reads Celo mainnet and returns one verdict. It does not sign, store a key, or send a transaction.
+Preflight reads Celo mainnet and returns one verdict. The check engine does not sign, store a key, or send a transaction. Preflight's own agent (the Altana side, below) sends one kind of transaction, a receipt, from an Altana wallet its owner controls with a passkey.
 
 ## Request path
 
@@ -58,3 +58,34 @@ These three are interfaces only. Do not add a private key or a transaction while
 | Agent wallet index | 60 seconds | Latest `setAgentWallet` value per agent id |
 
 Both caches share one in-flight load per key, including two callers in the same request.
+
+## Altana side
+
+Brief v2's Altana track work. Evidence for every choice here is in `docs/test-results.md` (tests 1–4, run on mainnet on 27 Nov).
+
+### Who holds what
+
+| Key | Where | Can do |
+| --- | --- | --- |
+| Admin passkey | The owner's phone (WebAuthn, bound to `NEXT_PUBLIC_PASSKEY_RP_ID`) | Create the wallet, grant and revoke the agent's key, register ERC-8004 |
+| Agent session key | Vercel env `ALTANA_SESSION_KEY`, pasted by the owner after the grant | Call `giveFeedback` on the ERC-8004 Reputation Registry, nothing else, up to $0.25 USDC a day, until 14 Dec |
+
+The session key is generated in the owner's browser on `/setup` and shown once. No admin key or seed exists on a server.
+
+### Routes
+
+- `/setup`: the owner's page. It creates the passkey wallet, shows the funding needed (read live from `KeyStoreController.getRegistrationFeeInWei`), grants and revokes the session, and registers the wallet's ERC-8004 identity. It refuses to run on any host but the passkey host.
+- `GET /api/agent`: public state of the agent's key (live, revoked or expired), the caps and allowlist the wallet enforces, and whether paid checks are ready.
+- `GET /api/v1/check?address=`: the paid check, $0.02 in USDC or USD₮ over x402 on Celo's facilitator (`lib/x402-seller.ts`). It refuses with 503 before asking for payment when the agent's key isn't live, verifies the payment, runs `loadCachedReport`, and settles only if no check came back Unread. The free `/api/check` route and the report pages are unchanged.
+
+### The receipt
+
+When the payer is the checked agent (the address itself, or the owner or agent wallet on its ERC-8004 record), the agent writes `giveFeedback(agentId, value, 0, "preflight", verdict, "", reportUrl, reportHash)` from the Altana wallet (`lib/altana/agent.ts`). The value is 100, 50 or 0 for OK to pay, Small amounts only and Don't pay. The call carries the ERC-8021 tag `altana,<ATTRIBUTION_CODE>` through the SDK's `appCode`, and Celo's `verifyTx` credits it to the wallet (test 2). After a revoke, the account rejects the call at validation, and `/api/v1/check` stops before asking for payment.
+
+### Reading Altana keys
+
+`lib/altana/account.ts` reads the wallet account's own views: `getKeys()`, `spendInfos(keyHash)` for caps and the current period's spend, and `canExecutePackedInfos(keyHash)` for the allowlist. The KeyStore holds no caps (`getMetadata` is empty on every key read on 27 Nov). It lists only keys that aren't revoked; a revoked key shows up through `KeyRevoked(user, keyId)` and `getKey(user, keyId).revoked`. The check engine can reuse these helpers to show caps on any Altana wallet.
+
+### Not built
+
+The paid activity source stays unimplemented. Test 4 picked Blockscout: under 1.4 s and free, against 1,025+ RPC calls for 30 days of logs.

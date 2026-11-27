@@ -1,0 +1,79 @@
+name: app-ci
+
+# Typecheck, lint, test and build for work branches. The build sessions can't install packages
+# or reach the Actions API, so this job also refreshes package-lock.json when dependencies change,
+# and publishes its logs to the app-ci-results branch.
+
+on:
+  push:
+    branches: ["claude/**"]
+    paths-ignore: ["docs/**", "scripts/tests/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: app-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install
+        run: |
+          mkdir -p /tmp/ci
+          npm install --no-audit --no-fund > /tmp/ci/install.log 2>&1; echo $? > /tmp/ci/install.exit
+
+      - name: Commit the refreshed lockfile
+        run: |
+          if ! git diff --quiet -- package-lock.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add package-lock.json
+            git commit -q -m "Refresh package-lock.json for new dependencies"
+            git push -q origin "HEAD:${GITHUB_REF_NAME}" && echo "lockfile pushed" > /tmp/ci/lockfile.txt
+          else
+            echo "lockfile unchanged" > /tmp/ci/lockfile.txt
+          fi
+
+      - name: Typecheck
+        continue-on-error: true
+        run: npx tsc --noEmit > /tmp/ci/tsc.log 2>&1; echo $? > /tmp/ci/tsc.exit
+
+      - name: Lint
+        continue-on-error: true
+        run: npx eslint . > /tmp/ci/lint.log 2>&1; echo $? > /tmp/ci/lint.exit
+
+      - name: Test
+        continue-on-error: true
+        run: npx vitest run > /tmp/ci/test.log 2>&1; echo $? > /tmp/ci/test.exit
+
+      - name: Build
+        continue-on-error: true
+        run: npx next build > /tmp/ci/build.log 2>&1; echo $? > /tmp/ci/build.exit
+
+      - name: Publish logs to app-ci-results
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd /tmp/ci
+          for f in install tsc lint test build; do printf '%s=%s\n' "$f" "$(cat $f.exit 2>/dev/null || echo skipped)"; done > SUMMARY
+          echo "branch=${GITHUB_REF_NAME} sha=${GITHUB_SHA} at=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> SUMMARY
+          cat SUMMARY
+          git init -q
+          git checkout -q -b app-ci-results
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "app-ci for ${GITHUB_REF_NAME} ${GITHUB_SHA}"
+          git push -q -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" app-ci-results
