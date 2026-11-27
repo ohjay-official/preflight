@@ -1,0 +1,17 @@
+{
+  "name": "preflight-altana-tests",
+  "private": true,
+  "type": "module",
+  "description": "Read-only mainnet tests for Preflight's Altana side. Run in CI; results go to the altana-test-results branch.",
+  "scripts": {
+    "t1": "node t1-keys.mjs",
+    "t2": "node t2-tag.mjs",
+    "t3": "node t3-x402.mjs",
+    "t4": "node t4-payers.mjs"
+  },
+  "dependencies": {
+    "@altananetwork/sdk": "1.2.0",
+    "@celo/attribution-tags": "0.6.0",
+    "viem": "2.58.2"
+  }
+}
