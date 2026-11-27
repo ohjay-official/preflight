@@ -1,0 +1,81 @@
+name: altana-tests
+
+# Read-only mainnet tests for the Altana side (docs/brief.md, tests 1-4).
+# No secrets, no signing. Results are pushed to the altana-test-results branch,
+# because the Actions API isn't reachable from the build sessions.
+
+on:
+  push:
+    branches: [claude/altana-tests]
+    paths: [scripts/tests/**, .github/workflows/altana-tests.yml]
+  workflow_dispatch:
+    inputs:
+      t1_wallets:
+        description: "Comma-separated Altana wallets for test 1 (blank = discover from KeyStore events)"
+        required: false
+      t2_txs:
+        description: "Comma-separated tx hashes for test 2"
+        required: false
+      t4_addresses:
+        description: "Comma-separated PayTo or agent addresses for test 4"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: altana-tests
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install
+        working-directory: scripts/tests
+        run: npm install --no-audit --no-fund 2>&1 | tail -5
+
+      - name: Run tests
+        working-directory: scripts/tests
+        env:
+          T1_WALLETS: ${{ inputs.t1_wallets }}
+          T2_TXS: ${{ inputs.t2_txs }}
+          T4_ADDRESSES: ${{ inputs.t4_addresses }}
+        run: |
+          mkdir -p results
+          # scripts/tests/RUN lists which tests to run (default: all), so a rerun can skip the slow ones.
+          TESTS="$(cat RUN 2>/dev/null || echo t1-keys t2-tag t3-x402 t4-payers t5-receipt)"
+          for t in $TESTS; do
+            echo "== $t $(date -u +%H:%M:%S)" | tee -a results/run.log
+            timeout 480 node "$t.mjs" >> results/run.log 2>&1 || echo "EXIT $? for $t" | tee -a results/run.log
+          done
+          npm ls --depth=0 >> results/run.log 2>&1 || true
+
+      - name: Publish results to altana-test-results
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Keep earlier results for tests not rerun this time.
+          git clone -q --depth 1 -b altana-test-results "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" /tmp/old 2>/dev/null || mkdir -p /tmp/old
+          mkdir -p /tmp/pub
+          cp -r /tmp/old/. /tmp/pub/ 2>/dev/null || true
+          rm -rf /tmp/pub/.git /tmp/pub/run.log
+          cp -r scripts/tests/results/. /tmp/pub/ 2>/dev/null || true
+          echo "$GITHUB_SHA" > /tmp/pub/SHA
+          date -u +%Y-%m-%dT%H:%M:%SZ > /tmp/pub/RAN_AT
+          cd /tmp/pub
+          git init -q
+          git checkout -q -b altana-test-results
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "altana tests for $GITHUB_SHA"
+          git push -q -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" altana-test-results
