@@ -46,15 +46,19 @@ jobs:
           fi
 
       - name: Typecheck
+        continue-on-error: true
         run: npx tsc --noEmit > /tmp/ci/tsc.log 2>&1; echo $? > /tmp/ci/tsc.exit
 
       - name: Lint
+        continue-on-error: true
         run: npx eslint . > /tmp/ci/lint.log 2>&1; echo $? > /tmp/ci/lint.exit
 
       - name: Test
+        continue-on-error: true
         run: npx vitest run > /tmp/ci/test.log 2>&1; echo $? > /tmp/ci/test.exit
 
       - name: Build
+        continue-on-error: true
         run: npx next build > /tmp/ci/build.log 2>&1; echo $? > /tmp/ci/build.exit
 
       - name: Publish logs to app-ci-results

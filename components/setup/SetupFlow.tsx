@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 import { createPublicClient, formatUnits, http, parseAbi, type Address, type Hex } from "viem";
 import { generatePrivateKey } from "viem/accounts";
 import { celo } from "viem/chains";
@@ -42,6 +42,16 @@ function save(key: string, value: unknown) {
   }
 }
 
+const noSubscribe = () => () => {};
+/** True in the browser after hydration, false on the server and during hydration. */
+function useIsClient() {
+  return useSyncExternalStore(noSubscribe, () => true, () => false);
+}
+
+function initial<T>(key: string): T | null {
+  return typeof window === "undefined" ? null : load<T>(key);
+}
+
 function celoscan(kind: "address" | "tx", value: string) {
   return `https://celoscan.io/${kind}/${value}`;
 }
@@ -59,23 +69,17 @@ export function SetupFlow(props: {
   expiryUnix: number;
   identity: Identity;
 }) {
-  const [host, setHost] = useState<string | null>(null);
-  const [wallet, setWallet] = useState<StoredWallet | null>(null);
-  const [session, setSession] = useState<StoredSession | null>(null);
-  const [pending, setPending] = useState<PendingSecret | null>(null);
+  const isClient = useIsClient();
+  const host = isClient ? window.location.hostname : null;
+  const [wallet, setWallet] = useState<StoredWallet | null>(() => initial<StoredWallet>(WALLET_KEY));
+  const [session, setSession] = useState<StoredSession | null>(() => initial<StoredSession>(SESSION_KEY));
+  const [pending, setPending] = useState<PendingSecret | null>(() => initial<PendingSecret>(PENDING_KEY));
   const [chain, setChain] = useState<Chain | null>(null);
   const [agent, setAgent] = useState<AgentInfo | null>(null);
   const [quote, setQuote] = useState<string[] | null>(null);
   const [busy, setBusy] = useState("");
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
-
-  useEffect(() => {
-    setHost(window.location.hostname);
-    setWallet(load<StoredWallet>(WALLET_KEY));
-    setSession(load<StoredSession>(SESSION_KEY));
-    setPending(load<PendingSecret>(PENDING_KEY));
-  }, []);
 
   const onRightHost = Boolean(props.rpId && host === props.rpId);
 
@@ -101,8 +105,11 @@ export function SetupFlow(props: {
     }
   }, []);
 
+  // Read balances when the wallet changes. Scheduled, so state updates land in a callback.
   useEffect(() => {
-    if (wallet) void refresh(wallet.address);
+    if (!wallet) return;
+    const t = window.setTimeout(() => void refresh(wallet.address), 0);
+    return () => window.clearTimeout(t);
   }, [wallet, refresh]);
 
   async function sdkClient() {
@@ -267,7 +274,9 @@ export function SetupFlow(props: {
   const funded = chain && celoNeeded !== null ? chain.celo >= celoNeeded : false;
   const keyActive = Boolean(session && !session.revokedAt);
 
-  if (host !== null && !onRightHost) {
+  if (!isClient) return <p className="muted">Loading…</p>;
+
+  if (!onRightHost) {
     return (
       <section className={styles.panel}>
         <h2>Wrong address for the passkey</h2>
