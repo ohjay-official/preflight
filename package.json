@@ -1,0 +1,29 @@
+{
+  "name": "preflight",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "vitest run",
+    "test:live": "RUN_LIVE_TESTS=1 vitest run test/keystore.live.test.ts",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@celo/attribution-tags": "0.7.0",
+    "next": "16.4.6",
+    "react": "19.2.1",
+    "react-dom": "19.2.1",
+    "viem": "2.58.8"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.3",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "eslint": "9.39.1",
+    "eslint-config-next": "16.4.6",
+    "typescript": "5.9.3",
+    "vitest": "3.2.4"
+  }
+}
