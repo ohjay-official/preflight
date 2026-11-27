@@ -1,0 +1,252 @@
+:root {
+  color-scheme: light;
+  --ink: #1c1915;
+  --paper: #f6f3ec;
+  --card: #fffdf8;
+  --line: #d9d3c7;
+  --muted: #5c564c;
+  --live: #1d6b45;
+  --revoked: #9c3b32;
+  --expired: #8a5a12;
+  --missing: #6b675f;
+  --ok: #1d6b45;
+  --caution: #8a5a12;
+  --stop: #9c3b32;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px/1.5 "Segoe UI", system-ui, sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+.wrap {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 3rem;
+}
+
+.wordmark {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.wordmark a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 1.7rem;
+  line-height: 1.25;
+  font-weight: 650;
+  margin: 0.75rem 0;
+}
+
+h2 {
+  font-size: 1.15rem;
+  margin: 0 0 0.35rem;
+}
+
+h3 {
+  font-size: 1rem;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+p {
+  margin: 0.4rem 0;
+}
+
+.lede,
+.muted {
+  color: var(--muted);
+}
+
+form {
+  margin: 1rem 0 1.25rem;
+}
+
+label,
+.label {
+  display: block;
+  font-weight: 650;
+  margin-bottom: 0.35rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+input,
+button {
+  font: inherit;
+  border-radius: 2px;
+}
+
+input {
+  width: 100%;
+  padding: 0.7rem 0.6rem;
+  border: 1px solid var(--ink);
+  background: white;
+  color: var(--ink);
+}
+
+button {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.error {
+  color: var(--stop);
+  margin-top: 0.5rem;
+}
+
+.card,
+.rules {
+  border: 1px solid var(--line);
+  background: var(--card);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.kicker {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.verdict {
+  border: 1px solid var(--line);
+  border-left-width: 4px;
+  background: var(--paper);
+  padding: 0.85rem 0.9rem;
+  margin: 0.9rem 0;
+}
+
+.verdict-ok {
+  border-left-color: var(--ok);
+}
+
+.verdict-caution {
+  border-left-color: var(--caution);
+}
+
+.verdict-stop {
+  border-left-color: var(--stop);
+}
+
+.check {
+  border-top: 1px solid var(--line);
+  padding: 0.85rem 0;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 650;
+  white-space: nowrap;
+  font-size: 0.95rem;
+}
+
+.dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--missing);
+  flex: 0 0 auto;
+}
+
+.status-live .dot {
+  background: var(--live);
+}
+
+.status-revoked .dot {
+  background: var(--revoked);
+}
+
+.status-expired .dot {
+  background: var(--expired);
+}
+
+.status-missing .dot,
+.status-unread .dot {
+  background: var(--missing);
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+
+.stack {
+  list-style: none;
+  padding: 0;
+  margin: 0.4rem 0;
+}
+
+.stack li {
+  padding: 0.45rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.key-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+}
+
+.links a {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (min-width: 40rem) {
+  .form-row {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .form-row button {
+    flex: 0 0 auto;
+  }
+}
