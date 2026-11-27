@@ -165,6 +165,7 @@ a:focus-visible {
 .check {
   border-top: 1px solid var(--line);
   padding: 0.85rem 0;
+  overflow-wrap: anywhere;
 }
 
 .status {
@@ -216,6 +217,7 @@ a:focus-visible {
 .stack li {
   padding: 0.45rem 0;
   border-top: 1px solid var(--line);
+  overflow-wrap: anywhere;
 }
 
 .key-top {
@@ -230,8 +232,18 @@ a:focus-visible {
   gap: 1rem;
 }
 
-.links a {
+.links a,
+.examples a {
   text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+
+.json-link {
+  margin-top: 0.8rem;
+}
+
+.examples li {
+  margin: 0.8rem 0;
 }
 
 footer {

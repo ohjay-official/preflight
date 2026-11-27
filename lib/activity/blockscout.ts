@@ -6,23 +6,85 @@ import {
   rowsFromBody,
   tokenIdFromRow,
 } from "@/lib/activity/parse";
-import type { AccountActivity, ActivitySource } from "@/lib/activity/types";
+import { blockscoutV2Origin, readBlockscoutV2 } from "@/lib/activity/blockscout-v2";
+import { readIncomingTokenLogs, type TokenLogRead } from "@/lib/activity/token-logs";
+import type { AccountActivity, ActivitySource, NormalizedTokenTransfer, NormalizedTx } from "@/lib/activity/types";
 import { errorMessage } from "@/lib/format";
+import { requestWithBackoff, type RetryOptions } from "@/lib/http";
 
 const PAGE_SIZE = 100;
-const MAX_PAGES = 8;
+const MAX_PAGES = 15;
+
+export type TokenLogReader = {
+  read(address: Address, sinceUnix: number): Promise<TokenLogRead>;
+};
+
+export type BlockscoutOptions = {
+  fetchImpl?: typeof fetch;
+  backoffMs?: number[];
+  tokenLogs?: TokenLogReader;
+};
 
 export class BlockscoutActivitySource implements ActivitySource {
   readonly label = "Blockscout";
 
-  constructor(private readonly baseUrl: string) {}
+  constructor(
+    private readonly baseUrl: string,
+    private readonly options: BlockscoutOptions = {},
+  ) {}
 
   async getAccountActivity(address: Address, sinceUnix: number): Promise<AccountActivity> {
-    const [transactions, tokenTransfers, internal] = await Promise.all([
+    const [initialNative, initialTokens, initialInternal] = await Promise.all([
       this.fetchSafe("txlist", address, sinceUnix),
       this.fetchSafe("tokentx", address, sinceUnix),
-      this.fetchSafe("txlistinternal", address, sinceUnix, undefined, 6_000),
+      this.fetchSafe("txlistinternal", address, sinceUnix, undefined, 4_000),
     ]);
+    let transactions = initialNative;
+    let tokenTransfers = initialTokens;
+    let internal = initialInternal;
+
+    let normalizedNative: NormalizedTx[] | null = null;
+    let normalizedTokens: NormalizedTokenTransfer[] | null = null;
+    let normalizedInternal: NormalizedTx[] | null = null;
+    let tokenTruncated = tokenTransfers.truncated;
+    const needsV2 = !transactions.read || !tokenTransfers.read || !internal.read;
+    if (needsV2) {
+      try {
+        const v2 = await readBlockscoutV2(blockscoutV2Origin(this.baseUrl), address, sinceUnix, {
+          fetchImpl: this.options.fetchImpl,
+          backoffMs: this.options.backoffMs,
+        });
+        if (!transactions.read) {
+          transactions = { rows: [], truncated: v2.truncated, read: true };
+          normalizedNative = v2.transactions;
+        }
+        if (!tokenTransfers.read) {
+          normalizedTokens = v2.tokenTransfers;
+          tokenTransfers = { rows: [], truncated: v2.truncated, read: true };
+          tokenTruncated = v2.truncated;
+        }
+        if (!internal.read) {
+          internal = { rows: [], truncated: v2.truncated, read: true };
+          normalizedInternal = v2.internalTransactions;
+        }
+      } catch {
+        // Classic and v2 both failed for at least one list. RPC logs are next for tokens.
+      }
+    }
+
+    if (!tokenTransfers.read) {
+      const fallback = await this.readTokenLogs(address, sinceUnix);
+      if (fallback) {
+        normalizedTokens = fallback.transfers;
+        tokenTransfers = {
+          rows: [],
+          truncated: !fallback.complete,
+          read: true,
+          error: fallback.complete ? undefined : "ERC-20 RPC log scan covered only part of the 30 day window.",
+        };
+        tokenTruncated = !fallback.complete;
+      }
+    }
 
     if (!transactions.read && !tokenTransfers.read) {
       throw new Error(
@@ -31,16 +93,22 @@ export class BlockscoutActivitySource implements ActivitySource {
     }
 
     return {
-      transactions: transactions.rows
-        .map(normalizeTransaction)
-        .filter((row): row is NonNullable<typeof row> => row !== null),
-      tokenTransfers: tokenTransfers.rows
-        .map(normalizeTokenTransfer)
-        .filter((row): row is NonNullable<typeof row> => row !== null),
-      internalTransactions: internal.rows
-        .map(normalizeTransaction)
-        .filter((row): row is NonNullable<typeof row> => row !== null),
-      truncated: transactions.truncated || tokenTransfers.truncated || internal.truncated,
+      transactions:
+        normalizedNative ??
+        transactions.rows
+          .map(normalizeTransaction)
+          .filter((row): row is NonNullable<typeof row> => row !== null),
+      tokenTransfers:
+        normalizedTokens ??
+        tokenTransfers.rows
+          .map(normalizeTokenTransfer)
+          .filter((row): row is NonNullable<typeof row> => row !== null),
+      internalTransactions:
+        normalizedInternal ??
+        internal.rows
+          .map(normalizeTransaction)
+          .filter((row): row is NonNullable<typeof row> => row !== null),
+      truncated: transactions.truncated || tokenTruncated || internal.truncated,
       internalRead: internal.read,
       nativeRead: transactions.read,
       tokenRead: tokenTransfers.read,
@@ -102,7 +170,7 @@ export class BlockscoutActivitySource implements ActivitySource {
       for (const [key, value] of Object.entries(extra ?? {})) {
         url.searchParams.set(key, value);
       }
-      const response = await this.fetchWithRetry(url, action, timeoutMs);
+      const response = await this.fetchWithRetry(url.toString(), timeoutMs);
       const pageRows = rowsFromBody(await response.json());
       rows.push(...pageRows);
       if (pageRows.length < PAGE_SIZE) return { rows, truncated: false };
@@ -113,21 +181,21 @@ export class BlockscoutActivitySource implements ActivitySource {
     return { rows, truncated: true };
   }
 
-  private async fetchWithRetry(url: URL, action: string, timeoutMs: number): Promise<Response> {
-    let response: Response | null = null;
-    for (let attempt = 0; attempt < 2; attempt += 1) {
-      response = await fetch(url, {
-        cache: "no-store",
-        signal: AbortSignal.timeout(timeoutMs),
-        headers: { accept: "application/json" },
-      });
-      if (response.ok) return response;
-      if ((response.status === 429 || response.status >= 500) && attempt === 0) {
-        await new Promise((resolve) => setTimeout(resolve, 400));
-        continue;
-      }
-      throw new Error(`Blockscout ${action} returned HTTP ${response.status}.`);
+  private fetchWithRetry(url: string, timeoutMs: number): Promise<Response> {
+    const retry: RetryOptions = {
+      attempts: 3,
+      backoffMs: this.options.backoffMs ?? [250, 750],
+      fetchImpl: this.options.fetchImpl,
+    };
+    return requestWithBackoff(url, timeoutMs, retry);
+  }
+
+  private async readTokenLogs(address: Address, sinceUnix: number): Promise<TokenLogRead | null> {
+    const reader = this.options.tokenLogs ?? { read: readIncomingTokenLogs };
+    try {
+      return await reader.read(address, sinceUnix);
+    } catch {
+      return null;
     }
-    throw new Error(`Blockscout ${action} returned HTTP ${response?.status ?? 0}.`);
   }
 }

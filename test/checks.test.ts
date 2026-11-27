@@ -60,6 +60,7 @@ function deps(partial: Partial<CheckDeps> = {}): CheckDeps {
     now: () => new Date(NOW * 1000),
     hackathonMode: false,
     readName: async () => null,
+    findAgentIds: async () => ({ ids: [], complete: true }),
     ...partial,
   };
 }
@@ -276,6 +277,47 @@ describe("check verdicts", () => {
     expect(payments.fundingLinks[0]?.funderRole).toBe("Owner");
     expect(result.report.verdict).toBe("Small amounts only");
     expect(calls.map((item) => item.toLowerCase())).toContain(owner.toLowerCase());
+  });
+
+  it("finds an agent id from the wallet log index when the address does not own the NFT", async () => {
+    const record: IdentityOnChain = {
+      tokenId: 166n,
+      owner,
+      agentWallet: agent,
+      tokenUri: null,
+    };
+    const result = await loadReport(
+      agent,
+      deps({
+        chain: chain({
+          getIdentityBalance: async () => 0n,
+          readIdentities: async (ids) => {
+            expect(ids).toEqual([166n]);
+            return { records: [record], truncated: false };
+          },
+        }),
+        findAgentIds: async () => ({ ids: [166n], complete: true }),
+      }),
+    );
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    const identity = result.report.checks.find((check) => check.id === "identity");
+    expect(identity?.status).toBe("Live");
+    if (identity?.id === "identity") expect(identity.records[0]?.matchedAs).toBe("Agent wallet");
+  });
+
+  it("does not say Not found when the wallet index did not finish", async () => {
+    const result = await loadReport(
+      agent,
+      deps({
+        chain: chain({ getIdentityBalance: async () => 0n }),
+        findAgentIds: async () => ({ ids: [], complete: false }),
+      }),
+    );
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    const identity = result.report.checks.find((check) => check.id === "identity");
+    expect(identity?.status).toBe("Unread");
   });
 
   it("matches an agent wallet that does not own the identity NFT", async () => {
