@@ -33,8 +33,9 @@ describe("Altana key helpers, against mainnet values", () => {
   });
 
   it("decodes allowlist entries, including any-function", () => {
-    const usdcTransfer = `0x${"0".repeat(24)}${USDC.slice(2).toLowerCase()}${"0".repeat(8)}a9059cbb` as Hex;
-    const anyFn = `0x${"0".repeat(24)}af140d0416a994aebb3fa6212b16ce6700f09751${"0".repeat(8)}32323232` as Hex;
+    // Packed as the account returns it: target (20 bytes), 8 zero bytes, selector (4 bytes).
+    const usdcTransfer = `0x${USDC.slice(2).toLowerCase()}${"0".repeat(16)}a9059cbb` as Hex;
+    const anyFn = `0xaf140d0416a994aebb3fa6212b16ce6700f09751${"0".repeat(16)}32323232` as Hex;
     const [a, b] = decodeAllowlist([usdcTransfer, anyFn]);
     expect(a).toEqual({ target: USDC, selector: "0xa9059cbb", anyFunction: false });
     expect(b?.anyFunction).toBe(true);
