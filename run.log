@@ -1,0 +1,15 @@
+== t1-keys 07:05:54
+wrote /home/runner/work/preflight/preflight/scripts/tests/results/t1-keys.json
+== t2-tag 07:08:12
+wrote /home/runner/work/preflight/preflight/scripts/tests/results/t2-tag.json
+== t3-x402 07:08:16
+wrote /home/runner/work/preflight/preflight/scripts/tests/results/t3-x402.json
+== t4-payers 07:08:18
+wrote /home/runner/work/preflight/preflight/scripts/tests/results/t4-payers.json
+== t5-receipt 07:08:27
+wrote /home/runner/work/preflight/preflight/scripts/tests/results/t5-receipt.json
+preflight-altana-tests@ /home/runner/work/preflight/preflight/scripts/tests
+├── @altananetwork/sdk@1.2.0
+├── @celo/attribution-tags@0.6.0
+└── viem@2.58.2
+

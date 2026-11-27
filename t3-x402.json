@@ -1,0 +1,161 @@
+{
+  "test": "t3-x402",
+  "startedAt": "2026-11-27T07:08:16.497Z",
+  "probes": [
+    {
+      "label": "chainstack celo rpc",
+      "url": "https://gateway.usebuy.ai/chainstack/celo",
+      "status": 402,
+      "headers": {
+        "content-length": "1219",
+        "content-type": "application/json",
+        "date": "Fri, 27 Nov 2026 07:08:16 GMT",
+        "payment-required": "eyJ4NDAyVmVyc2lvbiI6MiwiZXJyb3IiOiJwYXltZW50X3JlcXVpcmVkIiwicmVzb3VyY2UiOnsidXJsIjoiaHR0cHM6Ly9nYXRld2F5LnVzZWJ1eS5haS9jaGFpbnN0YWNrL2NlbG8iLCJkZXNjcmlwdGlvbiI6IkNlbG8gbWFpbm5ldCBKU09OLVJQQywgYmF0Y2ggb2YgdXAgdG8gMjAwMCBjYWxscyIsIm1pbWVUeXBlIjoiYXBwbGljYXRpb24vanNvbiJ9LCJhY2NlcHRzIjpbeyJzY2hlbWUiOiJleGFjdCIsIm5ldHdvcmsiOiJlaXAxNTU6NDIyMjAiLCJhbW91bnQiOiIxMDAwMCIsImFzc2V0IjoiMHhjZWJBOTMwMGYyYjk0ODcxMGQyNjUzZEQ3QjA3ZjMzQThCMzIxMThDIiwicGF5VG8iOiIweDIwZmFBY2E1Rjk4MEUyOTYzOUEwRkNDNmRjQTY5ODhFMThlZDMzM0IiLCJtYXhUaW1lb3V0U2Vjb25kcyI6NjAsImV4dHJhIjp7Im5hbWUiOiJVU0RDIiwidmVyc2lvbiI6IjIifX0seyJzY2hlbWUiOiJleGFjdCIsIm5ldHdvcmsiOiJlaXAxNTU6NDIyMjAiLCJhbW91bnQiOiIxMDAwMCIsImFzc2V0IjoiMHg0ODA2NWZiQkUyNWY3MUM5MjgyZGRmNWUxY0Q2RDZBODg3NDgzRDVlIiwicGF5VG8iOiIweDIwZmFBY2E1Rjk4MEUyOTYzOUEwRkNDNmRjQTY5ODhFMThlZDMzM0IiLCJtYXhUaW1lb3V0U2Vjb25kcyI6NjAsImV4dHJhIjp7Im5hbWUiOiJUZXRoZXIgVVNEIiwidmVyc2lvbiI6IjEifX0seyJzY2hlbWUiOiJleGFjdCIsIm5ldHdvcmsiOiJlaXAxNTU6NDIyMjAiLCJhbW91bnQiOiIxMDAwMCIsImFzc2V0IjoiMHhEMmFiM0M5QTAyREJCQUIyMzZCZkVDNDVEMWQ3NTVERjQyNjdGNzcxIiwicGF5VG8iOiIweDIwZmFBY2E1Rjk4MEUyOTYzOUEwRkNDNmRjQTY5ODhFMThlZDMzM0IiLCJtYXhUaW1lb3V0U2Vjb25kcyI6NjAsImV4dHJhIjp7Im5hbWUiOiJUZXRoZXIgQW1lcmljYSBVU0QiLCJ2ZXJzaW9uIjoiMSJ9fV19",
+        "server": "Google Frontend",
+        "x-cloud-trace-context": "bd50696d031e359f3df764e3ba69ee1a;o=1"
+      },
+      "body": "{\"x402Version\":1,\"accepts\":[{\"scheme\":\"exact\",\"network\":\"celo\",\"maxAmountRequired\":\"10000\",\"resource\":\"https://gateway.usebuy.ai/chainstack/celo\",\"description\":\"Celo mainnet JSON-RPC, batch of up to 2000 calls\",\"mimeType\":\"application/json\",\"payTo\":\"0x20faAca5F980E29639A0FCC6dcA6988E18ed333B\",\"maxTimeoutSeconds\":60,\"asset\":\"0xcebA9300f2b948710d2653dD7B07f33A8B32118C\",\"extra\":{\"name\":\"USDC\",\"version\":\"2\"}},{\"scheme\":\"exact\",\"network\":\"celo\",\"maxAmountRequired\":\"10000\",\"resource\":\"https://gateway.usebuy.ai/chainstack/celo\",\"description\":\"Celo mainnet JSON-RPC, batch of up to 2000 calls\",\"mimeType\":\"application/json\",\"payTo\":\"0x20faAca5F980E29639A0FCC6dcA6988E18ed333B\",\"maxTimeoutSeconds\":60,\"asset\":\"0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e\",\"extra\":{\"name\":\"Tether USD\",\"version\":\"1\"}},{\"scheme\":\"exact\",\"network\":\"celo\",\"maxAmountRequired\":\"10000\",\"resource\":\"https://gateway.usebuy.ai/chainstack/celo\",\"description\":\"Celo mainnet JSON-RPC, batch of up to 2000 calls\",\"mimeType\":\"application/json\",\"payTo\":\"0x20faAca5F980E29639A0FCC6dcA6988E18ed333B\",\"maxTimeoutSeconds\":60,\"asset\":\"0xD2ab3C9A02DBBAB236BfEC45D1d755DF4267F771\",\"extra\":{\"name\":\"Tether America USD\",\"version\":\"1\"}}],\"error\":\"payment_required\"}",
+      "decoded": {
+        "x402Version": 2,
+        "error": "payment_required",
+        "resource": {
+          "url": "https://gateway.usebuy.ai/chainstack/celo",
+          "description": "Celo mainnet JSON-RPC, batch of up to 2000 calls",
+          "mimeType": "application/json"
+        },
+        "accepts": [
+          {
+            "scheme": "exact",
+            "network": "eip155:42220",
+            "amount": "10000",
+            "asset": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+            "payTo": "0x20faAca5F980E29639A0FCC6dcA6988E18ed333B",
+            "maxTimeoutSeconds": 60,
+            "extra": {
+              "name": "USDC",
+              "version": "2"
+            }
+          },
+          {
+            "scheme": "exact",
+            "network": "eip155:42220",
+            "amount": "10000",
+            "asset": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+            "payTo": "0x20faAca5F980E29639A0FCC6dcA6988E18ed333B",
+            "maxTimeoutSeconds": 60,
+            "extra": {
+              "name": "Tether USD",
+              "version": "1"
+            }
+          },
+          {
+            "scheme": "exact",
+            "network": "eip155:42220",
+            "amount": "10000",
+            "asset": "0xD2ab3C9A02DBBAB236BfEC45D1d755DF4267F771",
+            "payTo": "0x20faAca5F980E29639A0FCC6dcA6988E18ed333B",
+            "maxTimeoutSeconds": 60,
+            "extra": {
+              "name": "Tether America USD",
+              "version": "1"
+            }
+          }
+        ]
+      },
+      "bodyJson": {
+        "x402Version": 1,
+        "accepts": [
+          {
+            "scheme": "exact",
+            "network": "celo",
+            "maxAmountRequired": "10000",
+            "resource": "https://gateway.usebuy.ai/chainstack/celo",
+            "description": "Celo mainnet JSON-RPC, batch of up to 2000 calls",
+            "mimeType": "application/json",
+            "payTo": "0x20faAca5F980E29639A0FCC6dcA6988E18ed333B",
+            "maxTimeoutSeconds": 60,
+            "asset": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+            "extra": {
+              "name": "USDC",
+              "version": "2"
+            }
+          },
+          {
+            "scheme": "exact",
+            "network": "celo",
+            "maxAmountRequired": "10000",
+            "resource": "https://gateway.usebuy.ai/chainstack/celo",
+            "description": "Celo mainnet JSON-RPC, batch of up to 2000 calls",
+            "mimeType": "application/json",
+            "payTo": "0x20faAca5F980E29639A0FCC6dcA6988E18ed333B",
+            "maxTimeoutSeconds": 60,
+            "asset": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+            "extra": {
+              "name": "Tether USD",
+              "version": "1"
+            }
+          },
+          {
+            "scheme": "exact",
+            "network": "celo",
+            "maxAmountRequired": "10000",
+            "resource": "https://gateway.usebuy.ai/chainstack/celo",
+            "description": "Celo mainnet JSON-RPC, batch of up to 2000 calls",
+            "mimeType": "application/json",
+            "payTo": "0x20faAca5F980E29639A0FCC6dcA6988E18ed333B",
+            "maxTimeoutSeconds": 60,
+            "asset": "0xD2ab3C9A02DBBAB236BfEC45D1d755DF4267F771",
+            "extra": {
+              "name": "Tether America USD",
+              "version": "1"
+            }
+          }
+        ],
+        "error": "payment_required"
+      }
+    }
+  ],
+  "tokens": {
+    "USDC": {
+      "address": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+      "name": "USDC",
+      "version": "2",
+      "decimals": 6,
+      "implementation": {
+        "slot": "zeppelinos",
+        "address": "0xda06d4e3f59fe2c8ff3077a9d50d5be5e231becd"
+      },
+      "codeBytes": 23207,
+      "hasSelector": {
+        "transferWithAuthorization_vrs": true,
+        "transferWithAuthorization_bytes": true,
+        "receiveWithAuthorization_bytes": true,
+        "permit_bytes": true
+      }
+    },
+    "USDT": {
+      "address": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+      "name": "Tether USD",
+      "versionErr": "The contract function \"version\" reverted.",
+      "decimals": 6,
+      "implementation": {
+        "slot": "eip1967",
+        "address": "0xbf83f8436ac46a8b1da5a9348ed84f68aee07b98"
+      },
+      "codeBytes": 17045,
+      "hasSelector": {
+        "transferWithAuthorization_vrs": true,
+        "transferWithAuthorization_bytes": true,
+        "receiveWithAuthorization_bytes": true,
+        "permit_bytes": true
+      }
+    }
+  },
+  "selectors": {
+    "transferWithAuthorization_vrs": "0xe3ee160e",
+    "transferWithAuthorization_bytes": "0xcf092995",
+    "receiveWithAuthorization_bytes": "0x88b7ab63",
+    "permit_bytes": "0x9fd5a6cf"
+  },
+  "finishedAt": "2026-11-27T07:08:18.275Z"
+}

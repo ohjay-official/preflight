@@ -1,0 +1,94 @@
+{
+  "test": "t5-receipt",
+  "startedAt": "2026-11-27T07:08:28.020Z",
+  "candidates": [
+    {
+      "address": "0x8004BAa17C55a88189AE136b182e5fdA19dE9b63",
+      "hasCode": true,
+      "codeBytes": 130,
+      "name": "ERC1967Proxy",
+      "isProxy": "eip1967",
+      "implementations": [
+        {
+          "address_hash": "0x16e0FA7f7C56B9a767E34B192B51f921BE31dA34",
+          "name": "ReputationRegistryUpgradeable"
+        }
+      ],
+      "functions": [],
+      "implName": "ReputationRegistryUpgradeable",
+      "implFunctions": [
+        "UPGRADE_INTERFACE_VERSION() view",
+        "appendResponse(uint256 agentId,address clientAddress,uint64 feedbackIndex,string responseURI,bytes32 responseHash)",
+        "getClients(uint256 agentId) view",
+        "getIdentityRegistry() view",
+        "getLastIndex(uint256 agentId,address clientAddress) view",
+        "getResponseCount(uint256 agentId,address clientAddress,uint64 feedbackIndex,address[] responders) view",
+        "getSummary(uint256 agentId,address[] clientAddresses,string tag1,string tag2) view",
+        "getVersion() view",
+        "giveFeedback(uint256 agentId,int128 value,uint8 valueDecimals,string tag1,string tag2,string endpoint,string feedbackURI,bytes32 feedbackHash)",
+        "initialize(address identityRegistry_)",
+        "owner() view",
+        "proxiableUUID() view",
+        "readAllFeedback(uint256 agentId,address[] clientAddresses,string tag1,string tag2,bool includeRevoked) view",
+        "readFeedback(uint256 agentId,address clientAddress,uint64 feedbackIndex) view",
+        "renounceOwnership()",
+        "revokeFeedback(uint256 agentId,uint64 feedbackIndex)",
+        "transferOwnership(address newOwner)",
+        "upgradeToAndCall(address newImplementation,bytes data)"
+      ]
+    },
+    {
+      "address": "0x8004B663056A597Dffe9eCcC1965A193B7388713",
+      "hasCode": false,
+      "codeBytes": 0
+    },
+    {
+      "address": "0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+      "hasCode": false,
+      "codeBytes": 0
+    },
+    {
+      "address": "0x8004Cc8439f36fd5F9F049D9fF86523Df6dAAB58",
+      "hasCode": true,
+      "codeBytes": 130,
+      "name": "ERC1967Proxy",
+      "isProxy": "eip1967",
+      "implementations": [
+        {
+          "address_hash": "0xDB31f5d9167f8ebc8B30FbBF814c4d297c2D7F99",
+          "name": "ValidationRegistryUpgradeable"
+        }
+      ],
+      "functions": [],
+      "implName": "ValidationRegistryUpgradeable",
+      "implFunctions": [
+        "UPGRADE_INTERFACE_VERSION() view",
+        "getAgentValidations(uint256 agentId) view",
+        "getIdentityRegistry() view",
+        "getSummary(uint256 agentId,address[] validatorAddresses,string tag) view",
+        "getValidationStatus(bytes32 requestHash) view",
+        "getValidatorRequests(address validatorAddress) view",
+        "getVersion() view",
+        "initialize(address identityRegistry_)",
+        "owner() view",
+        "proxiableUUID() view",
+        "renounceOwnership()",
+        "transferOwnership(address newOwner)",
+        "upgradeToAndCall(address newImplementation,bytes data)",
+        "validationRequest(address validatorAddress,uint256 agentId,string requestURI,bytes32 requestHash)",
+        "validationResponse(bytes32 requestHash,uint8 response,string responseURI,bytes32 responseHash,string tag)"
+      ]
+    }
+  ],
+  "identity": {
+    "name": "ERC1967Proxy",
+    "proxy": "eip1967",
+    "implementations": [
+      {
+        "address_hash": "0x7274e874CA62410a93Bd8bf61c69d8045E399c02",
+        "name": "IdentityRegistryUpgradeable"
+      }
+    ]
+  },
+  "finishedAt": "2026-11-27T07:08:30.048Z"
+}

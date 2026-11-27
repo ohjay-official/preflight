@@ -1,0 +1,4269 @@
+{
+  "test": "t1-keys",
+  "startedAt": "2026-11-27T07:05:54.898Z",
+  "notes": [],
+  "sdkExports": [
+    "ALTANA_AGENT_TAG",
+    "ALTANA_CODE",
+    "AltanaError",
+    "BASE",
+    "BASE_SEPOLIA",
+    "BNB",
+    "BNB_TESTNET",
+    "BNB_TESTNET_FAUCET_URL",
+    "CELO",
+    "CELO_SEPOLIA",
+    "CELO_SEPOLIA_FAUCET_URL",
+    "DEFAULT_AGENT_DESCRIPTION",
+    "DEFAULT_AGENT_IMAGE",
+    "DEFAULT_AGENT_NAME",
+    "ERC8004_ADDRESSES",
+    "ERC8183_ADDRESSES",
+    "ERC_8021_MARKER",
+    "ETHEREUM",
+    "FAUCET_URLS",
+    "JOB_STATUS",
+    "NATIVE_TOKEN",
+    "NETWORKS",
+    "PERMIT2_ADDRESS",
+    "REGISTRATION_FEE_MARGIN_PERCENT",
+    "RELAY_URL",
+    "SCALED_UI_AMOUNT_INTERFACE_ID",
+    "SCALED_UI_AMOUNT_PENDING_INTERFACE_ID",
+    "SEPOLIA",
+    "SEPOLIA_FAUCET_URL",
+    "SessionRevokeError",
+    "TESTNET_RELAY_URL",
+    "UI_MULTIPLIER_ONE",
+    "UNTAGGED_TARGETS",
+    "accountHasKey",
+    "agentIdentityFile",
+    "agentPageUrl",
+    "altanaErrorOf",
+    "altanaExplorerWalletUrl",
+    "applyUiMultiplier",
+    "approveSignatureChecker",
+    "approveTokenForPermit2",
+    "approvedSignatureCheckers",
+    "attributionCodes",
+    "attributionTag",
+    "buildApproveTokenForPermit2Call",
+    "buildClaimRefundCall",
+    "buildEip3009TypedData",
+    "buildErc8004RegisterCall",
+    "buildErc8004SetAgentUriCall",
+    "buildHireCalls",
+    "buildPermit2TypedData",
+    "buildPermit2WitnessTypedData",
+    "buildPopulateKeyCall",
+    "buildSetCheckerApprovalCall",
+    "buildSubmitCall",
+    "checkX402Approvals",
+    "checkX402SpendCap",
+    "classifyRelayFailure",
+    "computeKeyPackedSlot",
+    "createClient",
+    "createHeadlessPasskey",
+    "createPasskey",
+    "createPrivateKeySigner",
+    "decodeErc8004AgentUri",
+    "deserializeSession",
+    "encodeErc8004AgentUri",
+    "encodeErc8183Manifest",
+    "encodeXPaymentHeader",
+    "ensureKeyCached",
+    "erc8004AgentCount",
+    "erc8004RegisterPermissions",
+    "erc8004Registry",
+    "erc8183Addresses",
+    "erc8183ExpiredAt",
+    "erc8183ManifestHash",
+    "erc8183SubmitPermissions",
+    "explainRelayFailure",
+    "faucetHint",
+    "feeCurrencies",
+    "fetchWithX402",
+    "formatFeeAmount",
+    "formatQuoteLine",
+    "fundNative",
+    "getErc8004Agent",
+    "getErc8183DeliverableUrl",
+    "getErc8183Job",
+    "getKey",
+    "getKeys",
+    "grantSession",
+    "hireErc8183Agent",
+    "isAltanaError",
+    "isCachedKeyValid",
+    "isCachedRegistry",
+    "isPasskeySigner",
+    "keyHashForSessionOrKey",
+    "keyIdForSessionOrKey",
+    "keyStoreCacheOf",
+    "networkByChainId",
+    "networkToChainId",
+    "normalizeResource",
+    "parseAttribution",
+    "provisioningNetworks",
+    "quoteCalls",
+    "quoteExecute",
+    "quoteGrantSession",
+    "quoteRevokeSession",
+    "readCachedKey",
+    "readL1Anchor",
+    "readableAmount",
+    "registerAgentIdentity",
+    "registerErc8004Agent",
+    "registerSessionKey",
+    "registrationValueFor",
+    "registryNetwork",
+    "revokeSession",
+    "revokeSignatureChecker",
+    "sdkBuild",
+    "selectX402Requirement",
+    "serializeSession",
+    "setErc8004AgentUri",
+    "settleErc8183Job",
+    "signOrder",
+    "signOrderTypedData",
+    "signX402Payment",
+    "signerFromPasskey",
+    "signerFromPrivateKey",
+    "startOfSpendPeriod",
+    "submitErc8183Deliverable",
+    "syncKeyToL2",
+    "syncSessionToCache",
+    "tagCalls",
+    "verifyErc8183ManifestText",
+    "waitForBalance",
+    "waitForL1Anchor",
+    "withErc8004Registration",
+    "withFailureContext",
+    "x402ApprovalError",
+    "x402SignatureChecker",
+    "x402SpendCapError"
+  ],
+  "sdkCeloConfig": {
+    "chain": {
+      "formatters": {
+        "block": {
+          "type": "block"
+        },
+        "transaction": {
+          "type": "transaction"
+        },
+        "transactionRequest": {
+          "type": "transactionRequest"
+        }
+      },
+      "fees": {},
+      "serializers": {},
+      "blockTime": 1000,
+      "contracts": {
+        "multicall3": {
+          "address": "0xcA11bde05977b3631167028862bE2a173976CA11",
+          "blockCreated": 13112599
+        }
+      },
+      "id": 42220,
+      "name": "Celo",
+      "nativeCurrency": {
+        "decimals": 18,
+        "name": "CELO",
+        "symbol": "CELO"
+      },
+      "rpcUrls": {
+        "default": {
+          "http": [
+            "https://forno.celo.org"
+          ]
+        }
+      },
+      "blockExplorers": {
+        "default": {
+          "name": "Celo Explorer",
+          "url": "https://celoscan.io",
+          "apiUrl": "https://api.celoscan.io/api"
+        }
+      },
+      "testnet": false
+    },
+    "chainId": 42220,
+    "keyStore": "0x83b30935f36d6ccf9B1ec3b5E47F2866b97cd27c",
+    "keyStoreController": "0x47bA5fc2A5b0CcB24BA3fAC9D4B59400eE9fd1D6",
+    "publicRpcUrl": "https://celo-rpc.publicnode.com",
+    "explorer": "https://celoscan.io",
+    "relayUrl": "https://relay.altana.network",
+    "provisionAlso": [
+      {
+        "chain": {
+          "id": 1,
+          "name": "Ethereum",
+          "nativeCurrency": {
+            "name": "Ether",
+            "symbol": "ETH",
+            "decimals": 18
+          },
+          "blockTime": 12000,
+          "rpcUrls": {
+            "default": {
+              "http": [
+                "https://ethereum.reth.rs/rpc"
+              ]
+            }
+          },
+          "blockExplorers": {
+            "default": {
+              "name": "Etherscan",
+              "url": "https://etherscan.io",
+              "apiUrl": "https://api.etherscan.io/api"
+            }
+          },
+          "contracts": {
+            "ensUniversalResolver": {
+              "address": "0xeeeeeeee14d718c2b47d9923deab1335e144eeee",
+              "blockCreated": 23085558
+            },
+            "multicall3": {
+              "address": "0xca11bde05977b3631167028862be2a173976ca11",
+              "blockCreated": 14353601
+            }
+          }
+        },
+        "chainId": 1,
+        "keyStore": "0xb70fDa90C1d576Ba8399946a0c10ECD9d9Ea923b",
+        "keyStoreController": "0x30a188Eecf14F4142B0d828ce838C9E1134e7FaA",
+        "publicRpcUrl": "https://ethereum-rpc.publicnode.com",
+        "proofRpcUrls": [
+          "https://eth-mainnet.public.blastapi.io",
+          "https://rpc.mevblocker.io",
+          "https://eth.drpc.org",
+          "https://0xrpc.io/eth"
+        ],
+        "explorer": "https://etherscan.io",
+        "relayUrl": "https://relay.altana.network",
+        "nativePriceFeed": {
+          "address": "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419",
+          "chain": {
+            "id": 1,
+            "name": "Ethereum",
+            "nativeCurrency": {
+              "name": "Ether",
+              "symbol": "ETH",
+              "decimals": 18
+            },
+            "blockTime": 12000,
+            "rpcUrls": {
+              "default": {
+                "http": [
+                  "https://ethereum.reth.rs/rpc"
+                ]
+              }
+            },
+            "blockExplorers": {
+              "default": {
+                "name": "Etherscan",
+                "url": "https://etherscan.io",
+                "apiUrl": "https://api.etherscan.io/api"
+              }
+            },
+            "contracts": {
+              "ensUniversalResolver": {
+                "address": "0xeeeeeeee14d718c2b47d9923deab1335e144eeee",
+                "blockCreated": 23085558
+              },
+              "multicall3": {
+                "address": "0xca11bde05977b3631167028862be2a173976ca11",
+                "blockCreated": 14353601
+              }
+            }
+          },
+          "publicRpcUrl": "https://ethereum-rpc.publicnode.com",
+          "maxAgeSecs": 3900
+        }
+      }
+    ],
+    "nativePriceFeed": {
+      "address": "0x0568fD19986748cEfF3301e55c0eb1E729E0Ab7e",
+      "chain": {
+        "formatters": {
+          "block": {
+            "type": "block"
+          },
+          "transaction": {
+            "type": "transaction"
+          },
+          "transactionRequest": {
+            "type": "transactionRequest"
+          }
+        },
+        "fees": {},
+        "serializers": {},
+        "blockTime": 1000,
+        "contracts": {
+          "multicall3": {
+            "address": "0xcA11bde05977b3631167028862bE2a173976CA11",
+            "blockCreated": 13112599
+          }
+        },
+        "id": 42220,
+        "name": "Celo",
+        "nativeCurrency": {
+          "decimals": 18,
+          "name": "CELO",
+          "symbol": "CELO"
+        },
+        "rpcUrls": {
+          "default": {
+            "http": [
+              "https://forno.celo.org"
+            ]
+          }
+        },
+        "blockExplorers": {
+          "default": {
+            "name": "Celo Explorer",
+            "url": "https://celoscan.io",
+            "apiUrl": "https://api.celoscan.io/api"
+          }
+        },
+        "testnet": false
+      },
+      "publicRpcUrl": "https://celo-rpc.publicnode.com",
+      "maxAgeSecs": 3900
+    }
+  },
+  "registrationFeeWei": "8225037012666556999",
+  "abiSource": "blockscout getabi",
+  "keyStoreViews": [
+    "VERSION()",
+    "activeKeyIds(address,uint256)",
+    "authorizedContracts(address)",
+    "getExpiry(address,bytes32)",
+    "getKey(address,bytes32)",
+    "getKeys(address)",
+    "getMetadata(address,bytes32)",
+    "getNonce(address,bytes32)",
+    "getPublicKey(address,bytes32)",
+    "getValidator(address,bytes32)",
+    "isKeyActive(address,bytes32)",
+    "isRootKey(address,bytes32)",
+    "isValidKey(address,bytes32)",
+    "owner()",
+    "pendingOwner()",
+    "publicKeyRegistered(address,bytes32)",
+    "userKeys(address,bytes32)"
+  ],
+  "keyStoreEvents": [
+    "AuthorizedContractUpdated(address indexed contractAddress, bool authorized)",
+    "KeyRegistered(address indexed user, bytes32 indexed keyId, address indexed validator, uint40 expiry, bool isRoot)",
+    "KeyRevoked(address indexed user, bytes32 indexed keyId)",
+    "NonceUpdated(address indexed user, bytes32 indexed keyId, uint64 newNonce)",
+    "OwnershipTransferStarted(address indexed previousOwner, address indexed newOwner)",
+    "OwnershipTransferred(address indexed previousOwner, address indexed newOwner)"
+  ],
+  "logScan": {
+    "fromBlock": "82562396",
+    "toBlock": "83862396",
+    "finalStep": "5000",
+    "logs": 96
+  },
+  "events": {
+    "OwnershipTransferred": 1,
+    "AuthorizedContractUpdated": 1,
+    "OwnershipTransferStarted": 1,
+    "KeyRegistered": 72,
+    "KeyRevoked": 21
+  },
+  "revokeEvents": [
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0x887EAF32db5328Bd3F442747089985dA72474Bb8",
+        "keyId": "0x0e71a4ec5339f7a0ad85a6e62546d0b092105dcf3cf92113c489e28c2d1c173d"
+      },
+      "tx": "0x7a579439a5050f6fbf37ac5bede5815dbd1572466fcfdcbdb3f6bdbe9aeccb4c",
+      "block": "83023869"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0x5aeC9aC78bb3E045d2f85e311aD3385B8116d0c5",
+        "keyId": "0xc72ef364bb8a1406cb9396c0a7fcbd76952f2ed851d32f1b5d493d9760cf9f62"
+      },
+      "tx": "0x165b2756e4de0a617ef144f6c4b01f3a79a044e35550cc1bc04d35e551e8f9fb",
+      "block": "83323898"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0x5aeC9aC78bb3E045d2f85e311aD3385B8116d0c5",
+        "keyId": "0x14a3fc2f2c963a522311ca8a99ff1ca5abd07f0308ed65b39b1fbedc85e1b04f"
+      },
+      "tx": "0xf2d9b9a8f1da2de692cc1125b3b8f051036c34c7bf48de6f1eff09abf9e8622e",
+      "block": "83331457"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0x731a878df9da4c1Dcb87bD0dF4Bfa8cf783A364F",
+        "keyId": "0x3519ac7a993ea63206830bc543da2dd103d502e84de7a5e49da797fcb139c4b2"
+      },
+      "tx": "0xe43b71c664d21366a2f832d5fed97b4a0293055cc7558e66ef24565685453e08",
+      "block": "83378113"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0x0EcaaFc1Bd6f7033d6eb038d8Cbc8a55f900D4B1",
+        "keyId": "0xc7470a1fff196df39f76c62156e45e8a3b0db4be314ea2520bffa652a7fb3bdb"
+      },
+      "tx": "0xc4acb8a8f3e149c51fc4ed4a3314a2f4b2f388e6f665fc33cddcf60b14b9763f",
+      "block": "83390914"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0x093c0AfA09fF4715595a79770447C60C4eCFfd1C",
+        "keyId": "0x478eed8e3d62cb74b9062907a3161c1c0d85ac493134657b6d73fbe0232e4ace"
+      },
+      "tx": "0x2eb5628042c99bb0c030232307aa4f2c799f5fa2e27301c4ee6511f7bb847fe9",
+      "block": "83406265"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0x15855ae2E04Fd00eFA45cB70D2C29E5777925429",
+        "keyId": "0x9f958a6848e6fc3f2859e2d65d6307c98cb7e0f36caabd0b3b0f4933e50d24c4"
+      },
+      "tx": "0x67fc22a957a6cc97ae27d57752c233124f7bc36c3770e91a0eed7b81c11b1dce",
+      "block": "83444858"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0xB2441B175d620A3Fd5CDef28fA1c6957e6224431",
+        "keyId": "0x3b6c8c86d58d4368d199cc1b73f5f9647f0861a9358796424914cd2046b455b9"
+      },
+      "tx": "0x7deaa540365cce0cbc4203ae40257ba49497d48074c68e2b5849c698cd5a05df",
+      "block": "83447789"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0xA177651FC7F9BfF0804ad123c4fdb8aa6625683C",
+        "keyId": "0x8b1aff8fb1c3eca05c1d63c0372afcd76d51ac1623f40dc620afd10a5465e619"
+      },
+      "tx": "0xd447908bd5e96c246ec46435c462a5f41309794588c15ecc5a6f841629f672f5",
+      "block": "83449972"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0x88DeB13766F676C70cC27770d1fEd5c3Eb2414db",
+        "keyId": "0x4b9e28fa0290c4af22159c22112f360c82283313e5684d87dc8bced649708478"
+      },
+      "tx": "0x7f30def994b3bdcd789a8768a484d145a30268191362adb0625f41491391f692",
+      "block": "83459751"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0xF4d28071177d6104aE8781034d23dc7A5Fd80b39",
+        "keyId": "0x659860842e4489fbc31ed778fc42b24c490b9fd3e5d9e4bd1b65f6b7d7dc9285"
+      },
+      "tx": "0x17c8b9e3b1fed1b5cea45b0454ca88e5ea24fe495179789a103afcf502ed045c",
+      "block": "83461734"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0x91aC42021e9F8cd5d4e397825f31fD961e7DF947",
+        "keyId": "0x7b4614974d42c11d278a7ce0d4f0df666f98984f66c7957fb292c57a6a4a36f3"
+      },
+      "tx": "0xbe7a8e639bdaff6daf0f8a9798352d833fea3477232e22b63ba6f22ba1f05f6e",
+      "block": "83462425"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0x3631D44543384253C099f2A09c0D0bE109Eb7944",
+        "keyId": "0x31eb685f215140f01a4878d7e99253b5b1742da765696afbf6991a83fe4eed91"
+      },
+      "tx": "0x1455448cb2fedd67aa7e46591328c09b4f75d3062f254b52dc429b624302d320",
+      "block": "83506653"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0xCDb0FF6e6Dfc33F9d75288772c8EfFaa13df9941",
+        "keyId": "0x6550e319f091a3b5a126235d5806e55eadee56ffb4d60c756574f2e90cc9daf3"
+      },
+      "tx": "0xfda5d955f808b9637961f6945cd9ee1704502bf31746677fc0912f2bd65aeeb7",
+      "block": "83533442"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0x0D89830F241383535c3708b6c521F09Ee7cddb1e",
+        "keyId": "0x4fc77f3b89836bafbfc37360d587966a84da0a013cc67179148c762c6b75fdfa"
+      },
+      "tx": "0xd58ec995c8e6bb50d66773192d9aa93ed210722524e2251fbdd348c915564dea",
+      "block": "83539650"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0x6f59ab1977DF350d1FbBE379EEE6D45AEB766353",
+        "keyId": "0xb5b0d598e1cecd8e39f58769a68334fa25b34b3966e9a3918301c1a65e2a9112"
+      },
+      "tx": "0x7e2567288576be65dd63fc7183ddc2a20130d2cea45e34727e6691d874e5ad86",
+      "block": "83573332"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0x65B6Be7f24aB649267A4F2e5Ac4fBf1b16B31140",
+        "keyId": "0x6747f9eeda41ce6390a1e1b62e847d116f25eaaa41a1cec4ef89326d10b743ab"
+      },
+      "tx": "0xc523d17ded67b5a47f8334e469c8b797ddaa480b2128e67935addc12bd1c8bc3",
+      "block": "83597669"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0x3B891415513d4Ac18E671D4733a8f11A0Fb6A4f7",
+        "keyId": "0x20c94818af04d73c4a2e046f2cb19027e4b56cd2da7d85f3a16bc0d2f5660e0f"
+      },
+      "tx": "0x93ad5c81f43b4f239b7f1f1e6b873d22a668cd921a5fa7f65718d5331f89c325",
+      "block": "83622876"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0x65B6Be7f24aB649267A4F2e5Ac4fBf1b16B31140",
+        "keyId": "0x371e65b0b727c8686f99ca6d5a4a8fe43ab5a1fe3156fb5c63cf36c2ba37bb9d"
+      },
+      "tx": "0xa3a173e3e741dad57c3b6f7ce1709de1964d952d7ed2bef65b4de00cec491886",
+      "block": "83710319"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0xe6327047575F4565a33c8F2d3FF4600493129A0e",
+        "keyId": "0x1470d1ec67e025927c66270fe273bf230374b224e15a75db1a5b99f2f9d603e1"
+      },
+      "tx": "0xf0c6739cdf18007830ae68c77dc519f1ce8ee2c6864dfd530cdbfda6541970d4",
+      "block": "83814757"
+    },
+    {
+      "event": "KeyRevoked",
+      "args": {
+        "user": "0x04801c703843Bf51a112Fa4dC8A7B2Bb4d0D1176",
+        "keyId": "0x922d965b82a8437952887b4d91c8db7c5706227d343a1f3b95c4a5152337dea5"
+      },
+      "tx": "0xc0541f30b86153e7db0762eed1a1d5dfdf779dde476d79b3f8f04aa423e8cbe6",
+      "block": "83833339"
+    }
+  ],
+  "wallets": [
+    {
+      "user": "0x0000000000000000000000000000000000000000",
+      "keyStoreKeys": [],
+      "account": {
+        "delegatedTo": null,
+        "accountErr": "The contract function \"getKeys\" returned no data (\"0x\")."
+      }
+    },
+    {
+      "user": "0x90052C7827475fCAb79089B81ea928A9Fa19BE7C",
+      "keyStoreKeys": [],
+      "account": {
+        "delegatedTo": null,
+        "accountErr": "The contract function \"getKeys\" returned no data (\"0x\")."
+      }
+    },
+    {
+      "user": "0x999192b5273B3Aa783639d334e7d09Ba4B777341",
+      "keyStoreKeys": [],
+      "account": {
+        "code": "0x6080604052600436101561001a575b3615610018575f80fd5b005b5f3560e01c806301d5062a14610b2057806301ffc9a714610ab057806307bd026514610a76578063134008d3146109c357806313bc9f20146109a5578063150b7a0214610950578063248a9ca3146109265780632ab0f529146109085780632f2ff15d146108cb57806331d50750146108ad57806336568abe14610869578063584b153e1461084157806364d62353146107dc5780637958004c146107995780638065657f1461077a5780638f2a0bb0146105f55780638f61f4f5146105bb57806391d1485414610573578063a217fddf14610559578063b08e51c01461051f578063b1c5f427146104f5578063bc197c8114610460578063c4d252f514610382578063d45c443514610358578063d547741f14610314578063e38335e5146101c8578063f23a6e61146101735763f27a0c920361000e573461016f575f36600319011261016f576020600254604051908152f35b5f80fd5b3461016f5760a036600319011261016f5761018c610bcb565b50610195610be1565b506084356001600160401b03811161016f576101b5903690600401610cc2565b5060405163f23a6e6160e01b8152602090f35b6101d136610d38565b5f80527fdae2aa361dfd1ca020a396615627d436107c35eff9fe7738a3512819782d70696020527f5ba6852781629bcdcd4bdaa6de76d786f1c64b16acdac474e55bebc0ea1579515492979196919593949260ff1615610306575b8282148015906102fc575b6102e15761024e61025591888a888789888d611002565b968761131b565b5f5b81811061026757610018876113c6565b8080887fc2617efa69bab66782fa219543714338489c4e9e178271560a91b82c3f612b5888886102d86102bf8f986001998f828e6102b28f836102ad916102b896610f89565b610fad565b97610f89565b3595610fc1565b906102cc82828787611373565b60405194859485610e65565b0390a301610257565b50869063ffb0321160e01b5f5260045260245260445260645ffd5b5087821415610237565b61030f3361124d565b61022c565b3461016f57604036600319011261016f57610018600435610333610be1565b9061035361034c825f525f602052600160405f20015490565b33906112d3565b61146c565b3461016f57602036600319011261016f576004355f526001602052602060405f2054604051908152f35b3461016f57602036600319011261016f57335f9081527fc3ad33e20b0c56a223ad5104fff154aa010f8715b9c981fd38fdc60a4d1a52fb60205260409020546004359060ff1615610429576103d681610ed3565b1561040f57805f5260016020525f60408120557fbaa1eb22f2a492ba1a5fea61b8df4d27c6c8b5f3971e63bb58fa14ff72eedb705f80a2005b635ead8eb560e01b5f52600452600460021760245260445ffd5b63e2517d3f60e01b5f52336004527ffd643c72710c63c0180259aba6b2d05451e3591a24e58b62239378085726f78360245260445ffd5b3461016f5760a036600319011261016f57610479610bcb565b50610482610be1565b506044356001600160401b03811161016f576104a2903690600401610da6565b506064356001600160401b03811161016f576104c2903690600401610da6565b506084356001600160401b03811161016f576104e2903690600401610cc2565b5060405163bc197c8160e01b8152602090f35b3461016f57602061051761050836610d38565b96959095949194939293611002565b604051908152f35b3461016f575f36600319011261016f5760206040517ffd643c72710c63c0180259aba6b2d05451e3591a24e58b62239378085726f7838152f35b3461016f575f36600319011261016f5760206040515f8152f35b3461016f57604036600319011261016f5761058c610be1565b6004355f525f60205260405f209060018060a01b03165f52602052602060ff60405f2054166040519015158152f35b3461016f575f36600319011261016f5760206040517fb09aa5aeb3702cfd50b6b62bc4532604938f21248a27a1d5ca736082b6819cc18152f35b3461016f5760c036600319011261016f576004356001600160401b03811161016f57610625903690600401610d08565b906024356001600160401b03811161016f57610645903690600401610d08565b6044929192356001600160401b03811161016f57610667903690600401610d08565b9390916064356084359560a4359261067e336111c7565b808914801590610770575b6107565761069d88848489858a8f8e611002565b986106a8858b611154565b895f5b8281106106e8575089806106bb57005b60207f20fda5fd27a1ea7bf5b9567f143ac5470bb059374a27e8f67cb44f946f6d038791604051908152a2005b806001927f4cf4410cc57040e44862ef0f45f3dd5a5e02db8eb8add648d4b0e236f1d07dca8b8b61074b8f8c61073e8f928e6107378f8f906107316102ad8f8097948195610f89565b99610f89565b3597610fc1565b9060405196879687610e2d565b0390a3018a906106ab565b908863ffb0321160e01b5f5260045260245260445260645ffd5b5081891415610689565b3461016f57602061051761078d36610c24565b94939093929192610f34565b3461016f57602036600319011261016f576107b5600435610efc565b60405160048210156107c8576020918152f35b634e487b7160e01b5f52602160045260245ffd5b3461016f57602036600319011261016f5760043530330361082e577f11c24f4ead16507c69ac467fbd5e4eed5fb5c699626d2cc6d66421df253886d560406002548151908152836020820152a1600255005b63e2850c5960e01b5f523360045260245ffd5b3461016f57602036600319011261016f57602061085f600435610ed3565b6040519015158152f35b3461016f57604036600319011261016f57610882610be1565b336001600160a01b0382160361089e576100189060043561146c565b63334bd91960e11b5f5260045ffd5b3461016f57602036600319011261016f57602061085f600435610ebc565b3461016f57604036600319011261016f576100186004356108ea610be1565b9061090361034c825f525f602052600160405f20015490565b6113e4565b3461016f57602036600319011261016f57602061085f600435610ea4565b3461016f57602036600319011261016f5760206105176004355f525f602052600160405f20015490565b3461016f57608036600319011261016f57610969610bcb565b50610972610be1565b506064356001600160401b03811161016f57610992903690600401610cc2565b50604051630a85bd0160e11b8152602090f35b3461016f57602036600319011261016f57602061085f600435610e8c565b610018610a545f610a607fc2617efa69bab66782fa219543714338489c4e9e178271560a91b82c3f612b58610a4b6109fa36610c24565b7fd8aa0f3194971a2a116679f7c2090f6939c8d4e01a2a8d7e41d55e5351469e638a9995979299949394528960205260408a208a805260205260ff60408b20541615610a68575b8884848989610f34565b9889978861131b565b6102cc82828787611373565b0390a36113c6565b610a713361124d565b610a41565b3461016f575f36600319011261016f5760206040517fd8aa0f3194971a2a116679f7c2090f6939c8d4e01a2a8d7e41d55e5351469e638152f35b3461016f57602036600319011261016f5760043563ffffffff60e01b811680910361016f57602090630271189760e51b8114908115610af5575b506040519015158152f35b637965db0b60e01b811491508115610b0f575b5082610aea565b6301ffc9a760e01b14905082610b08565b3461016f5760c036600319011261016f57610b39610bcb565b602435906044356001600160401b03811161016f577f4cf4410cc57040e44862ef0f45f3dd5a5e02db8eb8add648d4b0e236f1d07dca92610b7f5f923690600401610bf7565b94909160643594610bc16084359660a43590610b9a336111c7565b610ba889828c8a8989610f34565b998a97610bb5848a611154565b60405196879687610e2d565b0390a3806106bb57005b600435906001600160a01b038216820361016f57565b602435906001600160a01b038216820361016f57565b9181601f8401121561016f578235916001600160401b03831161016f576020838186019501011161016f57565b60a060031982011261016f576004356001600160a01b038116810361016f579160243591604435906001600160401b03821161016f57610c6691600401610bf7565b90916064359060843590565b90601f801991011681019081106001600160401b03821117610c9357604052565b634e487b7160e01b5f52604160045260245ffd5b6001600160401b038111610c9357601f01601f191660200190565b81601f8201121561016f57803590610cd982610ca7565b92610ce76040519485610c72565b8284526020838301011161016f57815f926020809301838601378301015290565b9181601f8401121561016f578235916001600160401b03831161016f576020808501948460051b01011161016f57565b60a060031982011261016f576004356001600160401b03811161016f5781610d6291600401610d08565b929092916024356001600160401b03811161016f5781610d8491600401610d08565b92909291604435906001600160401b03821161016f57610c6691600401610d08565b9080601f8301121561016f578135916001600160401b038311610c93578260051b9060405193610dd96020840186610c72565b845260208085019282010192831161016f57602001905b828210610dfd5750505090565b8135815260209182019101610df0565b908060209392818452848401375f828201840152601f01601f1916010190565b929093610e5b926080959897969860018060a01b03168552602085015260a0604085015260a0840191610e0d565b9460608201520152565b610e89949260609260018060a01b0316825260208201528160408201520191610e0d565b90565b610e9590610efc565b60048110156107c85760021490565b610ead90610efc565b60048110156107c85760031490565b610ec590610efc565b60048110156107c857151590565b610edc90610efc565b60048110156107c85760018114908115610ef4575090565b600291501490565b5f52600160205260405f205480155f14610f1557505f90565b60018103610f235750600390565b421015610f2f57600190565b600290565b94610f6a610f8394959293604051968795602087019960018060a01b03168a52604087015260a0606087015260c0860191610e0d565b91608084015260a083015203601f198101835282610c72565b51902090565b9190811015610f995760051b0190565b634e487b7160e01b5f52603260045260245ffd5b356001600160a01b038116810361016f5790565b9190811015610f995760051b81013590601e198136030182121561016f5701908135916001600160401b03831161016f57602001823603811361016f579190565b9693949190969592956040519660208801988060c08a0160a08c525260e0890192905f905b80821061111e57505050878203601f190160408901528082526001600160fb1b03811161016f579087959394929160051b8092602083013701848103606086015260208101849052600584901b8101604090810194908201915f90889036829003601e1901905b8484106110b857505050505050610f839450608084015260a083015203601f198101835282610c72565b91939597909294969850601f19601f198383030101875289358381121561016f57840190602082359201916001600160401b03811161016f57803603831361016f5761110a6020928392600195610e0d565b9b0197019401918a9896999795939161108e565b91939091908435906001600160a01b038216820361016f576001600160a01b039091168152602090810194019160010190611027565b9061115e82610ebc565b6111af576002548082106111995750420190814211611185575f52600160205260405f2055565b634e487b7160e01b5f52601160045260245ffd5b90635433660960e01b5f5260045260245260445ffd5b50635ead8eb560e01b5f52600452600160245260445ffd5b6001600160a01b0381165f9081527f3412d5605ac6cd444957cedb533e5dacad6378b4bc819ebe3652188a665066d5602052604090205460ff16156112095750565b63e2517d3f60e01b5f9081526001600160a01b03919091166004527fb09aa5aeb3702cfd50b6b62bc4532604938f21248a27a1d5ca736082b6819cc1602452604490fd5b6001600160a01b0381165f9081527fdae2aa361dfd1ca020a396615627d436107c35eff9fe7738a3512819782d7069602052604090205460ff161561128f5750565b63e2517d3f60e01b5f9081526001600160a01b03919091166004527fd8aa0f3194971a2a116679f7c2090f6939c8d4e01a2a8d7e41d55e5351469e63602452604490fd5b90815f525f60205260405f2060018060a01b0382165f5260205260ff60405f205416156112fe575050565b63e2517d3f60e01b5f5260018060a01b031660045260245260445ffd5b61132481610e8c565b1561135c57508015158061134c575b61133a5750565b63121534c360e31b5f5260045260245ffd5b5061135681610ea4565b15611333565b635ead8eb560e01b5f52600452600460245260445ffd5b6113bb935f93928493826040519384928337810185815203925af13d156113be573d9061139f82610ca7565b916113ad6040519384610c72565b82523d5f602084013e6114ec565b50565b6060906114ec565b6113cf81610e8c565b1561135c575f526001602052600160405f2055565b5f818152602081815260408083206001600160a01b038616845290915290205460ff16611466575f818152602081815260408083206001600160a01b0395909516808452949091528120805460ff19166001179055339291907f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d9080a4600190565b50505f90565b5f818152602081815260408083206001600160a01b038616845290915290205460ff1615611466575f818152602081815260408083206001600160a01b0395909516808452949091528120805460ff19169055339291907ff6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b9080a4600190565b156114f45790565b80511561150357602081519101fd5b63d6bda27560e01b5f5260045ffdfea26469706673582212205c7bd28687bdeb15fed0ace95bc1a16c94efecbfee1df5f5bd054ac1be58d1f864736f6c634300081a0033",
+        "delegatedTo": null,
+        "accountErr": "The contract function \"getKeys\" reverted."
+      }
+    },
+    {
+      "user": "0x887EAF32db5328Bd3F442747089985dA72474Bb8",
+      "keyStoreKeys": [
+        "0x8d87f39fc4e2afbe59b4c16ac7ae05ab98fa42c2d13047cdcc393acb84e2d686"
+      ],
+      "keyStore": {
+        "0x8d87f39fc4e2afbe59b4c16ac7ae05ab98fa42c2d13047cdcc393acb84e2d686": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x046540b9fc96fec7622e56c29e04a09dffb45b6de99a6e22abaaf24fa579d2696803b6829413158832e7ae8ef6157d7361dc6dcf124211a2f3afd70f1d0b74a667",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1794924603",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x046540b9fc96fec7622e56c29e04a09dffb45b6de99a6e22abaaf24fa579d2696803b6829413158832e7ae8ef6157d7361dc6dcf124211a2f3afd70f1d0b74a667",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x046540b9fc96fec7622e56c29e04a09dffb45b6de99a6e22abaaf24fa579d2696803b6829413158832e7ae8ef6157d7361dc6dcf124211a2f3afd70f1d0b74a667",
+            "0x",
+            "0",
+            "1794924603",
+            false,
+            0,
+            true
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0xa087d6ff10db827653de0e171712357b21047fcb3c5092bf21960ca272e45ac6",
+            "expiry": 0,
+            "keyType": 2,
+            "isSuperAdmin": true,
+            "publicKey": "0x000000000000000000000000887eaf32db5328bd3f442747089985da72474bb8",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0xf553cf1d3624bc259fc0f15cc4840a8266b6228b55e6ddbd65f2d5f9140ba2e3"
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x37f688e5229565cD43C33df66042Dd6772a53b9E",
+      "keyStoreKeys": [
+        "0x6a8c17a106638722f7257ba4a27bac1043b006acb4daf9ddcb7628c64e7428e3"
+      ],
+      "keyStore": {
+        "0x6a8c17a106638722f7257ba4a27bac1043b006acb4daf9ddcb7628c64e7428e3": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x33776c9478ec3281d241d03d7f96040c79e4d3bf7b7606c323194bd09d89737da3fe082f0707cdd79b5fe31e67fbd1184d140004fad28a6a2522e1b23e135fd1",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1794949674",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x33776c9478ec3281d241d03d7f96040c79e4d3bf7b7606c323194bd09d89737da3fe082f0707cdd79b5fe31e67fbd1184d140004fad28a6a2522e1b23e135fd1",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x33776c9478ec3281d241d03d7f96040c79e4d3bf7b7606c323194bd09d89737da3fe082f0707cdd79b5fe31e67fbd1184d140004fad28a6a2522e1b23e135fd1",
+            "0x",
+            "0",
+            "1794949674",
+            false,
+            0,
+            true
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x08749b371c5e213e7cb1a9192a06d9f3c99a1f134d4ae2cfabc6e27ea6e900ad",
+            "expiry": 0,
+            "keyType": 1,
+            "isSuperAdmin": true,
+            "publicKey": "0x33776c9478ec3281d241d03d7f96040c79e4d3bf7b7606c323194bd09d89737da3fe082f0707cdd79b5fe31e67fbd1184d140004fad28a6a2522e1b23e135fd1",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0x6a8c17a106638722f7257ba4a27bac1043b006acb4daf9ddcb7628c64e7428e3"
+          }
+        ]
+      }
+    },
+    {
+      "user": "0xa8dcf6a0304D27cb306830b9503F8cFcf38EFf7D",
+      "keyStoreKeys": [
+        "0x4fb180f43fafd10b1cbe8ede43056e44a89031b26a4f401a7fd4fc5dca4c279b",
+        "0xd2504335b40da51a497016a7ae4fcf9faca18ddb940cde0271d14badf51fa33f"
+      ],
+      "keyStore": {
+        "0x4fb180f43fafd10b1cbe8ede43056e44a89031b26a4f401a7fd4fc5dca4c279b": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x213b0dd3f0c8e452a62eb983582f0eec4c037fdcf1469a61ff2efc396f59e4a2098c7c542e4fa757b564d7e25f1de193ed1048b18b97abebd65fba55d834ef1d",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795144175",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x213b0dd3f0c8e452a62eb983582f0eec4c037fdcf1469a61ff2efc396f59e4a2098c7c542e4fa757b564d7e25f1de193ed1048b18b97abebd65fba55d834ef1d",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x213b0dd3f0c8e452a62eb983582f0eec4c037fdcf1469a61ff2efc396f59e4a2098c7c542e4fa757b564d7e25f1de193ed1048b18b97abebd65fba55d834ef1d",
+            "0x",
+            "0",
+            "1795144175",
+            false,
+            0,
+            true
+          ]
+        },
+        "0xd2504335b40da51a497016a7ae4fcf9faca18ddb940cde0271d14badf51fa33f": {
+          "getExpiry": 1797736169,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x047b793da319b0563d0143505e31f6a70ba43b17d04f8af48caa89e90893c78735db0c146bd473d775fd79c1884d5a4d143f066ab7941f21ed09adc12abff9423e",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795144175",
+            "revoked": false,
+            "expiry": 1797736169,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x047b793da319b0563d0143505e31f6a70ba43b17d04f8af48caa89e90893c78735db0c146bd473d775fd79c1884d5a4d143f066ab7941f21ed09adc12abff9423e",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x047b793da319b0563d0143505e31f6a70ba43b17d04f8af48caa89e90893c78735db0c146bd473d775fd79c1884d5a4d143f066ab7941f21ed09adc12abff9423e",
+            "0x",
+            "0",
+            "1795144175",
+            false,
+            1797736169,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x59835705123ad5d72a9e930f41862716d6395a90484dbdac074994064710d2b0",
+            "expiry": 0,
+            "keyType": 1,
+            "isSuperAdmin": true,
+            "publicKey": "0x213b0dd3f0c8e452a62eb983582f0eec4c037fdcf1469a61ff2efc396f59e4a2098c7c542e4fa757b564d7e25f1de193ed1048b18b97abebd65fba55d834ef1d",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0x4fb180f43fafd10b1cbe8ede43056e44a89031b26a4f401a7fd4fc5dca4c279b"
+          },
+          {
+            "keyHash": "0x5b29d28e61f7ec83cfc396d2e38d37ccfa221a3483dee4c761b99df7db41ac77",
+            "expiry": 1797736169,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x0000000000000000000000000ef066d13f3d7cbf885623f4ee5c37b99e5b9ea7",
+            "expiryIso": "2026-12-20T03:09:29.000Z",
+            "keyStoreIdGuess": "0x67de3e7a470926c9e3fba1239e42a9b31d9bae89f9e88a50d2d2988a6381cfb5",
+            "mayCall": [
+              {
+                "target": "0x5615cdab10dc425a742d643d949a7f474c01abc4",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0x3e59a31363e2ad014dcbc521c4a0d5757d9f3402",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0x777a8255ca72412f0d706dc03c9d1987306b4cad",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+                "selector": "0x8ea42286"
+              },
+              {
+                "target": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+                "selector": "0x0af28bd3"
+              },
+              {
+                "target": "0xceba9300f2b948710d2653dd7b07f33a8b32118c",
+                "selector": "0x095ea7b3"
+              },
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0x095ea7b3"
+              },
+              {
+                "target": "0x765de816845861e75a25fca122bb6898b8b1282a",
+                "selector": "0x095ea7b3"
+              },
+              {
+                "target": "0x471ece3750da237f93b8e339c536989b8978a438",
+                "selector": "0x095ea7b3"
+              },
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0x0000000000000000000000000000000000000000",
+                "period": 3,
+                "limit": "879543369000000000000",
+                "spent": "352745040024986107",
+                "lastUpdated": "1794787200",
+                "currentSpent": "0",
+                "current": "1795392000"
+              },
+              {
+                "token": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+                "period": 3,
+                "limit": "50000000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795392000"
+              },
+              {
+                "token": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+                "period": 3,
+                "limit": "50000000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795392000"
+              },
+              {
+                "token": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+                "period": 3,
+                "limit": "50000000000000000000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795392000"
+              },
+              {
+                "token": "0x471EcE3750Da237f93B8E339c536989b8978a438",
+                "period": 3,
+                "limit": "879543369000000000000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795392000"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x22d66bD658ad8b5269998545719941479ef4478d",
+      "keyStoreKeys": [
+        "0xac7f94998c75d0bcc03c2602347e36c54e458312149bd9c0cbd77a868f77ceba",
+        "0x104701a5f782b37df1a09ccf48a633e0e954d727e6a548309400443b58c0820e"
+      ],
+      "keyStore": {
+        "0xac7f94998c75d0bcc03c2602347e36c54e458312149bd9c0cbd77a868f77ceba": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04cba32dac17107e1d05df6c68b091459f567f40e3e8852dd16535f98fbb756c5193eb389430dd9fd9bb252718ad81084b78dda05900d1fee66f220d8b64240576",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795186901",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04cba32dac17107e1d05df6c68b091459f567f40e3e8852dd16535f98fbb756c5193eb389430dd9fd9bb252718ad81084b78dda05900d1fee66f220d8b64240576",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04cba32dac17107e1d05df6c68b091459f567f40e3e8852dd16535f98fbb756c5193eb389430dd9fd9bb252718ad81084b78dda05900d1fee66f220d8b64240576",
+            "0x",
+            "0",
+            "1795186901",
+            false,
+            0,
+            true
+          ]
+        },
+        "0x104701a5f782b37df1a09ccf48a633e0e954d727e6a548309400443b58c0820e": {
+          "getExpiry": 1796396492,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04f0a0c67153764b24632c30da60622104d867e7b371a4880a3a11626f1b943f1a1b116944d17b4f6093875bc1fd47a4cac37f5d9b81f2bc4aa5cdb63be120a066",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795186901",
+            "revoked": false,
+            "expiry": 1796396492,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04f0a0c67153764b24632c30da60622104d867e7b371a4880a3a11626f1b943f1a1b116944d17b4f6093875bc1fd47a4cac37f5d9b81f2bc4aa5cdb63be120a066",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04f0a0c67153764b24632c30da60622104d867e7b371a4880a3a11626f1b943f1a1b116944d17b4f6093875bc1fd47a4cac37f5d9b81f2bc4aa5cdb63be120a066",
+            "0x",
+            "0",
+            "1795186901",
+            false,
+            1796396492,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x6fb8d26f8c99653a885bf509b315d86f2f72ab81a00c79ed55d6b90ce3ea0717",
+            "expiry": 1796396492,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x000000000000000000000000b2b3f9d2effd520b6f27576b8281c7220a83af13",
+            "expiryIso": "2026-12-04T15:01:32.000Z",
+            "keyStoreIdGuess": "0xf7638f3fa1cd5609ed0a591ebf65dd260391ab538447c4b21a8d13b2e6523dd0",
+            "mayCall": [
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0x095ea7b3"
+              },
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0xa9aa0a64769cbed4d3b1ceb4df01cde915c235b3",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0xf6829d7393dae24509eb1e52ee8e572e2e271a4f",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0x18bc5bcc660cf2b9ce3cd51a404afe1a0cbd3c22",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+                "period": 3,
+                "limit": "15000000",
+                "spent": "2620240",
+                "lastUpdated": "1794787200",
+                "currentSpent": "0",
+                "current": "1795392000"
+              },
+              {
+                "token": "0xF6829D7393dAe24509eb1E52eE8e572e2E271a4f",
+                "period": 3,
+                "limit": "25000000000",
+                "spent": "2161603422",
+                "lastUpdated": "1794787200",
+                "currentSpent": "0",
+                "current": "1795392000"
+              },
+              {
+                "token": "0x18Bc5bcC660cf2B9cE3cd51a404aFe1a0cBD3C22",
+                "period": 3,
+                "limit": "25000000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795392000"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "user": "0xBf39b7f2211128b5148d45eA28b4052349d2aBe0",
+      "keyStoreKeys": [
+        "0x742ad6546029b76d383a155a69affa26816609110f722f3b7fd637faebba28a6",
+        "0x02f8d208234fb71cccee0d064a507ab3af26c1077d8724a83687db0400c43d63"
+      ],
+      "keyStore": {
+        "0x742ad6546029b76d383a155a69affa26816609110f722f3b7fd637faebba28a6": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x7ea86f1134c6f49b063277dc08759bd6902d257970bdf4a5f61f3ba4c5de47ae64efe5479c309de41576ea575ac402cd95317063a8078019b88ab59d203090b9",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795195636",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x7ea86f1134c6f49b063277dc08759bd6902d257970bdf4a5f61f3ba4c5de47ae64efe5479c309de41576ea575ac402cd95317063a8078019b88ab59d203090b9",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x7ea86f1134c6f49b063277dc08759bd6902d257970bdf4a5f61f3ba4c5de47ae64efe5479c309de41576ea575ac402cd95317063a8078019b88ab59d203090b9",
+            "0x",
+            "0",
+            "1795195636",
+            false,
+            0,
+            true
+          ]
+        },
+        "0x02f8d208234fb71cccee0d064a507ab3af26c1077d8724a83687db0400c43d63": {
+          "getExpiry": 1795199247,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04ebb2ca6806ed0a0e2212341dd74254bccc7cc30e76ff1b3556fec9bb9e27269f0f7313146366891e7f3f10093dd8c06dc3e2425f948832034b8357da88bdbbf4",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795195658",
+            "revoked": false,
+            "expiry": 1795199247,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04ebb2ca6806ed0a0e2212341dd74254bccc7cc30e76ff1b3556fec9bb9e27269f0f7313146366891e7f3f10093dd8c06dc3e2425f948832034b8357da88bdbbf4",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": false,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04ebb2ca6806ed0a0e2212341dd74254bccc7cc30e76ff1b3556fec9bb9e27269f0f7313146366891e7f3f10093dd8c06dc3e2425f948832034b8357da88bdbbf4",
+            "0x",
+            "0",
+            "1795195658",
+            false,
+            1795199247,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x128c8f8791a0acc49b1623a29c97432406c55dfe1a73d0cfcd54fb05d3cce38d",
+            "expiry": 0,
+            "keyType": 1,
+            "isSuperAdmin": true,
+            "publicKey": "0x7ea86f1134c6f49b063277dc08759bd6902d257970bdf4a5f61f3ba4c5de47ae64efe5479c309de41576ea575ac402cd95317063a8078019b88ab59d203090b9",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0x742ad6546029b76d383a155a69affa26816609110f722f3b7fd637faebba28a6"
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x4f575F163AAedaad986072939fcB947eb22D574E",
+      "keyStoreKeys": [
+        "0xa5db9d59063d41f38cb22471839f00d69b1c3ec329678326701ec168d40f1e4d",
+        "0x7d2b4eebe496816ca43c87ef3f68b65463b23a85b16248a609740b6ad03f3bcd"
+      ],
+      "keyStore": {
+        "0xa5db9d59063d41f38cb22471839f00d69b1c3ec329678326701ec168d40f1e4d": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x044b7f5fa06ce23cd890102969f7a09c81e9891a3a8f04f05e34117a5c9719e58b89ade433c3ac3994c55792ad1781b74a2cdf1ce722a474314135501f028d7279",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795196313",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x044b7f5fa06ce23cd890102969f7a09c81e9891a3a8f04f05e34117a5c9719e58b89ade433c3ac3994c55792ad1781b74a2cdf1ce722a474314135501f028d7279",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x044b7f5fa06ce23cd890102969f7a09c81e9891a3a8f04f05e34117a5c9719e58b89ade433c3ac3994c55792ad1781b74a2cdf1ce722a474314135501f028d7279",
+            "0x",
+            "0",
+            "1795196313",
+            false,
+            0,
+            true
+          ]
+        },
+        "0x7d2b4eebe496816ca43c87ef3f68b65463b23a85b16248a609740b6ad03f3bcd": {
+          "getExpiry": 1795282714,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04a1d5ac63c5d3426295ca6b9a73518fb3367f2b633f7a7f20c3a8127753e9daceda7cfe1b0e32811185ea20cac3919d83b690efbbf64aed547cdea49067da0cbf",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795196319",
+            "revoked": false,
+            "expiry": 1795282714,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04a1d5ac63c5d3426295ca6b9a73518fb3367f2b633f7a7f20c3a8127753e9daceda7cfe1b0e32811185ea20cac3919d83b690efbbf64aed547cdea49067da0cbf",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": false,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04a1d5ac63c5d3426295ca6b9a73518fb3367f2b633f7a7f20c3a8127753e9daceda7cfe1b0e32811185ea20cac3919d83b690efbbf64aed547cdea49067da0cbf",
+            "0x",
+            "0",
+            "1795196319",
+            false,
+            1795282714,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x32b9c0f3821ccabd6618620d30f3a1d38486fb208e3d05c2ef8487a8f8e703ea",
+            "expiry": 0,
+            "keyType": 2,
+            "isSuperAdmin": true,
+            "publicKey": "0x0000000000000000000000004f575f163aaedaad986072939fcb947eb22d574e",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0x0e26a105a61543fa4e2d5096bef3df812b4019118d7e55b45f29fb56eb7c23eb"
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x5aeC9aC78bb3E045d2f85e311aD3385B8116d0c5",
+      "keyStoreKeys": [
+        "0xbbeddd05971aac407267cf28c9d3662485e77d35f82b783a09258542997606f4",
+        "0x2a427ea5308b03418296c6773c8c85c28dc954c790c3390b126c41d65927d696",
+        "0xa7c6e215e708d7970e6f20352c4ccaf6360a3e5269fb53165e918e2e9b2010fa"
+      ],
+      "keyStore": {
+        "0xbbeddd05971aac407267cf28c9d3662485e77d35f82b783a09258542997606f4": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x0479ad02abdfe52aee4c1b0c766311a2c42a8564efea2bec7e6bec76a704160bef7d48e42bc89c9169ed4c0e07de31e64b080d03d9aac86597f71c698e13342019",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795224318",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x0479ad02abdfe52aee4c1b0c766311a2c42a8564efea2bec7e6bec76a704160bef7d48e42bc89c9169ed4c0e07de31e64b080d03d9aac86597f71c698e13342019",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x0479ad02abdfe52aee4c1b0c766311a2c42a8564efea2bec7e6bec76a704160bef7d48e42bc89c9169ed4c0e07de31e64b080d03d9aac86597f71c698e13342019",
+            "0x",
+            "0",
+            "1795224318",
+            false,
+            0,
+            true
+          ]
+        },
+        "0x2a427ea5308b03418296c6773c8c85c28dc954c790c3390b126c41d65927d696": {
+          "getExpiry": 1795829114,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04e49388e0deea9c82720b8f6c6324ad95622ad3cf6dbf3c9dce1e3d119f76759fca89932828c0039c6ece877428646f3e44b5d6dc28f8c651f4b4e78de100f514",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795224318",
+            "revoked": false,
+            "expiry": 1795829114,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04e49388e0deea9c82720b8f6c6324ad95622ad3cf6dbf3c9dce1e3d119f76759fca89932828c0039c6ece877428646f3e44b5d6dc28f8c651f4b4e78de100f514",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04e49388e0deea9c82720b8f6c6324ad95622ad3cf6dbf3c9dce1e3d119f76759fca89932828c0039c6ece877428646f3e44b5d6dc28f8c651f4b4e78de100f514",
+            "0x",
+            "0",
+            "1795224318",
+            false,
+            1795829114,
+            false
+          ]
+        },
+        "0xa7c6e215e708d7970e6f20352c4ccaf6360a3e5269fb53165e918e2e9b2010fa": {
+          "getExpiry": 1795837349,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x040776c955f9b471127b5fa0e729f36b098ecd5a64118e384034605ee66991dff84cdd3c3b27014d96bdaf1ba79339093dae213a5b870d95935e61dd7b67cfcd23",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795232554",
+            "revoked": false,
+            "expiry": 1795837349,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x040776c955f9b471127b5fa0e729f36b098ecd5a64118e384034605ee66991dff84cdd3c3b27014d96bdaf1ba79339093dae213a5b870d95935e61dd7b67cfcd23",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x040776c955f9b471127b5fa0e729f36b098ecd5a64118e384034605ee66991dff84cdd3c3b27014d96bdaf1ba79339093dae213a5b870d95935e61dd7b67cfcd23",
+            "0x",
+            "0",
+            "1795232554",
+            false,
+            1795837349,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x6bbb4e80b8630698bf469e700418e2bbf691069479abee83a36b76b251227b02",
+            "expiry": 0,
+            "keyType": 2,
+            "isSuperAdmin": true,
+            "publicKey": "0x0000000000000000000000005aec9ac78bb3e045d2f85e311ad3385b8116d0c5",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0xc6f7a5f5642287a3c8ba1662255e493754a1eb10bebf005377b5d4732fe22c96"
+          },
+          {
+            "keyHash": "0xed710dab4132ed393917fa0b9c390ec7fd849f3df3e860df46ada44b15857337",
+            "expiry": 1795829361,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x000000000000000000000000ea98d44139fa0fcbab9e8313f5dd0b5d97a2841d",
+            "expiryIso": "2026-11-28T01:29:21.000Z",
+            "keyStoreIdGuess": "0x495efd1173b83891e6222dc934db3b43dbea3c07a1190157c7feb1f512daf690",
+            "mayCall": [
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0xa9059cbb"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+                "period": 2,
+                "limit": "5000000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              }
+            ]
+          },
+          {
+            "keyHash": "0x919130a12f74c561d78f64afd4d6e2b65bf1e2c7f446d86a817051a44240f0f0",
+            "expiry": 1795837349,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x000000000000000000000000e92c3754186ef6f4762c0c885a4fb52fda903c2e",
+            "expiryIso": "2026-11-28T03:42:29.000Z",
+            "keyStoreIdGuess": "0xe1310318de902d85a6d3bcb0cd68d061a88548a737bf62feb2a6acd95152a3f4",
+            "mayCall": [
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+                "period": 2,
+                "limit": "5000000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x731a878df9da4c1Dcb87bD0dF4Bfa8cf783A364F",
+      "keyStoreKeys": [
+        "0x07db7018d9cc213b52c2954c857e942402a01c070b45731d6417c60355ad834d"
+      ],
+      "keyStore": {
+        "0x07db7018d9cc213b52c2954c857e942402a01c070b45731d6417c60355ad834d": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x045d0e730675210fb69060cf72c96af76b4a9b4cb1ba3d4c20f45fc171d977ef68c436f09ec757df779e98b65510df27aa0e944bd9477f9c5bc2fd1d538edcf70a",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795278825",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x045d0e730675210fb69060cf72c96af76b4a9b4cb1ba3d4c20f45fc171d977ef68c436f09ec757df779e98b65510df27aa0e944bd9477f9c5bc2fd1d538edcf70a",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x045d0e730675210fb69060cf72c96af76b4a9b4cb1ba3d4c20f45fc171d977ef68c436f09ec757df779e98b65510df27aa0e944bd9477f9c5bc2fd1d538edcf70a",
+            "0x",
+            "0",
+            "1795278825",
+            false,
+            0,
+            true
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x18acfd24ec7fbbaf206b6d364f709297dbdeab4ffc66e0e71eb8c6b33d54775b",
+            "expiry": 0,
+            "keyType": 2,
+            "isSuperAdmin": true,
+            "publicKey": "0x000000000000000000000000731a878df9da4c1dcb87bd0df4bfa8cf783a364f",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0x2b12944ac0a627392d594719edafe86440e6874ed8c4908f44ae13288aca66dc"
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x0EcaaFc1Bd6f7033d6eb038d8Cbc8a55f900D4B1",
+      "keyStoreKeys": [
+        "0xf17097cd0f8ed63045b98fbab3bd5710723109fd2351b7b07d5946d25d4c4847",
+        "0xd5e771a8daa13932a37b433f0db250b64d7363057b08d163bd2642f998655b18"
+      ],
+      "keyStore": {
+        "0xf17097cd0f8ed63045b98fbab3bd5710723109fd2351b7b07d5946d25d4c4847": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x0410cf7bcd6e9c7c128fd30b92f315bff7d6a8762190a38669cef33f0e79a65802ef35770c1c77b018831b7bf128eff7454cbc4576f4c6069a2f6ab6cfe6cd6fac",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795291635",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x0410cf7bcd6e9c7c128fd30b92f315bff7d6a8762190a38669cef33f0e79a65802ef35770c1c77b018831b7bf128eff7454cbc4576f4c6069a2f6ab6cfe6cd6fac",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x0410cf7bcd6e9c7c128fd30b92f315bff7d6a8762190a38669cef33f0e79a65802ef35770c1c77b018831b7bf128eff7454cbc4576f4c6069a2f6ab6cfe6cd6fac",
+            "0x",
+            "0",
+            "1795291635",
+            false,
+            0,
+            true
+          ]
+        },
+        "0xd5e771a8daa13932a37b433f0db250b64d7363057b08d163bd2642f998655b18": {
+          "getExpiry": 1795338699,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x0423ea832eed0d23b6b74a211efda79d092019d8102886b541b5fc3d370b5d797d9f568c5d20d63262c9202d5af742a406b234b236b770fb79235e4d02d5484af5",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795331507",
+            "revoked": false,
+            "expiry": 1795338699,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x0423ea832eed0d23b6b74a211efda79d092019d8102886b541b5fc3d370b5d797d9f568c5d20d63262c9202d5af742a406b234b236b770fb79235e4d02d5484af5",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": false,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x0423ea832eed0d23b6b74a211efda79d092019d8102886b541b5fc3d370b5d797d9f568c5d20d63262c9202d5af742a406b234b236b770fb79235e4d02d5484af5",
+            "0x",
+            "0",
+            "1795331507",
+            false,
+            1795338699,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0xf0fd2d36a3a0ebd49db29d932ce59e52879d1792814000daf1b1509b678b1755",
+            "expiry": 0,
+            "keyType": 2,
+            "isSuperAdmin": true,
+            "publicKey": "0x0000000000000000000000000ecaafc1bd6f7033d6eb038d8cbc8a55f900d4b1",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0xceea4e2044a986b37b1bea0380a028a479d01777c27ab8b050bb91d017483c1c"
+          },
+          {
+            "keyHash": "0x655198e5d3b27ac148df494a3b87f73f2aeba50bcfaa838c9c126e7216df4750",
+            "expiry": 1800522000,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x000000000000000000000000b27a7aec7d23113c04f3349f36d651aae117b276",
+            "expiryIso": "2027-01-21T09:00:00.000Z",
+            "keyStoreIdGuess": "0xa71d5c13f35a503b5d4f75ca2a75ed5c2ef7274826d63d403f2b6ee9e9241156",
+            "mayCall": [
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0xfa8d963525d5f28427b897a0c761c744a43e59af",
+                "selector": "0xac219ae6"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+                "period": 2,
+                "limit": "1500000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              },
+              {
+                "token": "0x0000000000000000000000000000000000000000",
+                "period": 2,
+                "limit": "3000000000000000000",
+                "spent": "1406776323710272819",
+                "lastUpdated": "1795305600",
+                "currentSpent": "0",
+                "current": "1795737600"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "user": "0xB2441B175d620A3Fd5CDef28fA1c6957e6224431",
+      "keyStoreKeys": [
+        "0xe6e5425b055692893f6609f7c8bfd656034d51585f0ecd5587339c98c23022e2",
+        "0xe4bda79699c6079b152ca4ca5ac67f5264568314f29109cb266746742cdb8b86"
+      ],
+      "keyStore": {
+        "0xe6e5425b055692893f6609f7c8bfd656034d51585f0ecd5587339c98c23022e2": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x046ee64c8696f8f8f0bf397d664f106ec94e44f23d8b9919500126f8107e80bab0c32f4246d3173f2f2ba055c863c79f7b10bacc50c8905f1f7bce1bf1d3098779",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795298391",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x046ee64c8696f8f8f0bf397d664f106ec94e44f23d8b9919500126f8107e80bab0c32f4246d3173f2f2ba055c863c79f7b10bacc50c8905f1f7bce1bf1d3098779",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x046ee64c8696f8f8f0bf397d664f106ec94e44f23d8b9919500126f8107e80bab0c32f4246d3173f2f2ba055c863c79f7b10bacc50c8905f1f7bce1bf1d3098779",
+            "0x",
+            "0",
+            "1795298391",
+            false,
+            0,
+            true
+          ]
+        },
+        "0xe4bda79699c6079b152ca4ca5ac67f5264568314f29109cb266746742cdb8b86": {
+          "getExpiry": 1797940544,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04e073dd18945954627dcfb49866a8f2b088cd8168d2c9bb6a5cae50e9d8e8b098aa8b447e78bf9e06ccbc2b2927703e4d1172249c62f8332d72894dc779117047",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795348613",
+            "revoked": false,
+            "expiry": 1797940544,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04e073dd18945954627dcfb49866a8f2b088cd8168d2c9bb6a5cae50e9d8e8b098aa8b447e78bf9e06ccbc2b2927703e4d1172249c62f8332d72894dc779117047",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04e073dd18945954627dcfb49866a8f2b088cd8168d2c9bb6a5cae50e9d8e8b098aa8b447e78bf9e06ccbc2b2927703e4d1172249c62f8332d72894dc779117047",
+            "0x",
+            "0",
+            "1795348613",
+            false,
+            1797940544,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0xacda26501579c3c223fd264399d08dada4083c02267b6be0d8b402449b0d190b",
+            "expiry": 0,
+            "keyType": 2,
+            "isSuperAdmin": true,
+            "publicKey": "0x000000000000000000000000b2441b175d620a3fd5cdef28fa1c6957e6224431",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0xd001e6df027e6f1f28bcd31a4f38853b26e2ae68b6a39e6aecf310f105f8ceef"
+          },
+          {
+            "keyHash": "0x7e23b52f37981c45a999fcb40255981c95971d0a23aced528cedcee1fc49cf3f",
+            "expiry": 1797940544,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x00000000000000000000000084471a076b3b9dc1f526e648ab015ac0c7f61930",
+            "expiryIso": "2026-12-22T11:55:44.000Z",
+            "keyStoreIdGuess": "0xd15d49beebcd20b3fd961370751850cc7f124012da67a2d071e5478e79307493",
+            "mayCall": [
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0x095ea7b3"
+              },
+              {
+                "target": "0xa9aa0a64769cbed4d3b1ceb4df01cde915c235b3",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0xf6829d7393dae24509eb1e52ee8e572e2e271a4f",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0x55649e01b5df198d18d95b5cc5051630cfd45564",
+                "selector": "0x4d1f9583"
+              },
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+                "period": 3,
+                "limit": "200000000",
+                "spent": "1461192",
+                "lastUpdated": "1795392000",
+                "currentSpent": "1461192",
+                "current": "1795392000"
+              },
+              {
+                "token": "0xF6829D7393dAe24509eb1E52eE8e572e2E271a4f",
+                "period": 3,
+                "limit": "300000000000",
+                "spent": "2000000000",
+                "lastUpdated": "1795392000",
+                "currentSpent": "2000000000",
+                "current": "1795392000"
+              },
+              {
+                "token": "0x0000000000000000000000000000000000000000",
+                "period": 2,
+                "limit": "1000000000000000000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x093c0AfA09fF4715595a79770447C60C4eCFfd1C",
+      "keyStoreKeys": [
+        "0x26710b97b92cd16f0766bb926aaa593565754fef18ea0f8d84003d62a84dd3a2"
+      ],
+      "keyStore": {
+        "0x26710b97b92cd16f0766bb926aaa593565754fef18ea0f8d84003d62a84dd3a2": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04b4277c0cb40d9fc360ca1f0ffcd280e52f97bdf3c5e25dbf0e4301d38b1a2a57a5f64f84a72fb94c65445cf0e3077ffca1e27ee2cd7ec7bea144cbddcee2e159",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795306984",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04b4277c0cb40d9fc360ca1f0ffcd280e52f97bdf3c5e25dbf0e4301d38b1a2a57a5f64f84a72fb94c65445cf0e3077ffca1e27ee2cd7ec7bea144cbddcee2e159",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04b4277c0cb40d9fc360ca1f0ffcd280e52f97bdf3c5e25dbf0e4301d38b1a2a57a5f64f84a72fb94c65445cf0e3077ffca1e27ee2cd7ec7bea144cbddcee2e159",
+            "0x",
+            "0",
+            "1795306984",
+            false,
+            0,
+            true
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0xac293720c6d58ebd17ac5da655681941add34f703db01e5a433dd8482e406c91",
+            "expiry": 0,
+            "keyType": 2,
+            "isSuperAdmin": true,
+            "publicKey": "0x000000000000000000000000093c0afa09ff4715595a79770447c60c4ecffd1c",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0x92d15abcaaabf3e27b827669266379459e43c0c708d2d3acf46dbcea954b7463"
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x0D89830F241383535c3708b6c521F09Ee7cddb1e",
+      "keyStoreKeys": [
+        "0x1f5826f7bec90983fa1bcff732a5fdb01ee9f33de8cbc9c98772d3e3bce42a79",
+        "0xf74205ddf3140610ee1ae3fa74c87bebb8fbf0ea8a3559436fa7235c516e1414",
+        "0x033c7060b2aa5c7ebc2b2d9945cc6ff169f4b6c65ea90fa57f183aa8b4b5ff73"
+      ],
+      "keyStore": {
+        "0x1f5826f7bec90983fa1bcff732a5fdb01ee9f33de8cbc9c98772d3e3bce42a79": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04ddac202f5c2e19a9bcab86f3239096b5c61dc946b596c53654e8b0b2445803f91fab344499e108f27c2aea3965ca8e1f31bd953ae7162c3776f4eede2be8db82",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795312119",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04ddac202f5c2e19a9bcab86f3239096b5c61dc946b596c53654e8b0b2445803f91fab344499e108f27c2aea3965ca8e1f31bd953ae7162c3776f4eede2be8db82",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04ddac202f5c2e19a9bcab86f3239096b5c61dc946b596c53654e8b0b2445803f91fab344499e108f27c2aea3965ca8e1f31bd953ae7162c3776f4eede2be8db82",
+            "0x",
+            "0",
+            "1795312119",
+            false,
+            0,
+            true
+          ]
+        },
+        "0xf74205ddf3140610ee1ae3fa74c87bebb8fbf0ea8a3559436fa7235c516e1414": {
+          "getExpiry": 1795916912,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04c7c17320c7cf670860ba1ff2c4e03ff15247fb72f949544a20b64543a365f542f695ae26189e1b44cf90ae67abe5806ca6f6bda4cd9e62369dbe947554dd7229",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795312119",
+            "revoked": false,
+            "expiry": 1795916912,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04c7c17320c7cf670860ba1ff2c4e03ff15247fb72f949544a20b64543a365f542f695ae26189e1b44cf90ae67abe5806ca6f6bda4cd9e62369dbe947554dd7229",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04c7c17320c7cf670860ba1ff2c4e03ff15247fb72f949544a20b64543a365f542f695ae26189e1b44cf90ae67abe5806ca6f6bda4cd9e62369dbe947554dd7229",
+            "0x",
+            "0",
+            "1795312119",
+            false,
+            1795916912,
+            false
+          ]
+        },
+        "0x033c7060b2aa5c7ebc2b2d9945cc6ff169f4b6c65ea90fa57f183aa8b4b5ff73": {
+          "getExpiry": 1826852901,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x040267fa7d927eca0b14e064b2fd812f75833f6f22003e54c5523d352a8b29f7d392b0b608125e78e155c0c5b680984382c1aad3440460937fa47e50acbdd6e360",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795316907",
+            "revoked": false,
+            "expiry": 1826852901,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x040267fa7d927eca0b14e064b2fd812f75833f6f22003e54c5523d352a8b29f7d392b0b608125e78e155c0c5b680984382c1aad3440460937fa47e50acbdd6e360",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x040267fa7d927eca0b14e064b2fd812f75833f6f22003e54c5523d352a8b29f7d392b0b608125e78e155c0c5b680984382c1aad3440460937fa47e50acbdd6e360",
+            "0x",
+            "0",
+            "1795316907",
+            false,
+            1826852901,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x55f47462939781cd0025ca837f904f808d292388cb759f0ba5f7233e819f7bf1",
+            "expiry": 1795916912,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x0000000000000000000000004e145cffd08e199efcd582d98156ebb6db3d58d2",
+            "expiryIso": "2026-11-29T01:48:32.000Z",
+            "keyStoreIdGuess": "0x8fba3ad82ba039b5890fed8d133bda8ccca347fb3157c3d5aefaeb8fb6a881ee",
+            "mayCall": [
+              {
+                "target": "0x000000000022d473030f116ddee9f6b43ac78ba3",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0xceba9300f2b948710d2653dd7b07f33a8b32118c",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0x0d89830f241383535c3708b6c521f09ee7cddb1e",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+                "period": 2,
+                "limit": "500000",
+                "spent": "4718",
+                "lastUpdated": "1795305600",
+                "currentSpent": "0",
+                "current": "1795737600"
+              },
+              {
+                "token": "0x0000000000000000000000000000000000000000",
+                "period": 2,
+                "limit": "500000000000000000",
+                "spent": "100000000000000",
+                "lastUpdated": "1795305600",
+                "currentSpent": "0",
+                "current": "1795737600"
+              }
+            ]
+          },
+          {
+            "keyHash": "0x1551aa472753f8f88a9566aaec19477b861bd41012e0fa377d5844f3c3c75f2a",
+            "expiry": 1826852936,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x00000000000000000000000054b31c517bd1bd8cc5ef0a895a3c095064c1f559",
+            "expiryIso": "2027-11-22T03:08:56.000Z",
+            "keyStoreIdGuess": "0xed23a257c6ed09b4358a98e18060d214305dadabe9dfe89fd693db2f1d1ef5e6",
+            "mayCall": [
+              {
+                "target": "0x000000000022d473030f116ddee9f6b43ac78ba3",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0xceba9300f2b948710d2653dd7b07f33a8b32118c",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0x0d89830f241383535c3708b6c521f09ee7cddb1e",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+                "period": 2,
+                "limit": "500000",
+                "spent": "463943",
+                "lastUpdated": "1795305600",
+                "currentSpent": "0",
+                "current": "1795737600"
+              },
+              {
+                "token": "0x0000000000000000000000000000000000000000",
+                "period": 2,
+                "limit": "500000000000000000",
+                "spent": "100000000000000",
+                "lastUpdated": "1795305600",
+                "currentSpent": "0",
+                "current": "1795737600"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x15855ae2E04Fd00eFA45cB70D2C29E5777925429",
+      "keyStoreKeys": [
+        "0xc4af6220c7c90463fb16efaa98f29d48f374cccb5e74546e18781a42feae2753"
+      ],
+      "keyStore": {
+        "0xc4af6220c7c90463fb16efaa98f29d48f374cccb5e74546e18781a42feae2753": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x8042a8bbabd1b914bf28dd58e4d484902506b1a543904f33ad640a872ffa6316b2b05c8f3ad313b29206df88369a8d525230bcd8f8cc39e7104bd83a742de13a",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795345258",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x8042a8bbabd1b914bf28dd58e4d484902506b1a543904f33ad640a872ffa6316b2b05c8f3ad313b29206df88369a8d525230bcd8f8cc39e7104bd83a742de13a",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x8042a8bbabd1b914bf28dd58e4d484902506b1a543904f33ad640a872ffa6316b2b05c8f3ad313b29206df88369a8d525230bcd8f8cc39e7104bd83a742de13a",
+            "0x",
+            "0",
+            "1795345258",
+            false,
+            0,
+            true
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x33fd8eed834a5e8e9a3908176d0f0f7a9734d226da003c3fae63c943e09d1370",
+            "expiry": 0,
+            "keyType": 1,
+            "isSuperAdmin": true,
+            "publicKey": "0x8042a8bbabd1b914bf28dd58e4d484902506b1a543904f33ad640a872ffa6316b2b05c8f3ad313b29206df88369a8d525230bcd8f8cc39e7104bd83a742de13a",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0xc4af6220c7c90463fb16efaa98f29d48f374cccb5e74546e18781a42feae2753"
+          }
+        ]
+      }
+    },
+    {
+      "user": "0xA177651FC7F9BfF0804ad123c4fdb8aa6625683C",
+      "keyStoreKeys": [
+        "0xbdaf29eb63159c19a90fed5bfb790d3476799ca646ee9594a702621ac558058a"
+      ],
+      "keyStore": {
+        "0xbdaf29eb63159c19a90fed5bfb790d3476799ca646ee9594a702621ac558058a": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04c3c48819194c77d2f10e6c03d75c326b4dbe217cbb58cb9830875ec7fef82d45ce9699e1c087cff5ac732389ea8437e4963c46a8db2bf47b9dd70769c945102e",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795350329",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04c3c48819194c77d2f10e6c03d75c326b4dbe217cbb58cb9830875ec7fef82d45ce9699e1c087cff5ac732389ea8437e4963c46a8db2bf47b9dd70769c945102e",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04c3c48819194c77d2f10e6c03d75c326b4dbe217cbb58cb9830875ec7fef82d45ce9699e1c087cff5ac732389ea8437e4963c46a8db2bf47b9dd70769c945102e",
+            "0x",
+            "0",
+            "1795350329",
+            false,
+            0,
+            true
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0xbf3213e32b776a99787e1bb46e7d55a28f238b929a3594ad47b1af5966858c2d",
+            "expiry": 0,
+            "keyType": 2,
+            "isSuperAdmin": true,
+            "publicKey": "0x000000000000000000000000a177651fc7f9bff0804ad123c4fdb8aa6625683c",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0x95410431de181d849285fbc0b6df1faa566008e221c0636eeaac147820e386fc"
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x88DeB13766F676C70cC27770d1fEd5c3Eb2414db",
+      "keyStoreKeys": [
+        "0x92cbf0d28e8062623661cea9a0ddfe190256c74b823154629bf527bf1382237b"
+      ],
+      "keyStore": {
+        "0x92cbf0d28e8062623661cea9a0ddfe190256c74b823154629bf527bf1382237b": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x043feec878be0407d3188e344c86daa756647d65a6df318877ccd4ec684e2b800babf1769f98212803732d81d674dd1ca8b85231966d94e3c425a18af6c09c8168",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795360416",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x043feec878be0407d3188e344c86daa756647d65a6df318877ccd4ec684e2b800babf1769f98212803732d81d674dd1ca8b85231966d94e3c425a18af6c09c8168",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x043feec878be0407d3188e344c86daa756647d65a6df318877ccd4ec684e2b800babf1769f98212803732d81d674dd1ca8b85231966d94e3c425a18af6c09c8168",
+            "0x",
+            "0",
+            "1795360416",
+            false,
+            0,
+            true
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x13db82df347530db7e367052e26605d98b18663ff1065b367435726d908071a7",
+            "expiry": 0,
+            "keyType": 2,
+            "isSuperAdmin": true,
+            "publicKey": "0x00000000000000000000000088deb13766f676c70cc27770d1fed5c3eb2414db",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0xc55d5212684690c33803aa2e572cb780fbbb1797d5562471c0ab3a6d53022e4a"
+          }
+        ]
+      }
+    },
+    {
+      "user": "0xF4d28071177d6104aE8781034d23dc7A5Fd80b39",
+      "keyStoreKeys": [
+        "0x289a47ea78ba5af4c913e16843450b612c6b4e242a737d3d863f99edc6f67efb"
+      ],
+      "keyStore": {
+        "0x289a47ea78ba5af4c913e16843450b612c6b4e242a737d3d863f99edc6f67efb": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x119fc5a59e469da44b1ab886b054a6a47149f048bf689cf8cd04c34828d93e08b46b909cbf14422d18c7ee973d751cc6d296e601bb397b8227638b9ca1a1b87a",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795362310",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x119fc5a59e469da44b1ab886b054a6a47149f048bf689cf8cd04c34828d93e08b46b909cbf14422d18c7ee973d751cc6d296e601bb397b8227638b9ca1a1b87a",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x119fc5a59e469da44b1ab886b054a6a47149f048bf689cf8cd04c34828d93e08b46b909cbf14422d18c7ee973d751cc6d296e601bb397b8227638b9ca1a1b87a",
+            "0x",
+            "0",
+            "1795362310",
+            false,
+            0,
+            true
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0xf0924fb6dd9ed5ebb8cfe2287aa6e5bf66e7614844ad2812de38747398cfe510",
+            "expiry": 0,
+            "keyType": 1,
+            "isSuperAdmin": true,
+            "publicKey": "0x119fc5a59e469da44b1ab886b054a6a47149f048bf689cf8cd04c34828d93e08b46b909cbf14422d18c7ee973d751cc6d296e601bb397b8227638b9ca1a1b87a",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0x289a47ea78ba5af4c913e16843450b612c6b4e242a737d3d863f99edc6f67efb"
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x91aC42021e9F8cd5d4e397825f31fD961e7DF947",
+      "keyStoreKeys": [
+        "0x507a6784667b0b22921414caf5426153e0b481d524c33cd193dd6010856027a0"
+      ],
+      "keyStore": {
+        "0x507a6784667b0b22921414caf5426153e0b481d524c33cd193dd6010856027a0": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0xbb4d24e7eb288ed18eda7b64b62f4a3932058b8563a71b25d92dc2e12ec102481c0ea88efad2f2814c84a8ca7e7ffa0676470707ced108fbd2f5b04abc062e58",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795362972",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0xbb4d24e7eb288ed18eda7b64b62f4a3932058b8563a71b25d92dc2e12ec102481c0ea88efad2f2814c84a8ca7e7ffa0676470707ced108fbd2f5b04abc062e58",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0xbb4d24e7eb288ed18eda7b64b62f4a3932058b8563a71b25d92dc2e12ec102481c0ea88efad2f2814c84a8ca7e7ffa0676470707ced108fbd2f5b04abc062e58",
+            "0x",
+            "0",
+            "1795362972",
+            false,
+            0,
+            true
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x3d85a01721fbb5b07c90a3b331dc39034c7cc3e34f932ad807df3d9177250aeb",
+            "expiry": 0,
+            "keyType": 1,
+            "isSuperAdmin": true,
+            "publicKey": "0xbb4d24e7eb288ed18eda7b64b62f4a3932058b8563a71b25d92dc2e12ec102481c0ea88efad2f2814c84a8ca7e7ffa0676470707ced108fbd2f5b04abc062e58",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0x507a6784667b0b22921414caf5426153e0b481d524c33cd193dd6010856027a0"
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x64828dDcBaA432e6006854F3Fb87d725c019E4B2",
+      "keyStoreKeys": [
+        "0x72652047fc32661e59d93d2cf8416536fed356d0051ac8b05bc6208c69a3d00e"
+      ],
+      "keyStore": {
+        "0x72652047fc32661e59d93d2cf8416536fed356d0051ac8b05bc6208c69a3d00e": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0xe12a2b06976ab47f70713ba24588c397bad86703d29e3adf656d5c7b5c7d24b50f1cdaabf1693c2b30c6e18dddaa1f4ea89c843750869fde9c6fc7bb9b18cfb0",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795372712",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0xe12a2b06976ab47f70713ba24588c397bad86703d29e3adf656d5c7b5c7d24b50f1cdaabf1693c2b30c6e18dddaa1f4ea89c843750869fde9c6fc7bb9b18cfb0",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0xe12a2b06976ab47f70713ba24588c397bad86703d29e3adf656d5c7b5c7d24b50f1cdaabf1693c2b30c6e18dddaa1f4ea89c843750869fde9c6fc7bb9b18cfb0",
+            "0x",
+            "0",
+            "1795372712",
+            false,
+            0,
+            true
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0xc65f9503f922952820b53b2b967cd475d1a7d231c8522d74f117838d42b8eaf2",
+            "expiry": 0,
+            "keyType": 1,
+            "isSuperAdmin": true,
+            "publicKey": "0xe12a2b06976ab47f70713ba24588c397bad86703d29e3adf656d5c7b5c7d24b50f1cdaabf1693c2b30c6e18dddaa1f4ea89c843750869fde9c6fc7bb9b18cfb0",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0x72652047fc32661e59d93d2cf8416536fed356d0051ac8b05bc6208c69a3d00e"
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x65B6Be7f24aB649267A4F2e5Ac4fBf1b16B31140",
+      "keyStoreKeys": [
+        "0x0c3384c056213ef72a0ee2940d2d57864e9b801fe43a1b4f09567f316bd17c73",
+        "0xc7802d2ba468331e8880869113028a708c17114d98d77377c4e5fa3b49958a8c"
+      ],
+      "keyStore": {
+        "0x0c3384c056213ef72a0ee2940d2d57864e9b801fe43a1b4f09567f316bd17c73": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0xf9b5f29631ab2ed59a1a8cb9c7e140ad4301a25761be53a17cec508c235c71d2a3b1f50682467f1aba56f2bcf3cfb7eed67dc0d09c03115a8d1191a5a55dcfeb",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795376831",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0xf9b5f29631ab2ed59a1a8cb9c7e140ad4301a25761be53a17cec508c235c71d2a3b1f50682467f1aba56f2bcf3cfb7eed67dc0d09c03115a8d1191a5a55dcfeb",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0xf9b5f29631ab2ed59a1a8cb9c7e140ad4301a25761be53a17cec508c235c71d2a3b1f50682467f1aba56f2bcf3cfb7eed67dc0d09c03115a8d1191a5a55dcfeb",
+            "0x",
+            "0",
+            "1795376831",
+            false,
+            0,
+            true
+          ]
+        },
+        "0xc7802d2ba468331e8880869113028a708c17114d98d77377c4e5fa3b49958a8c": {
+          "getExpiry": 1802868697,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x0481bc8598c9d6c30ab22b3dcab2ada6456491514a7d421f1664194637a3db5f2b24afa2f0d8ed0c50eb6910e2c24a18418b910b0100aaebc3128ae09bbbd385b5",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795611112",
+            "revoked": false,
+            "expiry": 1802868697,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x0481bc8598c9d6c30ab22b3dcab2ada6456491514a7d421f1664194637a3db5f2b24afa2f0d8ed0c50eb6910e2c24a18418b910b0100aaebc3128ae09bbbd385b5",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x0481bc8598c9d6c30ab22b3dcab2ada6456491514a7d421f1664194637a3db5f2b24afa2f0d8ed0c50eb6910e2c24a18418b910b0100aaebc3128ae09bbbd385b5",
+            "0x",
+            "0",
+            "1795611112",
+            false,
+            1802868697,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x07b39144bd43907f1c6f3f4dcc37508db64bb0dff40fb115b16d0e904cd7a3c9",
+            "expiry": 0,
+            "keyType": 1,
+            "isSuperAdmin": true,
+            "publicKey": "0xf9b5f29631ab2ed59a1a8cb9c7e140ad4301a25761be53a17cec508c235c71d2a3b1f50682467f1aba56f2bcf3cfb7eed67dc0d09c03115a8d1191a5a55dcfeb",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0x0c3384c056213ef72a0ee2940d2d57864e9b801fe43a1b4f09567f316bd17c73"
+          },
+          {
+            "keyHash": "0x826dd9fa91b6968712eb9c25213378b75b6f34d9865defe8ee8de2a019da39b0",
+            "expiry": 1802868697,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x000000000000000000000000aad5c37bf3a73e8909d5e33d55ff7db3e5d43036",
+            "expiryIso": "2027-02-17T12:51:37.000Z",
+            "keyStoreIdGuess": "0x7274e9a72d86a24b6fb63fd152867af2924d0e347bedbe95cb6ebe0acebf0e54",
+            "mayCall": [
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0x095ea7b3"
+              },
+              {
+                "target": "0xb279c4380557b319c42ef3b023ac8c8b2d64b6a0",
+                "selector": "0xd6febde8"
+              },
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+                "period": 2,
+                "limit": "1050000",
+                "spent": "1017067",
+                "lastUpdated": "1795564800",
+                "currentSpent": "0",
+                "current": "1795737600"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x3631D44543384253C099f2A09c0D0bE109Eb7944",
+      "keyStoreKeys": [
+        "0xe564077a3ef0fd2862bee3ff26df46fe73a8ea5754b49beaa95caa38caea4eb9",
+        "0x4e488ac3debc10e2e59ed4d2c96fed364c8f4edc2574a7a44579a18b5100664e"
+      ],
+      "keyStore": {
+        "0xe564077a3ef0fd2862bee3ff26df46fe73a8ea5754b49beaa95caa38caea4eb9": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x0481a439229a850c6122ea363aa02bc7a2a7b248c338dc949d3b4200eeadf26860b8bcb397075ec14df5aad5752ebdbddd63c89cc76336eb5258b74fcb08242710",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795407378",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x0481a439229a850c6122ea363aa02bc7a2a7b248c338dc949d3b4200eeadf26860b8bcb397075ec14df5aad5752ebdbddd63c89cc76336eb5258b74fcb08242710",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x0481a439229a850c6122ea363aa02bc7a2a7b248c338dc949d3b4200eeadf26860b8bcb397075ec14df5aad5752ebdbddd63c89cc76336eb5258b74fcb08242710",
+            "0x",
+            "0",
+            "1795407378",
+            false,
+            0,
+            true
+          ]
+        },
+        "0x4e488ac3debc10e2e59ed4d2c96fed364c8f4edc2574a7a44579a18b5100664e": {
+          "getExpiry": 1796826520,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x049fcded1474fe280ebfdd885d61ed5f2d930e37844b893decdd5ffe19bf6e5761735de3815b3408652caf42ae5eb44b3468448d241d16baab6ad734f5c67c7c6a",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795616925",
+            "revoked": false,
+            "expiry": 1796826520,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x049fcded1474fe280ebfdd885d61ed5f2d930e37844b893decdd5ffe19bf6e5761735de3815b3408652caf42ae5eb44b3468448d241d16baab6ad734f5c67c7c6a",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x049fcded1474fe280ebfdd885d61ed5f2d930e37844b893decdd5ffe19bf6e5761735de3815b3408652caf42ae5eb44b3468448d241d16baab6ad734f5c67c7c6a",
+            "0x",
+            "0",
+            "1795616925",
+            false,
+            1796826520,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x3087f5bb5b6b9ddea68278ebd978a34e33703794b3d2498aee1b27d18f521090",
+            "expiry": 0,
+            "keyType": 2,
+            "isSuperAdmin": true,
+            "publicKey": "0x0000000000000000000000003631d44543384253c099f2a09c0d0be109eb7944",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0xba800be1db9dbccdf6336eeed942347feac2817c3cc11cbfdd33cad4e73974fe"
+          },
+          {
+            "keyHash": "0xca68577125f9cb88f6a776517b36234d4e79abfb9516388718f781c34b736852",
+            "expiry": 1796826520,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x000000000000000000000000eeae77b6aeb5d9b179a6659a5a1f8f00e9d5d79c",
+            "expiryIso": "2026-12-09T14:28:40.000Z",
+            "keyStoreIdGuess": "0xc7b3c9803a6c54623b596cec16b1215bcc1438d00b8485ed74a050c618160529",
+            "mayCall": [
+              {
+                "target": "0x5615cdab10dc425a742d643d949a7f474c01abc4",
+                "selector": "0x04e45aaf"
+              },
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+                "period": 2,
+                "limit": "4000000",
+                "spent": "100000",
+                "lastUpdated": "1795564800",
+                "currentSpent": "0",
+                "current": "1795737600"
+              },
+              {
+                "token": "0x0000000000000000000000000000000000000000",
+                "period": 2,
+                "limit": "1000000000000000000",
+                "spent": "108391456786028823",
+                "lastUpdated": "1795564800",
+                "currentSpent": "0",
+                "current": "1795737600"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x3B891415513d4Ac18E671D4733a8f11A0Fb6A4f7",
+      "keyStoreKeys": [
+        "0xca90d933c12358a1cb1578a7a76d526ce07d546e8f22709ff6939d868bd3fdd9"
+      ],
+      "keyStore": {
+        "0xca90d933c12358a1cb1578a7a76d526ce07d546e8f22709ff6939d868bd3fdd9": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0xcec6db2fdc4b90f21c227e7d1d6707f38ab818ced7a248e6bb5318d6ed3531d3474e99e5df5085aa3a55634ebc0edfc50da36e9c9212f8b9df7b2bf7b4df0d97",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795431944",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0xcec6db2fdc4b90f21c227e7d1d6707f38ab818ced7a248e6bb5318d6ed3531d3474e99e5df5085aa3a55634ebc0edfc50da36e9c9212f8b9df7b2bf7b4df0d97",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0xcec6db2fdc4b90f21c227e7d1d6707f38ab818ced7a248e6bb5318d6ed3531d3474e99e5df5085aa3a55634ebc0edfc50da36e9c9212f8b9df7b2bf7b4df0d97",
+            "0x",
+            "0",
+            "1795431944",
+            false,
+            0,
+            true
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x06328e01202be84bfb41968dc744183952631e1b55b0de7cc4e16d6532cae76a",
+            "expiry": 0,
+            "keyType": 1,
+            "isSuperAdmin": true,
+            "publicKey": "0xcec6db2fdc4b90f21c227e7d1d6707f38ab818ced7a248e6bb5318d6ed3531d3474e99e5df5085aa3a55634ebc0edfc50da36e9c9212f8b9df7b2bf7b4df0d97",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0xca90d933c12358a1cb1578a7a76d526ce07d546e8f22709ff6939d868bd3fdd9"
+          }
+        ]
+      }
+    },
+    {
+      "user": "0xCDb0FF6e6Dfc33F9d75288772c8EfFaa13df9941",
+      "keyStoreKeys": [
+        "0xcf9b4060cae33771a561c9c96df390eee5eeebe3eef4afcce815f4186c0da59d"
+      ],
+      "keyStore": {
+        "0xcf9b4060cae33771a561c9c96df390eee5eeebe3eef4afcce815f4186c0da59d": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04d5d962619561565f2ebc11794b66fc557838480d182fed7e0e9a937a985a1057b64359fb059cb6fb2b31c25a214acdd563ff1004b470499d63307ce9ca2c197e",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795433797",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04d5d962619561565f2ebc11794b66fc557838480d182fed7e0e9a937a985a1057b64359fb059cb6fb2b31c25a214acdd563ff1004b470499d63307ce9ca2c197e",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04d5d962619561565f2ebc11794b66fc557838480d182fed7e0e9a937a985a1057b64359fb059cb6fb2b31c25a214acdd563ff1004b470499d63307ce9ca2c197e",
+            "0x",
+            "0",
+            "1795433797",
+            false,
+            0,
+            true
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x7b9d87270321f75c498daa975fe3ccf16ebae4316985c42b2052a3f968c2888c",
+            "expiry": 0,
+            "keyType": 2,
+            "isSuperAdmin": true,
+            "publicKey": "0x000000000000000000000000cdb0ff6e6dfc33f9d75288772c8effaa13df9941",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0xb6ba1869e85f43c86e8dd2c334d418fe650dc0fedb9db1e04ad4d6abb28adf6f"
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x6f59ab1977DF350d1FbBE379EEE6D45AEB766353",
+      "keyStoreKeys": [
+        "0xf46cf45e882af2ca8a186dccd9c54c9bbead024ca59920509107db0305bf7cfa",
+        "0xdc3081f75babe87ec0b8cde1503abb97b2911794fa399f43eefdb10003e03cce"
+      ],
+      "keyStore": {
+        "0xf46cf45e882af2ca8a186dccd9c54c9bbead024ca59920509107db0305bf7cfa": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04577346fc076d4305e956e21b0b1ef70c15c16bd525836299f3d5a08ece98a172e0a3a9695cc24c557685908ebf33e8ce48f807a555bc6d2641d33fb538174f2e",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795470162",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04577346fc076d4305e956e21b0b1ef70c15c16bd525836299f3d5a08ece98a172e0a3a9695cc24c557685908ebf33e8ce48f807a555bc6d2641d33fb538174f2e",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04577346fc076d4305e956e21b0b1ef70c15c16bd525836299f3d5a08ece98a172e0a3a9695cc24c557685908ebf33e8ce48f807a555bc6d2641d33fb538174f2e",
+            "0x",
+            "0",
+            "1795470162",
+            false,
+            0,
+            true
+          ]
+        },
+        "0xdc3081f75babe87ec0b8cde1503abb97b2911794fa399f43eefdb10003e03cce": {
+          "getExpiry": 1796684047,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04aa168539a550fd659bd59e51db57d06e2cd33bf2e04adc20dbcb066fc633b38d3a40a970c5bf3e57cdfdc981b626db8d947a29beba9e97f9c88666cef0d39ce4",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795474454",
+            "revoked": false,
+            "expiry": 1796684047,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04aa168539a550fd659bd59e51db57d06e2cd33bf2e04adc20dbcb066fc633b38d3a40a970c5bf3e57cdfdc981b626db8d947a29beba9e97f9c88666cef0d39ce4",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04aa168539a550fd659bd59e51db57d06e2cd33bf2e04adc20dbcb066fc633b38d3a40a970c5bf3e57cdfdc981b626db8d947a29beba9e97f9c88666cef0d39ce4",
+            "0x",
+            "0",
+            "1795474454",
+            false,
+            1796684047,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x3fb0e5bed3b0fd85ff0ed88e2f44e04986e395596d65069f30570c393872ece9",
+            "expiry": 0,
+            "keyType": 2,
+            "isSuperAdmin": true,
+            "publicKey": "0x0000000000000000000000006f59ab1977df350d1fbbe379eee6d45aeb766353",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0xb62215a778ef880b9ae6995d728b3075d242e1a4eeb14f3f7cf395b25ac56324"
+          },
+          {
+            "keyHash": "0x27941ce17a2ba83329d0b07e27f237fc9ee963a78e81eb952e8fd8ab8ed44a51",
+            "expiry": 1796684047,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x0000000000000000000000005dd16e5c12dbf4f94ed0608c47365a30c2225acc",
+            "expiryIso": "2026-12-07T22:54:07.000Z",
+            "keyStoreIdGuess": "0x61af67d68cf1e6316e59c34d6dc803151f1a799055585ff131ab0ddf7640401f",
+            "mayCall": [
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+                "period": 2,
+                "limit": "500000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x834D6B4Fc6ca3b12029D1e640C35730258f03C45",
+      "keyStoreKeys": [
+        "0xceee26d0ff4a85c0f4e7521a951c814ad3c0d2ac1ecd0344129274adcf1eec1d",
+        "0xee73bad0226da8995713612b967f06d7186f40b3493e4fc3e11c59c702ab804a"
+      ],
+      "keyStore": {
+        "0xceee26d0ff4a85c0f4e7521a951c814ad3c0d2ac1ecd0344129274adcf1eec1d": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x047e3f6543a7376ccab626237260bdd9dbe61b8cd7dac5fe126ce33ad70ec741cba8e48006c2f7c5d78e8a73e5ba65a08e7be147b00b7bce3a500ae67a73e8acfa",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795504239",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x047e3f6543a7376ccab626237260bdd9dbe61b8cd7dac5fe126ce33ad70ec741cba8e48006c2f7c5d78e8a73e5ba65a08e7be147b00b7bce3a500ae67a73e8acfa",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x047e3f6543a7376ccab626237260bdd9dbe61b8cd7dac5fe126ce33ad70ec741cba8e48006c2f7c5d78e8a73e5ba65a08e7be147b00b7bce3a500ae67a73e8acfa",
+            "0x",
+            "0",
+            "1795504239",
+            false,
+            0,
+            true
+          ]
+        },
+        "0xee73bad0226da8995713612b967f06d7186f40b3493e4fc3e11c59c702ab804a": {
+          "getExpiry": 1796713842,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04a845bcc3ad4cecdb81f8baaa3e6796e11e869971768d59233f7c94de654c549f4c6bb8fb2fe850850a0571da979a23cf704f3861c3a8f875a626499287d93678",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795504239",
+            "revoked": false,
+            "expiry": 1796713842,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04a845bcc3ad4cecdb81f8baaa3e6796e11e869971768d59233f7c94de654c549f4c6bb8fb2fe850850a0571da979a23cf704f3861c3a8f875a626499287d93678",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04a845bcc3ad4cecdb81f8baaa3e6796e11e869971768d59233f7c94de654c549f4c6bb8fb2fe850850a0571da979a23cf704f3861c3a8f875a626499287d93678",
+            "0x",
+            "0",
+            "1795504239",
+            false,
+            1796713842,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0xbcc318fdfe8fe4f4e1f8d83c87295c4b885f489f61d04a24fbbf1f2caad7dc76",
+            "expiry": 0,
+            "keyType": 2,
+            "isSuperAdmin": true,
+            "publicKey": "0x000000000000000000000000834d6b4fc6ca3b12029d1e640c35730258f03c45",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0x08bfce21bf431e2b64ec6e2f4a7d7121c0c1e675dadeb36853462ce7c07771b3"
+          },
+          {
+            "keyHash": "0x8bb3d298a49bfdabf377918fc7ed00cc829bc27bf559f392d29c483d26b23e17",
+            "expiry": 1796713842,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x00000000000000000000000008e7b878fca0dba727fcee5833c2760211152bb4",
+            "expiryIso": "2026-12-08T07:10:42.000Z",
+            "keyStoreIdGuess": "0x53eb0227da98011eeb532f291c2174b1f0239359cf6947e10e1e4175869a6d78",
+            "mayCall": [
+              {
+                "target": "0xceba9300f2b948710d2653dd7b07f33a8b32118c",
+                "selector": "0x095ea7b3"
+              },
+              {
+                "target": "0x5615cdab10dc425a742d643d949a7f474c01abc4",
+                "selector": "0x04e45aaf"
+              },
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+                "period": 2,
+                "limit": "2000000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              },
+              {
+                "token": "0x0000000000000000000000000000000000000000",
+                "period": 2,
+                "limit": "1000000000000000000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "user": "0xe1Cad13CE9306792a7E4438cA6ABc830fcc35538",
+      "keyStoreKeys": [
+        "0xea8af4f7fbb2b20dced9a2c7dd091d0229794c60b5d47a6c86c0dbfa10d593e2",
+        "0xc9273a2e2e18acd1301ce3d039898122c2a8f344d60ef62b000ddb280ce7c59c"
+      ],
+      "keyStore": {
+        "0xea8af4f7fbb2b20dced9a2c7dd091d0229794c60b5d47a6c86c0dbfa10d593e2": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04e139abd10e4b9693747dac2e1b832353592fcc04e5aef63103f1b60d9b61acd40fe60681e7089549e4cf64fdae3a87cb0816a92c2481fb18593ebbd7d774996b",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795519565",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04e139abd10e4b9693747dac2e1b832353592fcc04e5aef63103f1b60d9b61acd40fe60681e7089549e4cf64fdae3a87cb0816a92c2481fb18593ebbd7d774996b",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04e139abd10e4b9693747dac2e1b832353592fcc04e5aef63103f1b60d9b61acd40fe60681e7089549e4cf64fdae3a87cb0816a92c2481fb18593ebbd7d774996b",
+            "0x",
+            "0",
+            "1795519565",
+            false,
+            0,
+            true
+          ]
+        },
+        "0xc9273a2e2e18acd1301ce3d039898122c2a8f344d60ef62b000ddb280ce7c59c": {
+          "getExpiry": 1798111559,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x0410959e6ba79e8f9559c7bd58297328254791a3de1280be78f5d68145e4d67b38370707e2da525280b95e44b7a5ae730c4a87df6296b73bf10ed899673ae909f8",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795519565",
+            "revoked": false,
+            "expiry": 1798111559,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x0410959e6ba79e8f9559c7bd58297328254791a3de1280be78f5d68145e4d67b38370707e2da525280b95e44b7a5ae730c4a87df6296b73bf10ed899673ae909f8",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x0410959e6ba79e8f9559c7bd58297328254791a3de1280be78f5d68145e4d67b38370707e2da525280b95e44b7a5ae730c4a87df6296b73bf10ed899673ae909f8",
+            "0x",
+            "0",
+            "1795519565",
+            false,
+            1798111559,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x146fca312309afba699b7ca6310829a8b3affb55fd2ad2f747b4586b5cb9ed46",
+            "expiry": 0,
+            "keyType": 2,
+            "isSuperAdmin": true,
+            "publicKey": "0x000000000000000000000000e1cad13ce9306792a7e4438ca6abc830fcc35538",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0xaf229cb5b7c957794002c0ac17e99d3adce65a6a7ed1d36c4d5c0703784052ba"
+          },
+          {
+            "keyHash": "0x40de8e36d65c615ead08ceb6e0a88cf93dd41c9faa1f676fc6dc6925a3e72d99",
+            "expiry": 1798111559,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x000000000000000000000000f1979351a41e4e04c1843273b0bfd4c7e627edd3",
+            "expiryIso": "2026-12-24T11:25:59.000Z",
+            "keyStoreIdGuess": "0xc2a9c000aabe46c4bf236160e367e7b931ce39f5078ea1762344f2a0298c89fb",
+            "mayCall": [
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0x70a08231"
+              },
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+                "period": 2,
+                "limit": "1",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              },
+              {
+                "token": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+                "period": 2,
+                "limit": "1",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              },
+              {
+                "token": "0xD2ab3C9A02DBBAB236BfEC45D1d755DF4267F771",
+                "period": 2,
+                "limit": "1",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              },
+              {
+                "token": "0x0000000000000000000000000000000000000000",
+                "period": 2,
+                "limit": "1",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x11AE2B87ca1bF3861FCC612Ae0d2036Da1439ef6",
+      "keyStoreKeys": [
+        "0x275fc183dab82c442bd4a074074cfe7d3fb7dc5542e3179e45e0fe4993b92194",
+        "0x8aba8d12e63c8fdea9e626010992837d9be3458740364c4fb07e9825603d5f92"
+      ],
+      "keyStore": {
+        "0x275fc183dab82c442bd4a074074cfe7d3fb7dc5542e3179e45e0fe4993b92194": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04d4d13931157c48c138b625e5052ab6690d86afd77563ce81c36af10c4c7cb7359b0a0d1f1ccb8e0392ccc70870e61c72c27e93527be2244204f16045a68f42ab",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795521063",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04d4d13931157c48c138b625e5052ab6690d86afd77563ce81c36af10c4c7cb7359b0a0d1f1ccb8e0392ccc70870e61c72c27e93527be2244204f16045a68f42ab",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04d4d13931157c48c138b625e5052ab6690d86afd77563ce81c36af10c4c7cb7359b0a0d1f1ccb8e0392ccc70870e61c72c27e93527be2244204f16045a68f42ab",
+            "0x",
+            "0",
+            "1795521063",
+            false,
+            0,
+            true
+          ]
+        },
+        "0x8aba8d12e63c8fdea9e626010992837d9be3458740364c4fb07e9825603d5f92": {
+          "getExpiry": 1796125856,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04e888e62f8e11256b7951db3c9fa311e5d79118f0060cebaaeb19b51993cbff7d1f3a077d9e52c3c497c7c5030480f4443a1aaeaeee37304e7289b0f8d64cefbd",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795521063",
+            "revoked": false,
+            "expiry": 1796125856,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04e888e62f8e11256b7951db3c9fa311e5d79118f0060cebaaeb19b51993cbff7d1f3a077d9e52c3c497c7c5030480f4443a1aaeaeee37304e7289b0f8d64cefbd",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04e888e62f8e11256b7951db3c9fa311e5d79118f0060cebaaeb19b51993cbff7d1f3a077d9e52c3c497c7c5030480f4443a1aaeaeee37304e7289b0f8d64cefbd",
+            "0x",
+            "0",
+            "1795521063",
+            false,
+            1796125856,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0xdfb2466b08749bba0bc958eead74806f675db3c5f58829a8663b113398781cfd",
+            "expiry": 0,
+            "keyType": 2,
+            "isSuperAdmin": true,
+            "publicKey": "0x00000000000000000000000011ae2b87ca1bf3861fcc612ae0d2036da1439ef6",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0x0d54f951edad1fbcaa7675f028ed48aac59946a04b0b65759666b0514fab0a41"
+          },
+          {
+            "keyHash": "0x6e97c368e66ffa99fbfe1e732265c8c78cf9f280b182f68fcffb9fdb27f29e11",
+            "expiry": 1796125856,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x000000000000000000000000f5215868ece9ca4d370c596c5fb2a1864387b725",
+            "expiryIso": "2026-12-01T11:50:56.000Z",
+            "keyStoreIdGuess": "0xb73d90e9436e55b5ba91158478d555438fb6f59f50b4e8c615c17472cf9adfc4",
+            "mayCall": [
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0x095ea7b3"
+              },
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0xa9aa0a64769cbed4d3b1ceb4df01cde915c235b3",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0xf6829d7393dae24509eb1e52ee8e572e2e271a4f",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+                "selector": "0xf2c298be"
+              },
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+                "period": 3,
+                "limit": "2000000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795392000"
+              },
+              {
+                "token": "0xF6829D7393dAe24509eb1E52eE8e572e2E271a4f",
+                "period": 3,
+                "limit": "2500000000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795392000"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "user": "0xe6327047575F4565a33c8F2d3FF4600493129A0e",
+      "keyStoreKeys": [
+        "0x1229e4d763c26a2344e9e2f7792bb20f6a2656f92b46c95ed926459f0e03579c",
+        "0x9c864aaf29c5e4d0504a0f2cd1fd037a4a3fa8109fb07e3be89489b95047d0f9"
+      ],
+      "keyStore": {
+        "0x1229e4d763c26a2344e9e2f7792bb20f6a2656f92b46c95ed926459f0e03579c": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0xa9eb872d065802536e8700cc3fbc43f482f0215ffccbd8fe30bf8d5710eb2c781e5ef4115336ba2ad5c08a3d0de37d9e9ee1c3d0c414a1286976d91228ab509e",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795526710",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0xa9eb872d065802536e8700cc3fbc43f482f0215ffccbd8fe30bf8d5710eb2c781e5ef4115336ba2ad5c08a3d0de37d9e9ee1c3d0c414a1286976d91228ab509e",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0xa9eb872d065802536e8700cc3fbc43f482f0215ffccbd8fe30bf8d5710eb2c781e5ef4115336ba2ad5c08a3d0de37d9e9ee1c3d0c414a1286976d91228ab509e",
+            "0x",
+            "0",
+            "1795526710",
+            false,
+            0,
+            true
+          ]
+        },
+        "0x9c864aaf29c5e4d0504a0f2cd1fd037a4a3fa8109fb07e3be89489b95047d0f9": {
+          "getExpiry": 1802973138,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x043cd9f84e24106fe2c3bef501208088296acc01a3af63df60c2f608f5dc68f6bd46c5b13920a06d43ae19973d582c72b41386c6165d82893116e574409869c304",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795715558",
+            "revoked": false,
+            "expiry": 1802973138,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x043cd9f84e24106fe2c3bef501208088296acc01a3af63df60c2f608f5dc68f6bd46c5b13920a06d43ae19973d582c72b41386c6165d82893116e574409869c304",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x043cd9f84e24106fe2c3bef501208088296acc01a3af63df60c2f608f5dc68f6bd46c5b13920a06d43ae19973d582c72b41386c6165d82893116e574409869c304",
+            "0x",
+            "0",
+            "1795715558",
+            false,
+            1802973138,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0xd8ce1037cd630ce6570f16bf0603e4a3ec759a7434fc0344cd6eb3959bd5f840",
+            "expiry": 0,
+            "keyType": 1,
+            "isSuperAdmin": true,
+            "publicKey": "0xa9eb872d065802536e8700cc3fbc43f482f0215ffccbd8fe30bf8d5710eb2c781e5ef4115336ba2ad5c08a3d0de37d9e9ee1c3d0c414a1286976d91228ab509e",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0x1229e4d763c26a2344e9e2f7792bb20f6a2656f92b46c95ed926459f0e03579c"
+          },
+          {
+            "keyHash": "0xf4880e1b027fc0e7ebb954e995178674310d04d421db239f24da2184172e7d79",
+            "expiry": 1802973138,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x000000000000000000000000ec8bbccea24babe59f7f60a9946ff7166f27da14",
+            "expiryIso": "2027-02-18T17:52:18.000Z",
+            "keyStoreIdGuess": "0x4daea1db88d1758a38e7492d899c59881a8b5f925bc8c5954432e9a4e5cec8a0",
+            "mayCall": [
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0x095ea7b3"
+              },
+              {
+                "target": "0xb279c4380557b319c42ef3b023ac8c8b2d64b6a0",
+                "selector": "0xd6febde8"
+              },
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+                "period": 2,
+                "limit": "1050000",
+                "spent": "1018603",
+                "lastUpdated": "1795651200",
+                "currentSpent": "0",
+                "current": "1795737600"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "user": "0xC17733165C47f80E56b1c6eD61E8988296CA8f82",
+      "keyStoreKeys": [
+        "0x6ce31d01d67b85b191a948e0c4bc67a363ef679f2b711808a112d5390329a474"
+      ],
+      "keyStore": {
+        "0x6ce31d01d67b85b191a948e0c4bc67a363ef679f2b711808a112d5390329a474": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x048f3d3d321318dd352a050e3bd6f883996c92bc9f46a481124020c5ed505742422e1b4f13b58efd2c57dec4de7372edda433eaee8a95551d2e88442868034beb6",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795643558",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x048f3d3d321318dd352a050e3bd6f883996c92bc9f46a481124020c5ed505742422e1b4f13b58efd2c57dec4de7372edda433eaee8a95551d2e88442868034beb6",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x048f3d3d321318dd352a050e3bd6f883996c92bc9f46a481124020c5ed505742422e1b4f13b58efd2c57dec4de7372edda433eaee8a95551d2e88442868034beb6",
+            "0x",
+            "0",
+            "1795643558",
+            false,
+            0,
+            true
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x58ce539738140da860c82e2fc6ec2de0d9b02598d2ad3820193152453c7e565c",
+            "expiry": 1796853153,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x000000000000000000000000781928d6bf7fb6566b294829f1b32ee4e9da9188",
+            "expiryIso": "2026-12-09T21:52:33.000Z",
+            "keyStoreIdGuess": "0x5588472b0a865da81a8e6e5ed7d40150d24ce81ba9bfa4a46fb75b9a768fd001",
+            "mayCall": [
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0xceba9300f2b948710d2653dd7b07f33a8b32118c",
+                "selector": "0xa9059cbb"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+                "period": 2,
+                "limit": "50000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              },
+              {
+                "token": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+                "period": 2,
+                "limit": "50000",
+                "spent": "30006",
+                "lastUpdated": "1795564800",
+                "currentSpent": "0",
+                "current": "1795737600"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "user": "0xfb319F53167F09eAAaEce30Bab85E81BB8Ed0958",
+      "keyStoreKeys": [
+        "0xf308ade2310126f5216644dfdce82520dde9498778d10507c6c14634688f8c1f",
+        "0x2ada7da28e944e784875652635faa6bb48bfdab9abc6a2573bd439b9cdc4f2fe"
+      ],
+      "keyStore": {
+        "0xf308ade2310126f5216644dfdce82520dde9498778d10507c6c14634688f8c1f": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0xcd1bff77095858369b7c14a8813bc199bca83ac49ed87cb2ffaaa4ba3cf727d0ba541c3549695e1d1e7c8215cd5f3773620b0bad2cafb819820d7c9fc72da58c",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795719092",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0xcd1bff77095858369b7c14a8813bc199bca83ac49ed87cb2ffaaa4ba3cf727d0ba541c3549695e1d1e7c8215cd5f3773620b0bad2cafb819820d7c9fc72da58c",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0xcd1bff77095858369b7c14a8813bc199bca83ac49ed87cb2ffaaa4ba3cf727d0ba541c3549695e1d1e7c8215cd5f3773620b0bad2cafb819820d7c9fc72da58c",
+            "0x",
+            "0",
+            "1795719092",
+            false,
+            0,
+            true
+          ]
+        },
+        "0x2ada7da28e944e784875652635faa6bb48bfdab9abc6a2573bd439b9cdc4f2fe": {
+          "getExpiry": 1796323864,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04cdb7a0b545d323e7f3c63751dae0a92b2ff20248788cdeb5f2bc154dd5a370f5629773eb26eaf89cb1429c085aca7f46e1d0bcd9b05e3c2e564993c338828b8b",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795719092",
+            "revoked": false,
+            "expiry": 1796323864,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04cdb7a0b545d323e7f3c63751dae0a92b2ff20248788cdeb5f2bc154dd5a370f5629773eb26eaf89cb1429c085aca7f46e1d0bcd9b05e3c2e564993c338828b8b",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04cdb7a0b545d323e7f3c63751dae0a92b2ff20248788cdeb5f2bc154dd5a370f5629773eb26eaf89cb1429c085aca7f46e1d0bcd9b05e3c2e564993c338828b8b",
+            "0x",
+            "0",
+            "1795719092",
+            false,
+            1796323864,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0xd61d2d893aad2c67ddfafbc459ca9b658ba0a42322160e446b5fea84969d8cd3",
+            "expiry": 0,
+            "keyType": 1,
+            "isSuperAdmin": true,
+            "publicKey": "0xcd1bff77095858369b7c14a8813bc199bca83ac49ed87cb2ffaaa4ba3cf727d0ba541c3549695e1d1e7c8215cd5f3773620b0bad2cafb819820d7c9fc72da58c",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0xf308ade2310126f5216644dfdce82520dde9498778d10507c6c14634688f8c1f"
+          },
+          {
+            "keyHash": "0x91c0c87073c4de24bb4d2ac8780d619c57ef1c9406d4c986000bdb6e7e6c95b9",
+            "expiry": 1796323864,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x0000000000000000000000001f300e76ce6ea5300b347c11d0a7ac47f90cd1bc",
+            "expiryIso": "2026-12-03T18:51:04.000Z",
+            "keyStoreIdGuess": "0x46c4fa3f583908be6a95ca40e19382312ba65129487d3454a345256bdb3b26dc",
+            "mayCall": [
+              {
+                "target": "0xceba9300f2b948710d2653dd7b07f33a8b32118c",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0x095ea7b3"
+              },
+              {
+                "target": "0xa9aa0a64769cbed4d3b1ceb4df01cde915c235b3",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0xf6829d7393dae24509eb1e52ee8e572e2e271a4f",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+                "period": 3,
+                "limit": "25000000",
+                "spent": "2000000",
+                "lastUpdated": "1795392000",
+                "currentSpent": "2000000",
+                "current": "1795392000"
+              },
+              {
+                "token": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+                "period": 3,
+                "limit": "25000000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795392000"
+              },
+              {
+                "token": "0xF6829D7393dAe24509eb1E52eE8e572e2E271a4f",
+                "period": 3,
+                "limit": "44970890817",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795392000"
+              },
+              {
+                "token": "0x0000000000000000000000000000000000000000",
+                "period": 2,
+                "limit": "1000000000000000000",
+                "spent": "99587496435620648",
+                "lastUpdated": "1795651200",
+                "currentSpent": "0",
+                "current": "1795737600"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x04801c703843Bf51a112Fa4dC8A7B2Bb4d0D1176",
+      "keyStoreKeys": [
+        "0x5bc24366d453059f4feb2176c0935f3bd8f41e698c187d87e403efc3361d83bc",
+        "0xae8e9e987079deedb1f3dd01bddf5dffa2b87a36fa1378fc865256e5e88acd40"
+      ],
+      "keyStore": {
+        "0x5bc24366d453059f4feb2176c0935f3bd8f41e698c187d87e403efc3361d83bc": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x04713e9da0e70bcaf25e75a5216aa5d784aa1e9cf26ee1a15ed4fd2720121088107ccda986b8938e33a05d7f8850d23954d44bb300b6d810b62125ad422aace985",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795733972",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x04713e9da0e70bcaf25e75a5216aa5d784aa1e9cf26ee1a15ed4fd2720121088107ccda986b8938e33a05d7f8850d23954d44bb300b6d810b62125ad422aace985",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x04713e9da0e70bcaf25e75a5216aa5d784aa1e9cf26ee1a15ed4fd2720121088107ccda986b8938e33a05d7f8850d23954d44bb300b6d810b62125ad422aace985",
+            "0x",
+            "0",
+            "1795733972",
+            false,
+            0,
+            true
+          ]
+        },
+        "0xae8e9e987079deedb1f3dd01bddf5dffa2b87a36fa1378fc865256e5e88acd40": {
+          "getExpiry": 1795820368,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x040dcfe563618d693b5ab5ab159da7abb9f4f79d693e8ad8cf4c5d9d386471af70e8aa4a1d0b017837fefdccd548a971e45ec75c4c6a621db19303b9796256358f",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795733972",
+            "revoked": false,
+            "expiry": 1795820368,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x040dcfe563618d693b5ab5ab159da7abb9f4f79d693e8ad8cf4c5d9d386471af70e8aa4a1d0b017837fefdccd548a971e45ec75c4c6a621db19303b9796256358f",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x040dcfe563618d693b5ab5ab159da7abb9f4f79d693e8ad8cf4c5d9d386471af70e8aa4a1d0b017837fefdccd548a971e45ec75c4c6a621db19303b9796256358f",
+            "0x",
+            "0",
+            "1795733972",
+            false,
+            1795820368,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0x16a292e0f215c0bb8990b4fedd86461a590b2e75848cfabc325207cf4690e73a",
+            "expiry": 0,
+            "keyType": 2,
+            "isSuperAdmin": true,
+            "publicKey": "0x00000000000000000000000004801c703843bf51a112fa4dc8a7b2bb4d0d1176",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0x80c413f9fe1f37fcbd0b7dac3c21175ea344691e3161bcabef6c076a9f74a543"
+          },
+          {
+            "keyHash": "0xbc9a2efccd8ba3b29e7672adf2c27c60a558ec0eba6fa37c0861d9f9c910267c",
+            "expiry": 1795820368,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x000000000000000000000000012e0b891501a0ccc55332e274332918e5c03b86",
+            "expiryIso": "2026-11-27T22:59:28.000Z",
+            "keyStoreIdGuess": "0x3ed92a888d8449febe82e8813fcc2ca74d0d73299d74330e7261e866a7f52719",
+            "mayCall": [
+              {
+                "target": "0xa9aa0a64769cbed4d3b1ceb4df01cde915c235b3",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0x000000000022d473030f116ddee9f6b43ac78ba3",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0xf6829d7393dae24509eb1e52ee8e572e2e271a4f",
+                "selector": "0x32323232"
+              },
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+                "period": 2,
+                "limit": "5000000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "user": "0x3308329dc148d7bA1c49cAfF58FDf81DBdFcd048",
+      "keyStoreKeys": [
+        "0xbb689cf80411fd1fc73c10251fbe50612dc03d1476243bdeb445ec42d4981352",
+        "0x27f5780684ad9622b136faef2328fc022750908f1d093a8736923716be15a1d4"
+      ],
+      "keyStore": {
+        "0xbb689cf80411fd1fc73c10251fbe50612dc03d1476243bdeb445ec42d4981352": {
+          "getExpiry": 0,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x028af29244fe1154e56472fde5ff330e02bf04cda08bf8574a44da04f09fcc5095bb0ab296689d35f1b984f620904c2bcc53a03dd8ca29f44e734195a69c9467",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795738318",
+            "revoked": false,
+            "expiry": 0,
+            "isRoot": true
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x028af29244fe1154e56472fde5ff330e02bf04cda08bf8574a44da04f09fcc5095bb0ab296689d35f1b984f620904c2bcc53a03dd8ca29f44e734195a69c9467",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": true,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x028af29244fe1154e56472fde5ff330e02bf04cda08bf8574a44da04f09fcc5095bb0ab296689d35f1b984f620904c2bcc53a03dd8ca29f44e734195a69c9467",
+            "0x",
+            "0",
+            "1795738318",
+            false,
+            0,
+            true
+          ]
+        },
+        "0x27f5780684ad9622b136faef2328fc022750908f1d093a8736923716be15a1d4": {
+          "getExpiry": 1827274371,
+          "getKey": {
+            "validator": "0x0000000000000000000000000000000000000000",
+            "publicKey": "0x044f6e1031a10ddedb093ffaac67ca423925225688e887196f6bc3b2d61f4a30a1df436d1b7f80550d68cc00a9b8d79ab5bab4b86a6a305b6eb4402e144eddad79",
+            "metadata": "0x",
+            "nonce": "0",
+            "lastUpdated": "1795738409",
+            "revoked": false,
+            "expiry": 1827274371,
+            "isRoot": false
+          },
+          "getMetadata": "0x",
+          "getNonce": "0",
+          "getPublicKey": "0x044f6e1031a10ddedb093ffaac67ca423925225688e887196f6bc3b2d61f4a30a1df436d1b7f80550d68cc00a9b8d79ab5bab4b86a6a305b6eb4402e144eddad79",
+          "getValidator": "0x0000000000000000000000000000000000000000",
+          "isKeyActive": true,
+          "isRootKey": false,
+          "isValidKey": true,
+          "publicKeyRegistered": true,
+          "userKeys": [
+            "0x0000000000000000000000000000000000000000",
+            "0x044f6e1031a10ddedb093ffaac67ca423925225688e887196f6bc3b2d61f4a30a1df436d1b7f80550d68cc00a9b8d79ab5bab4b86a6a305b6eb4402e144eddad79",
+            "0x",
+            "0",
+            "1795738409",
+            false,
+            1827274371,
+            false
+          ]
+        }
+      },
+      "account": {
+        "code": "0xef0100c0f16888f4198f53892c53af859f673e23f26fa3",
+        "delegatedTo": "0xc0f16888f4198f53892c53af859f673e23f26fa3",
+        "keys": [
+          {
+            "keyHash": "0xb4e0298ac56b25e36f4902b9d56b9575fd8e26baa308d2a929122435e0df7f6f",
+            "expiry": 0,
+            "keyType": 1,
+            "isSuperAdmin": true,
+            "publicKey": "0x028af29244fe1154e56472fde5ff330e02bf04cda08bf8574a44da04f09fcc5095bb0ab296689d35f1b984f620904c2bcc53a03dd8ca29f44e734195a69c9467",
+            "expiryIso": null,
+            "keyStoreIdGuess": "0xbb689cf80411fd1fc73c10251fbe50612dc03d1476243bdeb445ec42d4981352"
+          },
+          {
+            "keyHash": "0x15069eb511dd038f1a8aa17b137a5442b23a9053f4c070a8ef638960f637041b",
+            "expiry": 1827274371,
+            "keyType": 2,
+            "isSuperAdmin": false,
+            "publicKey": "0x0000000000000000000000005eaa14658b27320debbd46f85fdd901abf1b5f75",
+            "expiryIso": "2027-11-27T00:12:51.000Z",
+            "keyStoreIdGuess": "0x27b36bfbbdd9f4f779f9ef49bb7bc5a9cd4f67050c3023147dd7e0eed3d3223d",
+            "mayCall": [
+              {
+                "target": "0xa9aa0a64769cbed4d3b1ceb4df01cde915c235b3",
+                "selector": "0x3f62192e"
+              },
+              {
+                "target": "0xa9aa0a64769cbed4d3b1ceb4df01cde915c235b3",
+                "selector": "0x0d7a16c3"
+              },
+              {
+                "target": "0x01b006d5c687bde182aa36f542f1f014144742e2",
+                "selector": "0x05642d2c"
+              },
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0x095ea7b3"
+              },
+              {
+                "target": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0xf6829d7393dae24509eb1e52ee8e572e2e271a4f",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0x0dc4f92879b7670e5f4e4e6e3c801d229129d90d",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0xd76f5faf6888e24d9f04bf92a0c8b921fe4390e0",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0x337e7456b420bd3481e7fa61fa9850343d610d34",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0x8a1d45e102e886510e891d2ec656a708991e2d76",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0xc92e8fc2947e32f2b574cca9f2f12097a71d5606",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0x18bc5bcc660cf2b9ce3cd51a404afe1a0cbd3c22",
+                "selector": "0xa9059cbb"
+              },
+              {
+                "target": "0xb46f314b52511224bc1efd48636e1428b1585766",
+                "selector": "0x35bb3975"
+              },
+              {
+                "target": "0xb46f314b52511224bc1efd48636e1428b1585766",
+                "selector": "0x5c095952"
+              },
+              {
+                "target": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+                "selector": "0x32323232"
+              }
+            ],
+            "spend": [
+              {
+                "token": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+                "period": 2,
+                "limit": "50000000",
+                "spent": "409168",
+                "lastUpdated": "1795737600",
+                "currentSpent": "409168",
+                "current": "1795737600"
+              },
+              {
+                "token": "0xF6829D7393dAe24509eb1E52eE8e572e2E271a4f",
+                "period": 2,
+                "limit": "143857000000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              },
+              {
+                "token": "0x0DC4F92879B7670e5f4e4e6e3c801D229129D90D",
+                "period": 2,
+                "limit": "174451999999999998181000",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              },
+              {
+                "token": "0xD76f5Faf6888e24D9F04Bf92a0c8B921FE4390e0",
+                "period": 2,
+                "limit": "562469999999999981100",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              },
+              {
+                "token": "0x337E7456B420bD3481e7FA61fA9850343d610d34",
+                "period": 2,
+                "limit": "1970499999999999829500",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              },
+              {
+                "token": "0x8a1D45e102e886510e891d2Ec656a708991e2D76",
+                "period": 2,
+                "limit": "351205000000000018189900",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              },
+              {
+                "token": "0xC92E8Fc2947E32F2B574CCA9F2F12097A71d5606",
+                "period": 2,
+                "limit": "351205000000000018189900",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              },
+              {
+                "token": "0x18Bc5bcC660cf2B9cE3cd51a404aFe1a0cBD3C22",
+                "period": 2,
+                "limit": "184597800",
+                "spent": "0",
+                "lastUpdated": "0",
+                "currentSpent": "0",
+                "current": "1795737600"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "revokedReads": [
+    {
+      "tx": "0x7a579439a5050f6fbf37ac5bede5815dbd1572466fcfdcbdb3f6bdbe9aeccb4c",
+      "user": "0x887EAF32db5328Bd3F442747089985dA72474Bb8",
+      "keyId": "0x0e71a4ec5339f7a0ad85a6e62546d0b092105dcf3cf92113c489e28c2d1c173d",
+      "reads": {
+        "getExpiry": 1794928197,
+        "getKey": {
+          "validator": "0x0000000000000000000000000000000000000000",
+          "publicKey": "0x04922c54aab8a307089e80a831c242d29ab535c7e08e948f7abde26364c20ab16251be5e953729cd10ccbf0fd14c6410e785a31f21c8c707f16e0449223874d73b",
+          "metadata": "0x",
+          "nonce": "0",
+          "lastUpdated": "1794924627",
+          "revoked": true,
+          "expiry": 1794928197,
+          "isRoot": false
+        },
+        "getMetadata": "0x",
+        "getNonce": "0",
+        "getPublicKey": "0x04922c54aab8a307089e80a831c242d29ab535c7e08e948f7abde26364c20ab16251be5e953729cd10ccbf0fd14c6410e785a31f21c8c707f16e0449223874d73b",
+        "getValidator": "0x0000000000000000000000000000000000000000",
+        "isKeyActive": false,
+        "isRootKey": false,
+        "isValidKey": false,
+        "publicKeyRegistered": true,
+        "userKeys": [
+          "0x0000000000000000000000000000000000000000",
+          "0x04922c54aab8a307089e80a831c242d29ab535c7e08e948f7abde26364c20ab16251be5e953729cd10ccbf0fd14c6410e785a31f21c8c707f16e0449223874d73b",
+          "0x",
+          "0",
+          "1794924627",
+          true,
+          1794928197,
+          false
+        ]
+      }
+    },
+    {
+      "tx": "0x165b2756e4de0a617ef144f6c4b01f3a79a044e35550cc1bc04d35e551e8f9fb",
+      "user": "0x5aeC9aC78bb3E045d2f85e311aD3385B8116d0c5",
+      "keyId": "0xc72ef364bb8a1406cb9396c0a7fcbd76952f2ed851d32f1b5d493d9760cf9f62",
+      "reads": {
+        "getExpiry": 1795829389,
+        "getKey": {
+          "validator": "0x0000000000000000000000000000000000000000",
+          "publicKey": "0x04db1ab8815afd9e5d5df7fa41439b6ee1df048071ffbad5f5cf7c2a16e00db332154fc1eec8ee32d0cd381b57d9b1b3629ae8b88de269471bb222fad429e35ec5",
+          "metadata": "0x",
+          "nonce": "0",
+          "lastUpdated": "1795224656",
+          "revoked": true,
+          "expiry": 1795829389,
+          "isRoot": false
+        },
+        "getMetadata": "0x",
+        "getNonce": "0",
+        "getPublicKey": "0x04db1ab8815afd9e5d5df7fa41439b6ee1df048071ffbad5f5cf7c2a16e00db332154fc1eec8ee32d0cd381b57d9b1b3629ae8b88de269471bb222fad429e35ec5",
+        "getValidator": "0x0000000000000000000000000000000000000000",
+        "isKeyActive": false,
+        "isRootKey": false,
+        "isValidKey": false,
+        "publicKeyRegistered": true,
+        "userKeys": [
+          "0x0000000000000000000000000000000000000000",
+          "0x04db1ab8815afd9e5d5df7fa41439b6ee1df048071ffbad5f5cf7c2a16e00db332154fc1eec8ee32d0cd381b57d9b1b3629ae8b88de269471bb222fad429e35ec5",
+          "0x",
+          "0",
+          "1795224656",
+          true,
+          1795829389,
+          false
+        ]
+      }
+    },
+    {
+      "tx": "0xf2d9b9a8f1da2de692cc1125b3b8f051036c34c7bf48de6f1eff09abf9e8622e",
+      "user": "0x5aeC9aC78bb3E045d2f85e311aD3385B8116d0c5",
+      "keyId": "0x14a3fc2f2c963a522311ca8a99ff1ca5abd07f0308ed65b39b1fbedc85e1b04f",
+      "reads": {
+        "getExpiry": 1795830640,
+        "getKey": {
+          "validator": "0x0000000000000000000000000000000000000000",
+          "publicKey": "0x047f60fe28d9953615830842f41790a951433e95f0783fa4a4c5cd2abfd1cf67fb420a9e0b4b44daf3f330ef54cf9c679cc22fdd3e9c51a64e903d1fa0ab55ab91",
+          "metadata": "0x",
+          "nonce": "0",
+          "lastUpdated": "1795232215",
+          "revoked": true,
+          "expiry": 1795830640,
+          "isRoot": false
+        },
+        "getMetadata": "0x",
+        "getNonce": "0",
+        "getPublicKey": "0x047f60fe28d9953615830842f41790a951433e95f0783fa4a4c5cd2abfd1cf67fb420a9e0b4b44daf3f330ef54cf9c679cc22fdd3e9c51a64e903d1fa0ab55ab91",
+        "getValidator": "0x0000000000000000000000000000000000000000",
+        "isKeyActive": false,
+        "isRootKey": false,
+        "isValidKey": false,
+        "publicKeyRegistered": true,
+        "userKeys": [
+          "0x0000000000000000000000000000000000000000",
+          "0x047f60fe28d9953615830842f41790a951433e95f0783fa4a4c5cd2abfd1cf67fb420a9e0b4b44daf3f330ef54cf9c679cc22fdd3e9c51a64e903d1fa0ab55ab91",
+          "0x",
+          "0",
+          "1795232215",
+          true,
+          1795830640,
+          false
+        ]
+      }
+    },
+    {
+      "tx": "0xe43b71c664d21366a2f832d5fed97b4a0293055cc7558e66ef24565685453e08",
+      "user": "0x731a878df9da4c1Dcb87bD0dF4Bfa8cf783A364F",
+      "keyId": "0x3519ac7a993ea63206830bc543da2dd103d502e84de7a5e49da797fcb139c4b2",
+      "reads": {
+        "getExpiry": 1795282405,
+        "getKey": {
+          "validator": "0x0000000000000000000000000000000000000000",
+          "publicKey": "0x04a93e744c9ddd5b9c41c7f898077ccd2da5194a33a6363c6b6c53bbe17f7ddeeebb8bd0e7eb0a250f6ea35d70ffafa9a698a9bc350507a822cd5272e3df2fbfb1",
+          "metadata": "0x",
+          "nonce": "0",
+          "lastUpdated": "1795278871",
+          "revoked": true,
+          "expiry": 1795282405,
+          "isRoot": false
+        },
+        "getMetadata": "0x",
+        "getNonce": "0",
+        "getPublicKey": "0x04a93e744c9ddd5b9c41c7f898077ccd2da5194a33a6363c6b6c53bbe17f7ddeeebb8bd0e7eb0a250f6ea35d70ffafa9a698a9bc350507a822cd5272e3df2fbfb1",
+        "getValidator": "0x0000000000000000000000000000000000000000",
+        "isKeyActive": false,
+        "isRootKey": false,
+        "isValidKey": false,
+        "publicKeyRegistered": true,
+        "userKeys": [
+          "0x0000000000000000000000000000000000000000",
+          "0x04a93e744c9ddd5b9c41c7f898077ccd2da5194a33a6363c6b6c53bbe17f7ddeeebb8bd0e7eb0a250f6ea35d70ffafa9a698a9bc350507a822cd5272e3df2fbfb1",
+          "0x",
+          "0",
+          "1795278871",
+          true,
+          1795282405,
+          false
+        ]
+      }
+    },
+    {
+      "tx": "0xc4acb8a8f3e149c51fc4ed4a3314a2f4b2f388e6f665fc33cddcf60b14b9763f",
+      "user": "0x0EcaaFc1Bd6f7033d6eb038d8Cbc8a55f900D4B1",
+      "keyId": "0xc7470a1fff196df39f76c62156e45e8a3b0db4be314ea2520bffa652a7fb3bdb",
+      "reads": {
+        "getExpiry": 1795295226,
+        "getKey": {
+          "validator": "0x0000000000000000000000000000000000000000",
+          "publicKey": "0x04e09eb15a328da079692c6f071f36fa4f67c482e6c8d2a3b5ca1669bcdac0171068723c8cb4d4023ca9f938cd37df073967f6f3937ad334562cbd020c4877c54d",
+          "metadata": "0x",
+          "nonce": "0",
+          "lastUpdated": "1795291672",
+          "revoked": true,
+          "expiry": 1795295226,
+          "isRoot": false
+        },
+        "getMetadata": "0x",
+        "getNonce": "0",
+        "getPublicKey": "0x04e09eb15a328da079692c6f071f36fa4f67c482e6c8d2a3b5ca1669bcdac0171068723c8cb4d4023ca9f938cd37df073967f6f3937ad334562cbd020c4877c54d",
+        "getValidator": "0x0000000000000000000000000000000000000000",
+        "isKeyActive": false,
+        "isRootKey": false,
+        "isValidKey": false,
+        "publicKeyRegistered": true,
+        "userKeys": [
+          "0x0000000000000000000000000000000000000000",
+          "0x04e09eb15a328da079692c6f071f36fa4f67c482e6c8d2a3b5ca1669bcdac0171068723c8cb4d4023ca9f938cd37df073967f6f3937ad334562cbd020c4877c54d",
+          "0x",
+          "0",
+          "1795291672",
+          true,
+          1795295226,
+          false
+        ]
+      }
+    },
+    {
+      "tx": "0x2eb5628042c99bb0c030232307aa4f2c799f5fa2e27301c4ee6511f7bb847fe9",
+      "user": "0x093c0AfA09fF4715595a79770447C60C4eCFfd1C",
+      "keyId": "0x478eed8e3d62cb74b9062907a3161c1c0d85ac493134657b6d73fbe0232e4ace",
+      "reads": {
+        "getExpiry": 1795911780,
+        "getKey": {
+          "validator": "0x0000000000000000000000000000000000000000",
+          "publicKey": "0x04896199f79aa766626a204506e202229cc892993512ec3a26991d338dc8055bd0bac7afad7aab47341a5c0f564d803f8e8f03b73af37434b49abd6f2defe58c51",
+          "metadata": "0x",
+          "nonce": "0",
+          "lastUpdated": "1795307023",
+          "revoked": true,
+          "expiry": 1795911780,
+          "isRoot": false
+        },
+        "getMetadata": "0x",
+        "getNonce": "0",
+        "getPublicKey": "0x04896199f79aa766626a204506e202229cc892993512ec3a26991d338dc8055bd0bac7afad7aab47341a5c0f564d803f8e8f03b73af37434b49abd6f2defe58c51",
+        "getValidator": "0x0000000000000000000000000000000000000000",
+        "isKeyActive": false,
+        "isRootKey": false,
+        "isValidKey": false,
+        "publicKeyRegistered": true,
+        "userKeys": [
+          "0x0000000000000000000000000000000000000000",
+          "0x04896199f79aa766626a204506e202229cc892993512ec3a26991d338dc8055bd0bac7afad7aab47341a5c0f564d803f8e8f03b73af37434b49abd6f2defe58c51",
+          "0x",
+          "0",
+          "1795307023",
+          true,
+          1795911780,
+          false
+        ]
+      }
+    },
+    {
+      "tx": "0x67fc22a957a6cc97ae27d57752c233124f7bc36c3770e91a0eed7b81c11b1dce",
+      "user": "0x15855ae2E04Fd00eFA45cB70D2C29E5777925429",
+      "keyId": "0x9f958a6848e6fc3f2859e2d65d6307c98cb7e0f36caabd0b3b0f4933e50d24c4",
+      "reads": {
+        "getExpiry": 1802602838,
+        "getKey": {
+          "validator": "0x0000000000000000000000000000000000000000",
+          "publicKey": "0x04895315f3d03ade83d6dcbd7b4c9e1bb56f52bc25ba1b15ae7c36f0696f998a3d3700b13b8bf0f67e32c8ca30a9f4a4fa79f776260d5b898616a8da8297acefc2",
+          "metadata": "0x",
+          "nonce": "0",
+          "lastUpdated": "1795345616",
+          "revoked": true,
+          "expiry": 1802602838,
+          "isRoot": false
+        },
+        "getMetadata": "0x",
+        "getNonce": "0",
+        "getPublicKey": "0x04895315f3d03ade83d6dcbd7b4c9e1bb56f52bc25ba1b15ae7c36f0696f998a3d3700b13b8bf0f67e32c8ca30a9f4a4fa79f776260d5b898616a8da8297acefc2",
+        "getValidator": "0x0000000000000000000000000000000000000000",
+        "isKeyActive": false,
+        "isRootKey": false,
+        "isValidKey": false,
+        "publicKeyRegistered": true,
+        "userKeys": [
+          "0x0000000000000000000000000000000000000000",
+          "0x04895315f3d03ade83d6dcbd7b4c9e1bb56f52bc25ba1b15ae7c36f0696f998a3d3700b13b8bf0f67e32c8ca30a9f4a4fa79f776260d5b898616a8da8297acefc2",
+          "0x",
+          "0",
+          "1795345616",
+          true,
+          1802602838,
+          false
+        ]
+      }
+    },
+    {
+      "tx": "0x7deaa540365cce0cbc4203ae40257ba49497d48074c68e2b5849c698cd5a05df",
+      "user": "0xB2441B175d620A3Fd5CDef28fA1c6957e6224431",
+      "keyId": "0x3b6c8c86d58d4368d199cc1b73f5f9647f0861a9358796424914cd2046b455b9",
+      "reads": {
+        "getExpiry": 1796508761,
+        "getKey": {
+          "validator": "0x0000000000000000000000000000000000000000",
+          "publicKey": "0x048c9f29105727298c98e1e19d71d136d7299b5cc31a74bed436c5f2cf8ee774de4612556d85905f1ab6ca0636fbd552a9d3e6511e6d3f039f161cd22ddbfca76f",
+          "metadata": "0x",
+          "nonce": "0",
+          "lastUpdated": "1795348547",
+          "revoked": true,
+          "expiry": 1796508761,
+          "isRoot": false
+        },
+        "getMetadata": "0x",
+        "getNonce": "0",
+        "getPublicKey": "0x048c9f29105727298c98e1e19d71d136d7299b5cc31a74bed436c5f2cf8ee774de4612556d85905f1ab6ca0636fbd552a9d3e6511e6d3f039f161cd22ddbfca76f",
+        "getValidator": "0x0000000000000000000000000000000000000000",
+        "isKeyActive": false,
+        "isRootKey": false,
+        "isValidKey": false,
+        "publicKeyRegistered": true,
+        "userKeys": [
+          "0x0000000000000000000000000000000000000000",
+          "0x048c9f29105727298c98e1e19d71d136d7299b5cc31a74bed436c5f2cf8ee774de4612556d85905f1ab6ca0636fbd552a9d3e6511e6d3f039f161cd22ddbfca76f",
+          "0x",
+          "0",
+          "1795348547",
+          true,
+          1796508761,
+          false
+        ]
+      }
+    },
+    {
+      "tx": "0xd447908bd5e96c246ec46435c462a5f41309794588c15ecc5a6f841629f672f5",
+      "user": "0xA177651FC7F9BfF0804ad123c4fdb8aa6625683C",
+      "keyId": "0x8b1aff8fb1c3eca05c1d63c0372afcd76d51ac1623f40dc620afd10a5465e619",
+      "reads": {
+        "getExpiry": 1802607917,
+        "getKey": {
+          "validator": "0x0000000000000000000000000000000000000000",
+          "publicKey": "0x045293d0669750584efdfae57db7871cc2fea61cbc66288ca459fb2e2a48036463f0fb0eca88de27de66d428cfeb02c83f919e94cfdf85cd07b166f2d9b9ea244c",
+          "metadata": "0x",
+          "nonce": "0",
+          "lastUpdated": "1795350730",
+          "revoked": true,
+          "expiry": 1802607917,
+          "isRoot": false
+        },
+        "getMetadata": "0x",
+        "getNonce": "0",
+        "getPublicKey": "0x045293d0669750584efdfae57db7871cc2fea61cbc66288ca459fb2e2a48036463f0fb0eca88de27de66d428cfeb02c83f919e94cfdf85cd07b166f2d9b9ea244c",
+        "getValidator": "0x0000000000000000000000000000000000000000",
+        "isKeyActive": false,
+        "isRootKey": false,
+        "isValidKey": false,
+        "publicKeyRegistered": true,
+        "userKeys": [
+          "0x0000000000000000000000000000000000000000",
+          "0x045293d0669750584efdfae57db7871cc2fea61cbc66288ca459fb2e2a48036463f0fb0eca88de27de66d428cfeb02c83f919e94cfdf85cd07b166f2d9b9ea244c",
+          "0x",
+          "0",
+          "1795350730",
+          true,
+          1802607917,
+          false
+        ]
+      }
+    },
+    {
+      "tx": "0x7f30def994b3bdcd789a8768a484d145a30268191362adb0625f41491391f692",
+      "user": "0x88DeB13766F676C70cC27770d1fEd5c3Eb2414db",
+      "keyId": "0x4b9e28fa0290c4af22159c22112f360c82283313e5684d87dc8bced649708478",
+      "reads": {
+        "getExpiry": 1802618004,
+        "getKey": {
+          "validator": "0x0000000000000000000000000000000000000000",
+          "publicKey": "0x0419dcf4c468aabd71421120e8dbf04c2a1816eb36e67e824afc6cdff10a55704bd83b52bf393768ca6d3689db49b75c2bd572e0ee884d6a2ac3ff231bb55e0df0",
+          "metadata": "0x",
+          "nonce": "0",
+          "lastUpdated": "1795360509",
+          "revoked": true,
+          "expiry": 1802618004,
+          "isRoot": false
+        },
+        "getMetadata": "0x",
+        "getNonce": "0",
+        "getPublicKey": "0x0419dcf4c468aabd71421120e8dbf04c2a1816eb36e67e824afc6cdff10a55704bd83b52bf393768ca6d3689db49b75c2bd572e0ee884d6a2ac3ff231bb55e0df0",
+        "getValidator": "0x0000000000000000000000000000000000000000",
+        "isKeyActive": false,
+        "isRootKey": false,
+        "isValidKey": false,
+        "publicKeyRegistered": true,
+        "userKeys": [
+          "0x0000000000000000000000000000000000000000",
+          "0x0419dcf4c468aabd71421120e8dbf04c2a1816eb36e67e824afc6cdff10a55704bd83b52bf393768ca6d3689db49b75c2bd572e0ee884d6a2ac3ff231bb55e0df0",
+          "0x",
+          "0",
+          "1795360509",
+          true,
+          1802618004,
+          false
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "walletsRead": 34,
+    "walletsWithAccountKeys": 31,
+    "sessionKeysFound": 19,
+    "sessionKeysWithCapsReadable": 19,
+    "sessionKeysWithAllowlistReadable": 19,
+    "sessionKeysInKeyStore": 20,
+    "revokeEventsFound": 21
+  },
+  "finishedAt": "2026-11-27T07:08:12.916Z"
+}

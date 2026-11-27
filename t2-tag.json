@@ -1,0 +1,271 @@
+{
+  "test": "t2-tag",
+  "startedAt": "2026-11-27T07:08:13.350Z",
+  "exports": [
+    "ENTRY_POINT_ADDRESSES",
+    "ERC_8021_MARKER",
+    "INTENT_EXECUTED_TOPIC",
+    "ORCHESTRATOR_ADDRESSES",
+    "ORCHESTRATOR_SELECTORS",
+    "codeFromHostname",
+    "codeFromRepo",
+    "fromDataSuffix",
+    "fromEntryPointCalldata",
+    "fromOrchestratorCalldata",
+    "toDataSuffix",
+    "toRoleDataSuffix",
+    "verifyIntents",
+    "verifyTx",
+    "verifyUserOps",
+    "withAttribution"
+  ],
+  "txs": [
+    {
+      "label": "hexbox: Altana session-key execute via relay (USDC.transfer top-up)",
+      "hash": "0xb460d2bd872edc4d19c1f85e63adc174564439cabe66ac01141b0b8d3f1c0227",
+      "from": "0x0b479179781640c1c62fe845dcaab1689cb4985c",
+      "to": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+      "selector": "0x09c5eabe",
+      "inputBytes": 1444,
+      "type": "eip1559",
+      "fromDataSuffix": "n/a",
+      "fromOrchestratorCalldata": [
+        {
+          "sender": "0xc17733165c47f80e56b1c6ed61e8988296ca8f82",
+          "attribution": {
+            "codes": [
+              "altana",
+              "celo_73a54a0daad9"
+            ],
+            "schemaId": 0
+          }
+        }
+      ],
+      "status": "success",
+      "verifyTx": {
+        "codes": [
+          "altana",
+          "celo_73a54a0daad9"
+        ],
+        "schemaId": 0,
+        "sender": "0xc17733165c47f80e56b1c6ed61e8988296ca8f82"
+      },
+      "codesSeen": [
+        "altana",
+        "celo_73a54a0daad9"
+      ]
+    },
+    {
+      "label": "hexbox: Altana grant via relay (KeyStore registration + session grant)",
+      "hash": "0xaf680c1b453efad02812cd9ed8abdc143b7879ba68813bbf46d80217b43593cd",
+      "from": "0x0b479179781640c1c62fe845dcaab1689cb4985c",
+      "to": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+      "selector": "0x09c5eabe",
+      "inputBytes": 3844,
+      "type": "eip1559",
+      "fromDataSuffix": "n/a",
+      "fromOrchestratorCalldata": [
+        {
+          "sender": "0xc17733165c47f80e56b1c6ed61e8988296ca8f82",
+          "attribution": null
+        }
+      ],
+      "status": "success",
+      "verifyTx": null,
+      "codesSeen": null
+    },
+    {
+      "label": "hexbox: admin self-call setCanExecute (EOA, tagged with withAttribution)",
+      "hash": "0x6c25718b7aa8288be290f87a13fb62328e28030143a8608c4dab57c847aaadc4",
+      "from": "0xc17733165c47f80e56b1c6ed61e8988296ca8f82",
+      "to": "0xc17733165c47f80e56b1c6ed61e8988296ca8f82",
+      "selector": "0x136a12f7",
+      "inputBytes": 167,
+      "type": "eip1559",
+      "fromDataSuffix": {
+        "codes": [
+          "celo_73a54a0daad9"
+        ],
+        "schemaId": 0
+      },
+      "fromOrchestratorCalldata": "n/a",
+      "status": "success",
+      "verifyTx": {
+        "codes": [
+          "celo_73a54a0daad9"
+        ],
+        "schemaId": 0
+      },
+      "codesSeen": [
+        "celo_73a54a0daad9"
+      ]
+    },
+    {
+      "label": "hexbox: ERC-8004 registration (EOA, control)",
+      "hash": "0xe47d71bb03cc18e736e43b0a3a5d9a31b750db81ec299da6c9205f631feb36e4",
+      "from": "0xc17733165c47f80e56b1c6ed61e8988296ca8f82",
+      "to": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+      "selector": "0xf2c298be",
+      "inputBytes": 199,
+      "type": "eip1559",
+      "fromDataSuffix": {
+        "codes": [
+          "celo_73a54a0daad9"
+        ],
+        "schemaId": 0
+      },
+      "fromOrchestratorCalldata": "n/a",
+      "status": "success",
+      "verifyTx": {
+        "codes": [
+          "celo_73a54a0daad9"
+        ],
+        "schemaId": 0
+      },
+      "codesSeen": [
+        "celo_73a54a0daad9"
+      ]
+    },
+    {
+      "label": "errand: ERC-8004 registration (EOA, control)",
+      "hash": "0x8b6048637d36104e7c89d85efee0e1be8e9696fa7f00e485b79b9ee76f162b7c",
+      "from": "0xc64d2153bd39053913667a5c2eec8250d8abc005",
+      "to": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+      "selector": "0xf2c298be",
+      "inputBytes": 231,
+      "type": "eip1559",
+      "fromDataSuffix": {
+        "codes": [
+          "celo_511bb691f2f0"
+        ],
+        "schemaId": 0
+      },
+      "fromOrchestratorCalldata": "n/a",
+      "status": "success",
+      "verifyTx": {
+        "codes": [
+          "celo_511bb691f2f0"
+        ],
+        "schemaId": 0
+      },
+      "codesSeen": [
+        "celo_511bb691f2f0"
+      ]
+    },
+    {
+      "label": "revoke event KeyRevoked (from t1)",
+      "hash": "0x7a579439a5050f6fbf37ac5bede5815dbd1572466fcfdcbdb3f6bdbe9aeccb4c",
+      "from": "0x0b479179781640c1c62fe845dcaab1689cb4985c",
+      "to": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+      "selector": "0x09c5eabe",
+      "inputBytes": 1604,
+      "type": "eip1559",
+      "fromDataSuffix": "n/a",
+      "fromOrchestratorCalldata": [
+        {
+          "sender": "0x887eaf32db5328bd3f442747089985da72474bb8",
+          "attribution": null
+        }
+      ],
+      "txErr": "Transaction receipt with hash \"0x7a579439a5050f6fbf37ac5bede5815dbd1572466fcfdcbdb3f6bdbe9aeccb4c\" could not be found. The Transaction may not be processed on a block yet.",
+      "verifyTx": null,
+      "codesSeen": null
+    },
+    {
+      "label": "revoke event KeyRevoked (from t1)",
+      "hash": "0x165b2756e4de0a617ef144f6c4b01f3a79a044e35550cc1bc04d35e551e8f9fb",
+      "from": "0x53187eab26dad0e82598d4f7ac9c349665fb2faa",
+      "to": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+      "selector": "0x09c5eabe",
+      "inputBytes": 1604,
+      "type": "eip1559",
+      "fromDataSuffix": "n/a",
+      "fromOrchestratorCalldata": [
+        {
+          "sender": "0x5aec9ac78bb3e045d2f85e311ad3385b8116d0c5",
+          "attribution": null
+        }
+      ],
+      "txErr": "Transaction receipt with hash \"0x165b2756e4de0a617ef144f6c4b01f3a79a044e35550cc1bc04d35e551e8f9fb\" could not be found. The Transaction may not be processed on a block yet.",
+      "verifyTx": null,
+      "codesSeen": null
+    },
+    {
+      "label": "revoke event KeyRevoked (from t1)",
+      "hash": "0xf2d9b9a8f1da2de692cc1125b3b8f051036c34c7bf48de6f1eff09abf9e8622e",
+      "from": "0x53187eab26dad0e82598d4f7ac9c349665fb2faa",
+      "to": "0xaf140d0416a994aebb3fa6212b16ce6700f09751",
+      "selector": "0x09c5eabe",
+      "inputBytes": 1604,
+      "type": "eip1559",
+      "fromDataSuffix": "n/a",
+      "fromOrchestratorCalldata": [
+        {
+          "sender": "0x5aec9ac78bb3e045d2f85e311ad3385b8116d0c5",
+          "attribution": null
+        }
+      ],
+      "status": "success",
+      "verifyTx": null,
+      "codesSeen": null
+    }
+  ],
+  "summary": [
+    {
+      "label": "hexbox: Altana session-key execute via relay (USDC.transfer top-up)",
+      "status": "success",
+      "codesSeen": [
+        "altana",
+        "celo_73a54a0daad9"
+      ],
+      "verifyTxErr": null
+    },
+    {
+      "label": "hexbox: Altana grant via relay (KeyStore registration + session grant)",
+      "status": "success",
+      "codesSeen": null,
+      "verifyTxErr": null
+    },
+    {
+      "label": "hexbox: admin self-call setCanExecute (EOA, tagged with withAttribution)",
+      "status": "success",
+      "codesSeen": [
+        "celo_73a54a0daad9"
+      ],
+      "verifyTxErr": null
+    },
+    {
+      "label": "hexbox: ERC-8004 registration (EOA, control)",
+      "status": "success",
+      "codesSeen": [
+        "celo_73a54a0daad9"
+      ],
+      "verifyTxErr": null
+    },
+    {
+      "label": "errand: ERC-8004 registration (EOA, control)",
+      "status": "success",
+      "codesSeen": [
+        "celo_511bb691f2f0"
+      ],
+      "verifyTxErr": null
+    },
+    {
+      "label": "revoke event KeyRevoked (from t1)",
+      "codesSeen": null,
+      "verifyTxErr": null
+    },
+    {
+      "label": "revoke event KeyRevoked (from t1)",
+      "codesSeen": null,
+      "verifyTxErr": null
+    },
+    {
+      "label": "revoke event KeyRevoked (from t1)",
+      "status": "success",
+      "codesSeen": null,
+      "verifyTxErr": null
+    }
+  ],
+  "finishedAt": "2026-11-27T07:08:16.184Z"
+}

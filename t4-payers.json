@@ -1,0 +1,209 @@
+{
+  "test": "t4-payers",
+  "startedAt": "2026-11-27T07:08:18.582Z",
+  "days": 30,
+  "fundingDays": 90,
+  "targets": [
+    {
+      "address": "0x3Fc08CFfDBAEf388Dc60096935379AE3c603CB0e",
+      "blockscout": {
+        "ms": 884,
+        "requests": 5,
+        "costUsd": 0,
+        "payments": 7,
+        "payers": [
+          "0x034ea55c58181df71eF1555c0d598861087bAE48",
+          "0xC9A2780D131Bb310E60B6506C7840665Dc924cea"
+        ],
+        "totals": {
+          "USDT": 0.7
+        },
+        "funding": {
+          "0x034ea55c58181df71eF1555c0d598861087bAE48": {
+            "firstFunding": {
+              "kind": "token CELO",
+              "from": "0x9F43427ca3776f00246e8a52B7373eC724B00402",
+              "time": 1793199426,
+              "hash": "0x167d16469c6fa2ed0ca141445816e367b28e44ceab7c5b18c6d57d8ea18d8419"
+            },
+            "seen": [
+              {
+                "kind": "token CELO",
+                "from": "0x9F43427ca3776f00246e8a52B7373eC724B00402",
+                "time": 1793199426,
+                "hash": "0x167d16469c6fa2ed0ca141445816e367b28e44ceab7c5b18c6d57d8ea18d8419"
+              },
+              {
+                "kind": "CELO",
+                "from": "0x9F43427ca3776f00246e8a52B7373eC724B00402",
+                "time": 1793199426,
+                "hash": "0x167d16469c6fa2ed0ca141445816e367b28e44ceab7c5b18c6d57d8ea18d8419"
+              }
+            ]
+          },
+          "0xC9A2780D131Bb310E60B6506C7840665Dc924cea": {
+            "firstFunding": {
+              "kind": "token USDT",
+              "from": "0x2Fc617E933a52713247CE25730f6695920B3befe",
+              "time": 1793458233,
+              "hash": "0x2978b5fa25ff847defd2d3ca1eb982b41192d54e100b05997f71dc9b0bdb0579"
+            },
+            "seen": [
+              {
+                "kind": "token USDT",
+                "from": "0x2Fc617E933a52713247CE25730f6695920B3befe",
+                "time": 1793458233,
+                "hash": "0x2978b5fa25ff847defd2d3ca1eb982b41192d54e100b05997f71dc9b0bdb0579"
+              }
+            ]
+          }
+        },
+        "payersFundedByTarget": [],
+        "sharedFunders": []
+      },
+      "rpc": {
+        "maxRange": "2531",
+        "rangeTries": [
+          {
+            "range": "2592000",
+            "ok": false,
+            "err": "Invalid parameters were provided to the RPC method.\nDouble check you have provided the correct parameters."
+          },
+          {
+            "range": "648000",
+            "ok": false,
+            "err": "Invalid parameters were provided to the RPC method.\nDouble check you have provided the correct parameters."
+          },
+          {
+            "range": "162000",
+            "ok": false,
+            "err": "Invalid parameters were provided to the RPC method.\nDouble check you have provided the correct parameters."
+          },
+          {
+            "range": "40500",
+            "ok": false,
+            "err": "Invalid parameters were provided to the RPC method.\nDouble check you have provided the correct parameters."
+          },
+          {
+            "range": "10125",
+            "ok": false,
+            "err": "Invalid parameters were provided to the RPC method.\nDouble check you have provided the correct parameters."
+          },
+          {
+            "range": "2531",
+            "ok": true
+          }
+        ],
+        "ms": 0,
+        "calls": 0,
+        "paymentCallsNeeded": 1025,
+        "payments": null,
+        "payers": null,
+        "funding": null,
+        "chainstackRequestsIfBatched": 0,
+        "chainstackCostUsdIfBatched": 0,
+        "nativeCeloFundingSeen": false
+      }
+    },
+    {
+      "address": "0xc64d2153Bd39053913667A5c2eec8250d8AbC005",
+      "blockscout": {
+        "ms": 400,
+        "requests": 3,
+        "costUsd": 0,
+        "payments": 2,
+        "payers": [
+          "0x58AcE9cB87Db8e5997288023a53f586498a36C36"
+        ],
+        "totals": {
+          "USDT": 0.02
+        },
+        "funding": {
+          "0x58AcE9cB87Db8e5997288023a53f586498a36C36": {
+            "firstFunding": {
+              "kind": "token USDT",
+              "from": "0x388cB67fb3c07290350F7eB55EC53aD1fE608fcd",
+              "time": 1795544634,
+              "hash": "0xe8ab9b65abb6d6d1183d8deadd6fdb834f5f64347448599aafe700e37e637e8e"
+            },
+            "seen": [
+              {
+                "kind": "token USDT",
+                "from": "0x388cB67fb3c07290350F7eB55EC53aD1fE608fcd",
+                "time": 1795544634,
+                "hash": "0xe8ab9b65abb6d6d1183d8deadd6fdb834f5f64347448599aafe700e37e637e8e"
+              },
+              {
+                "kind": "CELO",
+                "from": "0x6A66533AF4e2EDD299A097310dF7f8e0935Fb510",
+                "time": 1795548128,
+                "hash": "0x87cd393e1ce83b8f36b42f6b0f841f4b6a302c08df2740ede8f0b12766f96c00"
+              }
+            ]
+          }
+        },
+        "payersFundedByTarget": [],
+        "sharedFunders": []
+      }
+    },
+    {
+      "address": "0x00D96E0A1b77ff3f6EA5BF5Df1b5A177f75d1319",
+      "blockscout": {
+        "ms": 105,
+        "requests": 1,
+        "costUsd": 0,
+        "payments": 0,
+        "payers": [],
+        "totals": {},
+        "funding": {},
+        "payersFundedByTarget": [],
+        "sharedFunders": []
+      }
+    }
+  ],
+  "chain": {
+    "latestBlock": "83862539",
+    "secPerBlock": 1
+  },
+  "summary": [
+    {
+      "address": "0x3Fc08CFfDBAEf388Dc60096935379AE3c603CB0e",
+      "blockscout": {
+        "ms": 884,
+        "requests": 5,
+        "payers": 2,
+        "payments": 7
+      },
+      "rpc": {
+        "ms": 0,
+        "calls": 0,
+        "maxRange": "2531",
+        "estCostUsd": 0
+      },
+      "agreement": null
+    },
+    {
+      "address": "0xc64d2153Bd39053913667A5c2eec8250d8AbC005",
+      "blockscout": {
+        "ms": 400,
+        "requests": 3,
+        "payers": 1,
+        "payments": 2
+      },
+      "rpc": {},
+      "agreement": null
+    },
+    {
+      "address": "0x00D96E0A1b77ff3f6EA5BF5Df1b5A177f75d1319",
+      "blockscout": {
+        "ms": 105,
+        "requests": 1,
+        "payers": 0,
+        "payments": 0
+      },
+      "rpc": {},
+      "agreement": null
+    }
+  ],
+  "finishedAt": "2026-11-27T07:08:27.708Z"
+}
