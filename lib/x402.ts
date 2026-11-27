@@ -38,6 +38,6 @@ export function x402ReportNote(): {
   return {
     enabled: false,
     priceUsd: X402_PRICE_USD,
-    note: "Gating is off. No payment is collected.",
+    note: "Free on this site. Agents can pay $0.02 over x402 at /api/v1/check?address= (see /api/agent).",
   };
 }

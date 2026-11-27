@@ -3,9 +3,9 @@ import type { StatusWord } from "@/lib/types";
 
 /**
  * Extension point for Preflight's own Altana session-key agent.
- * Not implemented. The check engine already reads any address on the Keystore.
- * This interface is only for the app's own session, which does not exist yet.
- * Do not put a private key in the implementation.
+ * Implemented by `altanaSessionAgent` in lib/altana/session-agent.ts. It reads status only;
+ * the session key itself is set by the owner in Vercel env and never appears in code.
+ * The check engine already reads any address on the Keystore.
  */
 export type SessionKeyStatus = {
   account: Address;
@@ -19,6 +19,6 @@ export interface SessionKeyAgent {
 }
 
 export const SESSION_KEY_AGENT = {
-  implemented: false as const,
-  note: "Not implemented. See docs/ARCHITECTURE.md.",
+  implemented: true as const,
+  note: "lib/altana/session-agent.ts. See docs/ARCHITECTURE.md, Altana side.",
 };

@@ -1,7 +1,7 @@
 import { readAgentState, writeReceipt } from "@/lib/altana/agent";
 import { siteUrl } from "@/lib/altana/config";
 import { hashReport, selfCheckAgentId } from "@/lib/altana/receipt";
-import { loadReport } from "@/lib/checks/run";
+import { loadCachedReport } from "@/lib/checks/run";
 import { buildRequirements, decodePaymentHeader, encodeHeader, paymentRequiredBody, sellerConfig, settle, verify } from "@/lib/x402-seller";
 
 export const runtime = "nodejs";
@@ -62,7 +62,7 @@ export async function GET(request: Request) {
     );
   }
 
-  const result = await loadReport(address);
+  const result = await loadCachedReport(address);
   if (!result.ok) {
     return Response.json({ error: result.error, charged: false }, { status: 400, headers: NO_STORE });
   }
