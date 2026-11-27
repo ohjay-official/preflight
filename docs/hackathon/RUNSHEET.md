@@ -92,7 +92,7 @@ Read this first in every session. Update and push it before ending.
 - The agent's Altana action is the ERC-8004 receipt on self-checks (Reputation Registry `0x8004BAa1…9b63`); session may call only `giveFeedback`, $0.25 USDC a day, expires 14 Dec
 - buy's facilitator rejects Altana ERC-1271 signatures (Hexbox's record); not needed now that nothing is bought
 - Funding is about 20 CELO, not 10.5: the first grant registers two keys at $0.50 each in CELO
-- Passkey host: `preflight-mu-six.vercel.app` unless renamed before the passkey exists
+- Passkey host: `getpreflight.vercel.app` (set 27 Nov, before any passkey). `preflight-mu-six.vercel.app` still serves the same site, but the passkey only works on `getpreflight.vercel.app`
 - Paid route `/api/v1/check`; the free `/api/check` and report pages stay free
 
 ## Rules from the build split (27 Nov)
