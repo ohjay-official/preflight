@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/">Preflight</Link>
           </p>
           {children}
-          <footer>Celo mainnet, chain 42220. Read only. This app sends no transactions.</footer>
+          <footer>Celo mainnet, chain 42220. Checks are read only. Preflight&apos;s own agent writes receipts from its Altana wallet, under a capped key its owner can revoke.</footer>
         </div>
       </body>
     </html>
